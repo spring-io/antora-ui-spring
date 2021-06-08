@@ -16,6 +16,27 @@
   --color-jet-70: #222;
   --color-jet-80: #191919;
   --color-black: #000;
+  /* General */
+  --html-font-size: 1em;
+  --pixel-to-rem: 16 * 1rem;
+  --font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-weight: 400;
+  --monospace-font-family: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", monospace;
+  --body-background-color: white;
+  --panel-background-color: #f6f8fa;
+  --panel-group-background-color: #e1e8e8;
+  --panel-border-color: #eaedf0;
+  --color-accent-1: #ebf2f2;
+  --color-accent-2: #d7e7e7;
+  --color-accent-3: #6db33f;
+  --body-font-color: #191e1e;
+  --body-font-light-color: #273030;
+  --body-font-dark-color: #141818;
+  --link-font-color: #1565c0;
+  --hover-link-font-color: #104d92;
+  --scrollbar-thumb-color: silver;
+  --mark-background-color: #39ff14;
+  --selected-background-color: #191e1e;
   /* fonts */
   --rem-base: 18; /* used to compute rem value from desired pixel value (e.g., calc(18 / var(--rem-base) * 1rem) = 18px) */
   --body-font-size: 1.0625em; /* 17px */
@@ -23,7 +44,7 @@
   --body-font-size--print: 0.9375em; /* 15px */
   --body-line-height: 1.15;
   --body-font-color: #191e1e;
-  --body-font-family: "Roboto", sans-serif;
+  --body-font-family: "roboto", sans-serif;
   --body-font-weight-bold: 500;
   --monospace-font-family: "Roboto Mono", monospace;
   --monospace-font-weight-bold: 500;
@@ -51,6 +72,15 @@
   --nav-muted-color: var(--color-gray-70);
   --nav-panel-divider-color: var(--color-smoke-90);
   --nav-secondary-background: var(--color-smoke-70);
+  /* Tabs */
+  --tabs-border-color: var(--selected-background-color);
+  --tabs-background-color: var(--body-background-color);
+  --tabs-font-color: var(--body-font-color);
+  --tabs-selected-background-color: var(--selected-background-color);
+  --tabs-selected-font-color: var(--body-background-color);
+  --tabs-hover-font-color: var(--hover-link-font-color);
+  --tabs-hover-background: var(--color-accent-1);
+  --tabs-group-background-color: var(--panel-group-background-color);
   /* toolbar */
   --toolbar-background: var(--panel-background);
   --toolbar-border-color: var(--panel-border-color);
