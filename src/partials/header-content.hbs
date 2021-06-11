@@ -1,14 +1,26 @@
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item" href="{{{or site.url (or siteRootUrl siteRootPath)}}}">{{site.title}}</a>
+      <a class="navbar-item" href="{{{or site.url (or siteRootUrl siteRootPath)}}}">
+        <img id="springlogo" class="block" src="{{{uiRootPath}}}/img/spring-logo.svg" alt="Spring" width="140px">
+      </a>
+      {{#with @root.page.componentVersion}}
+        <span class="title-divider">/</span>
+        <div class="navbar-project">
+          <span class="title">{{./title}}</span>
+        </div>
+      {{/with}}
+      <div>
+          <span class="title-divider">/</span>
+          {{> page-versions}}
+      </div>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
+    {{!-- <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
         <a class="navbar-item" href="#">Home</a>
         <div class="navbar-item has-dropdown is-hoverable">
@@ -51,6 +63,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
   </nav>
 </header>
