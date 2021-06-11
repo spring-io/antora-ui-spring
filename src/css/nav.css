@@ -33,6 +33,7 @@
   position: relative;
   top: var(--toolbar-height);
   height: var(--nav-height);
+  border: 0 none;
 }
 
 @media screen and (min-width: 769px) {
@@ -47,6 +48,7 @@
     box-shadow: none;
     position: sticky;
     height: var(--nav-height--desktop);
+    border-right: 1px solid var(--color-accent-1);
   }
 }
 
@@ -100,17 +102,19 @@ html.is-clipped--nav {
 }
 
 .nav-list {
-  margin: 0 0 0 0.75rem;
+  margin: 0;
   padding: 0;
 }
 
+.nav-menu > .nav-list .nav-list {
+  margin: 0 0 0 0.75rem;
+}
 .nav-menu > .nav-list + .nav-list {
   margin-top: 0.5rem;
 }
 
 .nav-item {
   list-style: none;
-  margin-top: 0.5em;
 }
 
 /* adds some breathing room below a nested list */
@@ -138,15 +142,25 @@ html.is-clipped--nav {
   width: calc(var(--nav-line-height) * 1em);
   margin-top: -0.05em;
   margin-left: calc(var(--nav-line-height) * -1em);
+  right: 0;
 }
 
 .nav-item.is-active > .nav-item-toggle {
   transform: rotate(90deg);
 }
 
+.nav-link, .nav-text {
+  display: block;
+  padding: .4rem .5rem;
+  margin: 0 -.5rem;
+  border-radius: 3px;
+}
+
 .is-current-page > .nav-link,
 .is-current-page > .nav-text {
   font-weight: var(--body-font-weight-bold);
+  background: #191e1e;
+  color: white;
 }
 
 .nav-panel-explore {
@@ -252,4 +266,21 @@ html.is-clipped--nav {
   border-color: currentColor;
   opacity: 0.9;
   font-weight: var(--body-font-weight-bold);
+}
+
+.navbar-project {
+  line-height: 74px;
+  font-size: calc(22 / var(--rem-base) * 1rem);
+}
+
+.navbar-brand .title-divider {
+  line-height: 74px;
+  font-weight: bold;
+  color: var(--color-gray-10);
+  margin: 0 .8rem;
+}
+
+.navbar-brand .page-versions {
+  display: inline-block;
+  margin-left: -.5rem;
 }

@@ -15,6 +15,7 @@ body {
   top: 0;
   width: 100%;
   z-index: var(--z-index-navbar);
+  border-bottom: 1px solid var(--color-accent-1);
 }
 
 .navbar a {

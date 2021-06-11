@@ -38,7 +38,7 @@
 
 @media screen and (min-width: 769px) {
   .doc > h1.page:first-child {
-    margin-top: 2.5rem;
+    margin-top: 0.4rem;
   }
 }
 
@@ -289,7 +289,7 @@ h1.page + aside.toc.embedded {
   word-wrap: anywhere;
 }
 
-.doc .admonitionblock .icon {
+/* .doc .admonitionblock .icon {
   position: absolute;
   top: 0;
   left: 0;
@@ -301,7 +301,7 @@ h1.page + aside.toc.embedded {
   text-transform: uppercase;
   border-radius: 0.45rem;
   transform: translate(-0.5rem, -50%);
-}
+} */
 
 .doc .admonitionblock.caution .icon {
   background-color: var(--caution-color);
