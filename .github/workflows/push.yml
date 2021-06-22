@@ -1,23 +1,17 @@
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches-ignore:
+      - 'gh-pages'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js 14.17.0
         uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm install gulp-cli
-      - run: gulp bundle
+      - name: Build
+        run: ${GITHUB_WORKSPACE}/.github/actions/build.sh
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -26,3 +20,5 @@ jobs:
           title: "Development Build"
           files: |
             build/*.zip
+      - name: Dispatch Build Request
+        run: ${GITHUB_WORKSPACE}/.github/actions/dispatch.sh 'rwinch/spring-reference' "$GH_TOKEN_DISPATCH"
