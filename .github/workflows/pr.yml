@@ -4,10 +4,6 @@ on:
   pull_request:
     branches-ignore:
       - 'gh-pages'
-
-env:
-  GH_TOKEN_DISPATCH: ${{ secrets.GH_TOKEN_DISPATCH }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
