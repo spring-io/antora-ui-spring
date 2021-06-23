@@ -1,3 +1,4 @@
+set -e
 REPOSITORY_REF="$1"
 TOKEN="$2"
 
