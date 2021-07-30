@@ -59,7 +59,7 @@ module.exports = (src, dest, preview) => () => {
   return merge(
     vfs
       .src('js/+([0-9])-*.js', { ...opts, sourcemaps })
-      .pipe(uglify())
+//      .pipe(uglify())
       // NOTE concat already uses stat from newest combined file
       .pipe(concat('js/site.js')),
     vfs
@@ -92,8 +92,8 @@ module.exports = (src, dest, preview) => () => {
           }
         })
       )
-      .pipe(buffer())
-      .pipe(uglify()),
+      .pipe(buffer()),
+//      .pipe(uglify()),
     // NOTE use this statement to bundle a JavaScript library that cannot be browserified, like jQuery
     //vfs.src(require.resolve('<package-name-or-require-path>'), opts).pipe(concat('js/vendor/<library-name>.js')),
     vfs
