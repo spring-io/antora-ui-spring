@@ -4,16 +4,6 @@
       <a class="navbar-item" href="{{{or site.url (or siteRootUrl siteRootPath)}}}">
         <img id="springlogo" class="block" src="{{{uiRootPath}}}/img/spring-logo.svg" alt="Spring">
       </a>
-      {{#with @root.page.componentVersion}}
-        <span class="title-divider">/</span>
-        <div class="navbar-project">
-          <span class="title">{{./title}}</span>
-        </div>
-      {{/with}}
-      <div>
-          <span class="title-divider">/</span>
-          {{> page-versions}}
-      </div>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
