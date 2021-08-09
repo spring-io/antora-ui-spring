@@ -1,3 +1,13 @@
 <script src="{{{uiRootPath}}}/js/site.js"></script>
 <script async src="{{{uiRootPath}}}/js/vendor/highlight.js"></script>
 <script async src="{{{uiRootPath}}}/js/vendor/tabs.js"></script>
+<script src="{{uiRootPath}}/js/vendor/docsearch.min.js"></script>
+<!-- fetched from https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js -->
+<script>
+docsearch({
+  apiKey: '6098173f7ca8a2fc7db296538ae8a6cc',
+  indexName: 'spring',
+  inputSelector: '#search-input',
+  algoliaOptions: { hitsPerPage: 10 }
+})
+</script>
