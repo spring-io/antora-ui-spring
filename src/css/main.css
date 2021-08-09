@@ -33,3 +33,65 @@
     flex-basis: var(--toc-width--widescreen);
   }
 }
+
+
+.flex {
+  display: flex;
+}
+
+
+.main-body--wrapper,
+.container-fluid,
+.container {
+  max-width: 1140px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+#springlogo,
+#springlogo-foot {
+  height: 48px;
+  max-width: 250px;
+}
+
+footer #social-icons {
+  flex-shrink: 0;
+  width: 160px;
+}
+footer #social-icons a {
+  height: 40px;
+}
+
+footer #social-icons svg {
+  width: 40px;
+  margin-left: 15px;
+}
+
+footer #social-icons a:hover svg .cls-1,
+footer #social-icons a:focus svg .cls-1 {
+  fill: #6db33f;
+}
+
+footer #spring-links a:hover {
+  color: #086dc3;
+  text-decoration: underline;
+}
+#youtube-icon .cls-1 {
+  fill: #191E1E;
+}
+#youtube-icon .cls-2 {
+  fill: #fff;
+}
+#github-icon .cls-1 {
+  fill: #191E1E;
+}
+#github-icon .cls-2 {
+  fill: #fff;
+  fill-rule: evenodd;
+}
+#twitter-icon .cls-1 {
+  fill: #191E1E;
+}
+#twitter-icon .cls-2 {
+  fill: #fff;
+}
