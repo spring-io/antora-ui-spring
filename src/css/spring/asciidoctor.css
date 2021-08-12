@@ -243,17 +243,7 @@
   border-radius: 4px;
 }
 
-.doc pre.highlight code[data-lang]:before {
-  content: attr(data-lang);
-  text-transform: uppercase;
-  display: block;
-  position: absolute;
-  top: 0.3rem;
-  right: 0.3rem;
-  line-height: 1;
-  font-size: 0.65em;
-  color: var(--asciidoctor-code-data-lang-color);
-}
+
 
 .doc pre.highlight {
   position: relative;

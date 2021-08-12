@@ -584,7 +584,6 @@ h1.page + aside.toc.embedded {
 
 .doc .source-toolbox {
   display: flex;
-  visibility: hidden;
   position: absolute;
   top: 0.25rem;
   right: 0.5rem;
@@ -592,10 +591,6 @@ h1.page + aside.toc.embedded {
   font-family: var(--body-font-family);
   font-size: calc(13.5 / var(--rem-base) * 1rem);
   line-height: 1;
-}
-
-.doc .listingblock:hover .source-toolbox {
-  visibility: visible;
 }
 
 .doc .source-toolbox .source-lang {
