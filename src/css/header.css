@@ -91,6 +91,17 @@ body {
   display: block;
   line-height: var(--doc-line-height);
   padding: 0.5rem 1rem;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: color .2s;
+  font-size: .9375rem;
+  font-family: Open Sans,sans-serif;
+}
+
+.navbar-item:hover,
+.navbar-link:hover {
+  text-decoration: none;
 }
 
 .navbar-item.has-dropdown {
@@ -261,4 +272,13 @@ body {
   .navbar-dropdown a.navbar-item:hover {
     background: var(--navbar-menu_hover-background);
   }
+}
+
+.navbar-menu a.navbar-item:hover,
+.navbar-menu .navbar-link:hover {
+  color:#6db33f;
+}
+
+.navbar-dropdown a.navbar-item {
+  font-weight: normal;
 }

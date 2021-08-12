@@ -56,14 +56,14 @@
   /* navbar */
   --navbar-background: var(--color-white);
   --navbar-font-color: #191e1e;
-  --navbar_hover-background: var(--color-smoke-50);
+  --navbar_hover-background: var(--navbar-background);
   --navbar-button-background: var(--color-white);
   --navbar-button-border-color: var(--panel-border-color);
   --navbar-button-font-color: var(--body-font-color);
   --navbar-menu-border-color: var(--panel-border-color);
   --navbar-menu-background: var(--color-white);
   --navbar-menu-font-color: var(--body-font-color);
-  --navbar-menu_hover-background: var(--color-smoke-50);
+  --navbar-menu_hover-background: var(--navbar-menu-background);
   /* nav */
   --nav-background: var(--color-white);
   --nav-border-color: var(--color-gray-10);
