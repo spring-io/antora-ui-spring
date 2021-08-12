@@ -45,6 +45,7 @@
     border-radius: 0.1em;
     line-height:  1.5;
     padding: 0 0.25em;
+    margin-right: 2em;
 }
 
 @media screen and (min-width: 769px) {
