@@ -60,4 +60,28 @@ html.dark-theme {
   --codetools-hover-background-color: var(--color-accent-1-invert);
   --codetools-border-color: rgba(255, 255, 255, 0.274);
   --codetools-divider-color: rgba(44, 44, 44, 0.274);
+
+  /* social */
+  --social-icon-circle: var(--color-white);
+  --social-icon-color: var(--color-black);
+
+  /* Customizations to spring.io due to antora */
+  --footer-background: var(--body-background-color);
+  --footer-font-color: var(--body-font-color);
+  --footer-link-font-color: var(--link-font-color);
+
+  /* Antora */
+  --nav-background: var(--body-background-color);
+  --nav-secondary-background: var(--body-background-color);
+  --nav-font-color: var(--color-white);
+  --nav-muted-color: #aaaaaa;
+  --navbar-background: var(--body-background-color);
+  --navbar-font-color: var(--color-white);
+  --navbar-menu-background: var(--body-background-color);
+  --navbar-menu-font-color: var(--color-white);
+  --toolbar-background: var(--body-background-color);
+  /*--toolbar-border-color: var(--body-background-color);*/
+  --toolbar-font-color: var(--navbar-font-color);
+  --toolbar-muted-color: #aaaaaa;
+  --page-version-menu-background: var(--navbar-background);
 }

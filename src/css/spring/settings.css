@@ -154,6 +154,10 @@
   --codetools-divider-color: var(--codetools-border-color);
   --codetools-popup-background-color: var(--selected-background-color);
   --codetools-popup-font-color: var(--body-background-color);
+
+  /* Social Icons */
+  --social-icon-color: #ffffff;
+  --social-icon-circle: #191e1e;
 }
 
 /* Responsive Overrides */

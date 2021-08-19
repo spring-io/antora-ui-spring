@@ -1,0 +1,42 @@
+
+#switch-theme label {
+  display: none;
+}
+
+#switch-theme {
+  display: block;
+  float: right;
+  margin: 10px 6px 0 0;
+}
+
+#switch-theme input {
+  appearance: none;
+  position: relative;
+  width: 40px;
+  height: 22px;
+  filter: var(--layout-switchtheme-invert-filter);
+  background-color: var(--layout-switchtheme-background-color);
+  border-radius: 25px;
+  outline: none;
+}
+
+#switch-theme input::before {
+  filter: var(--layout-switchtheme-invert-filter);
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background-color: var(--layout-switchtheme-button-color);
+  transition: transform 200ms;
+}
+
+#switch-theme:hover input::before {
+  background-color: var(--layout-switchtheme-button-hover-color);
+}
+
+#switch-theme input:checked::before {
+  transform: translateX(18px);
+}

@@ -69,7 +69,7 @@ footer #social-icons svg {
 
 footer #social-icons a:hover svg .cls-1,
 footer #social-icons a:focus svg .cls-1 {
-  fill: #6db33f;
+  fill: var(--color-accent-3);
 }
 
 footer #spring-links a:hover {
@@ -77,21 +77,21 @@ footer #spring-links a:hover {
   text-decoration: underline;
 }
 #youtube-icon .cls-1 {
-  fill: #191E1E;
+  fill: var(--social-icon-circle);
 }
 #youtube-icon .cls-2 {
-  fill: #fff;
+  fill: var(--social-icon-color);
 }
 #github-icon .cls-1 {
-  fill: #191E1E;
+  fill: var(--social-icon-circle);
 }
 #github-icon .cls-2 {
-  fill: #fff;
+  fill: var(--social-icon-color);
   fill-rule: evenodd;
 }
 #twitter-icon .cls-1 {
-  fill: #191E1E;
+  fill: var(--social-icon-circle);
 }
 #twitter-icon .cls-2 {
-  fill: #fff;
+  fill: var(--social-icon-color);
 }
