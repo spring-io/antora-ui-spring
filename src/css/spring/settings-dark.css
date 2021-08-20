@@ -76,6 +76,7 @@ html.dark-theme {
   --nav-secondary-background: var(--body-background-color);
   --nav-font-color: var(--color-white);
   --nav-muted-color: #aaaaaa;
+  --nav-heading-font-color: var(--color-white);
   --navbar-background: var(--body-background-color);
   --navbar-font-color: var(--color-white);
   --navbar-menu-background: var(--body-background-color);
