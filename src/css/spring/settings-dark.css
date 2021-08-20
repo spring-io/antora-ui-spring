@@ -93,6 +93,7 @@ html.dark-theme .home-link {
   background: url(../img/home-o-dark.svg) no-repeat center;
 }
 
-html.dark-theme .home-link:hover {
+html.dark-theme .home-link:hover,
+html.dark-theme .home-link.is-current {
   background: url(../img/home-dark.svg) no-repeat center;
 }
