@@ -10,6 +10,7 @@
 }
 
 #switch-theme input {
+  cursor: pointer;
   appearance: none;
   position: relative;
   width: 40px;
