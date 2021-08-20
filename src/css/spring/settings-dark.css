@@ -87,3 +87,11 @@ html.dark-theme {
   --toolbar-muted-color: #aaaaaa;
   --page-version-menu-background: var(--navbar-background);
 }
+
+html.dark-theme .home-link {
+  background: url(../img/home-o-dark.svg) no-repeat center;
+}
+
+html.dark-theme .home-link:hover {
+  background: url(../img/home-dark.svg) no-repeat center;
+}
