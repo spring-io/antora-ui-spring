@@ -86,6 +86,7 @@ html.dark-theme {
   --toolbar-font-color: var(--navbar-font-color);
   --toolbar-muted-color: #aaaaaa;
   --page-version-menu-background: var(--navbar-background);
+  --toc-heading-font-color: var(--color-white);
 }
 
 html.dark-theme .home-link {
