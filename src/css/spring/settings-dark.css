@@ -69,6 +69,7 @@ html.dark-theme {
   --footer-background: var(--body-background-color);
   --footer-font-color: var(--body-font-color);
   --footer-link-font-color: var(--link-font-color);
+  --toc-active-font-color: var(--body-background-color);
 
   /* Antora */
   --nav-background: var(--body-background-color);

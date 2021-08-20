@@ -158,8 +158,8 @@ html.is-clipped--nav {
 .is-current-page > .nav-link,
 .is-current-page > .nav-text {
   font-weight: var(--body-font-weight-bold);
-  background: #191e1e;
-  color: white;
+  background: var(--selected-background-color);
+  color: var(--toc-active-font-color);
 }
 
 .nav-panel-explore {
