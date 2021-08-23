@@ -306,6 +306,17 @@ The fog comes
 on little cat feet.
 ____
 
+== Headers
+
+=== H3
+
+==== H4
+
+===== H5
+
+====== H6
+
 == Fin
 
 That's all, folks!
+
