@@ -28,6 +28,13 @@
   margin-right: -0.25rem;
 }
 
+html.dark-theme .nav-toggle {
+  background: url(../img/menu-dark.svg) no-repeat 50% 47.5%;
+  background-size: 49%;
+}
+
+
+
 @media screen and (min-width: 1024px) {
   .nav-toggle {
     display: none;
@@ -36,6 +43,11 @@
 
 .nav-toggle.is-active {
   background-image: url(../img/back.svg);
+  background-size: 41.5%;
+}
+
+html.dark-theme .nav-toggle.is-active {
+  background-image: url(../img/back-dark.svg);
   background-size: 41.5%;
 }
 
