@@ -810,3 +810,8 @@ h1.page + aside.toc.embedded {
   hyphens: none;
   word-wrap: normal;
 }
+
+html.dark-theme .doc img {
+  filter: invert();
+  -webkit-filter: invert(100%);
+}
