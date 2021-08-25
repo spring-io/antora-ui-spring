@@ -23,6 +23,12 @@
   z-index: var(--z-index-page-version-menu);
 }
 
+.dark-theme .page-versions .version-menu-toggle { 
+  background: url(../img/chevron-white.svg) no-repeat;
+  background-position: right 0.5rem top 50%;
+  background-size: auto 0.75em;
+}
+
 .page-versions .version-menu {
   display: flex;
   min-width: 100%;

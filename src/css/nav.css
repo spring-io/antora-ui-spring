@@ -133,20 +133,25 @@ html.is-clipped--nav {
 }
 
 .nav-item-toggle {
-  background: transparent url(../img/caret.svg) no-repeat center / 50%;
+  background: transparent url(../img/chevron.svg) no-repeat center / 50%;
   border: none;
   outline: none;
   line-height: inherit;
   position: absolute;
-  height: calc(var(--nav-line-height) * 1em);
-  width: calc(var(--nav-line-height) * 1em);
-  margin-top: 6px;
+  height: calc(var(--nav-line-height) * 1.5em);
+  width: calc(var(--nav-line-height) * 1.5em);
+  margin-top: 2px;
   margin-left: calc(var(--nav-line-height) * -1em);
-  right: 0;
+  right: 5px;
+  transform: rotate(-90deg);
+}
+
+.dark-theme .nav-item-toggle {
+  background: transparent url(../img/chevron-white.svg) no-repeat center / 50%;
 }
 
 .nav-item.is-active > .nav-item-toggle {
-  transform: rotate(90deg);
+  transform: rotate(0deg);
 }
 
 .nav-link, .nav-text {
@@ -156,8 +161,22 @@ html.is-clipped--nav {
   border-radius: 3px;
 }
 
+.nav-link:hover, .nav-text:hover {
+  text-decoration: none;
+  background: #ebf2f2;
+  color: #06c;
+}
+
+
+.dark-theme .nav-link:hover, .dark-theme  .nav-text:hover {
+  color: #1f98ff;
+  background: #262a2d;
+}
+
 .is-current-page > .nav-link,
-.is-current-page > .nav-text {
+.is-current-page > .nav-text,
+.is-current-page > .nav-link:hover,
+.is-current-page > .nav-text:hover {
   font-weight: var(--body-font-weight-bold);
   background: var(--selected-background-color);
   color: var(--toc-active-font-color);
@@ -203,6 +222,10 @@ html.is-clipped--nav {
   background: url(../img/chevron.svg) no-repeat center right / auto 100%;
   width: 1.25em;
   height: 0.75em;
+}
+
+.dark-theme .nav-panel-explore .context .version::after {
+  background: url(../img/chevron-white.svg) no-repeat center right / auto 100%;
 }
 
 .nav-panel-explore .components {

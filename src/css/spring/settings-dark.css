@@ -18,7 +18,8 @@ html.dark-theme {
   --hover-link-font-color: #107ddd;
   --scrollbar-thumb-color: #5f5f5f;
   --mark-background-color: #2eca12;
-  --selected-background-color: #8d8d8d;
+  --selected-background-color: #FFF;
+  --doc-font-color: #fff;
 
   /* Layout */
   --layout-switchtheme-invert-filter: none;

@@ -218,13 +218,13 @@ body {
     border-style: solid;
     content: "";
     display: block;
-    height: 0.5em;
+    height: 0.45em;
     pointer-events: none;
     position: absolute;
     transform: rotate(-45deg);
-    width: 0.5em;
-    margin-top: -0.375em;
-    right: 1.125em;
+    width: 0.45em;
+    margin-top: -0.4em;
+    right: 1.4em;
     top: 50%;
   }
 
