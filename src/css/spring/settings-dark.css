@@ -10,7 +10,8 @@ html.dark-theme {
   --color-accent-1-invert: #d8d3cc;
   --color-accent-2: #2d333a;
   --color-accent-3: #6db33f;
-  --body-font-color: #bbbcbe;
+  --body-font-color: #FFF;
+  --asciidoctor-heading-font-color: #fff;
   --body-font-light-color: #abacaf;
   --body-font-dark-color: #cecfd1;
   --link-font-color: #086dc3;
@@ -68,8 +69,8 @@ html.dark-theme {
 
   /* Customizations to spring.io due to antora */
   --footer-background: var(--body-background-color);
-  --footer-font-color: var(--body-font-color);
-  --footer-link-font-color: var(--link-font-color);
+  --footer-font-color: rgba(255,255,255,.5);
+  --footer-link-font-color: rgba(255,255,255,.5);
   --toc-active-font-color: var(--body-background-color);
 
   /* Antora */
