@@ -83,7 +83,7 @@
   --tabs-group-background-color: var(--panel-group-background-color);
   /* toolbar */
   --toolbar-background: var(--color-white);
-  --toolbar-border-color: var(--panel-border-color);
+  --toolbar-border-color: var(--nav-panel-divider-color);
   --toolbar-font-color: var(--color-gray-70);
   --toolbar-muted-color: var(--color-gray-30);
   --page-version-menu-background: var(--color-smoke-70);

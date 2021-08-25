@@ -16,7 +16,7 @@ body {
   width: 100%;
   z-index: var(--z-index-navbar);
   padding: 8px 0;
-  border-bottom: 1px solid var(--color-accent-1);
+  border-bottom: 1px solid var(--nav-panel-divider-color);
 }
 
 .navbar a {
@@ -282,4 +282,11 @@ body {
 
 .navbar-dropdown a.navbar-item {
   font-weight: normal;
+}
+
+.search {
+  height: 40px;
+  border-left: 1px solid var(--toolbar-border-color);
+  border-right: 1px solid var(--toolbar-border-color);
+  width: 192px;
 }

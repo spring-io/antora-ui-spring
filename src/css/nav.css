@@ -48,7 +48,7 @@
     box-shadow: none;
     position: sticky;
     height: var(--nav-height--desktop);
-    border-right: 1px solid var(--color-accent-1);
+    border-right: 1px solid var(--nav-panel-divider-color);
   }
 }
 

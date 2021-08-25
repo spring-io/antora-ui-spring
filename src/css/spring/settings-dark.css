@@ -83,6 +83,7 @@ html.dark-theme {
   --navbar-menu-font-color: var(--color-white);
   --toolbar-background: var(--body-background-color);
   /*--toolbar-border-color: var(--body-background-color);*/
+  --nav-panel-divider-color: rgba(255,255,255,.2);
   --toolbar-font-color: var(--navbar-font-color);
   --toolbar-muted-color: #aaaaaa;
   --page-version-menu-background: var(--navbar-background);
