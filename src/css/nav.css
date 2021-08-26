@@ -150,6 +150,14 @@ html.is-clipped--nav {
   background: transparent url(../img/chevron-white.svg) no-repeat center / 50%;
 }
 
+.nav-item.is-active>.nav-item-toggle {
+  background: transparent url(../img/chevron-white.svg) no-repeat center / 50%;
+}
+
+.dark-theme .nav-item.is-active>.nav-item-toggle {
+  background: transparent url(../img/chevron.svg) no-repeat center / 50%;
+}
+
 .nav-item.is-active > .nav-item-toggle {
   transform: rotate(0deg);
 }

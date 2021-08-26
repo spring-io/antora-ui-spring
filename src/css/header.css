@@ -287,6 +287,28 @@ body {
 .search {
   height: 40px;
   border-left: 1px solid var(--toolbar-border-color);
-  border-right: 1px solid var(--toolbar-border-color);
   width: 192px;
+}
+
+.edit-this-page {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  border-left: 1px solid var(--toolbar-border-color);
+}
+
+.edit-this-page a:hover {
+  color: var(--link-font-color);
+}
+
+.page-versions {
+  border-left: 1px solid var(--toolbar-border-color);
+  margin: 0;
+  padding: 0 8px;
+  height: 40px;
+  line-height: 25px;
+}
+
+.page-versions .version-menu {
+  padding-top: 40px;
 }
