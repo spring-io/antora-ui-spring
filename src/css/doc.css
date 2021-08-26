@@ -701,6 +701,7 @@ h1.page + aside.toc.embedded {
 .doc .colist {
   font-size: calc(16 / var(--rem-base) * 1rem);
   margin: 0.25rem 0 -0.25rem;
+  word-break: break-all;
 }
 
 .doc .colist > table > tr > :first-child,
