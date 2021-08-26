@@ -82,7 +82,8 @@ html.dark-theme {
   --nav-heading-font-color: var(--color-white);
   --navbar-background: var(--body-background-color);
   --navbar-font-color: var(--color-white);
-  --navbar-menu-background: var(--body-background-color);
+  --navbar-menu-background: #000;
+  --navbar-menu-boxshadow: 0 5px 30px 0 rgb(0 0 0 0 / 50%);
   --navbar-menu-font-color: var(--color-white);
   --toolbar-background: var(--body-background-color);
   /*--toolbar-border-color: var(--body-background-color);*/

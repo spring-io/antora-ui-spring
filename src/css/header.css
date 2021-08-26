@@ -63,7 +63,8 @@ body {
 }
 
 .navbar-burger:not(.is-active) span {
-  transition: transform ease-out 0.25s, opacity 0s 0.25s, margin-top ease-out 0.25s 0.25s;
+  transition: transform ease-out 0.25s, opacity 0s 0.25s,
+    margin-top ease-out 0.25s 0.25s;
 }
 
 .navbar-burger span + span {
@@ -91,13 +92,13 @@ body {
   color: var(--navbar-menu-font-color);
   display: block;
   line-height: var(--doc-line-height);
-  padding: 0.5rem 1rem;
+  padding: 0rem 1rem;
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: color .2s;
-  font-size: .9375rem;
-  font-family: Open Sans,sans-serif;
+  transition: color 0.2s;
+  font-size: 0.9575rem;
+  font-family: Open Sans, sans-serif;
 }
 
 .navbar-item:hover,
@@ -245,20 +246,33 @@ body {
   }
 
   .navbar-dropdown {
-    background: var(--navbar-menu-background);
-    border: 1px solid var(--navbar-menu-border-color);
+    /* background: var(--navbar-menu-background);
+    border: 1px solid var(--navbar-menu-border-color); */
     border-top: none;
     border-radius: 0 0 0.25rem 0.25rem;
     display: none;
     top: 100%;
     left: 0;
-    min-width: 100%;
     position: absolute;
+
+    background: var(--navbar-menu-background);
+    width: 230px;
+    box-shadow: var(
+      --navbar-menu-boxshadow,
+      0 5px 30px 0 rgb(108 135 135 / 50%)
+    );
+    padding: 28px 12px;
+    border-radius: 6px;
   }
 
   .navbar-dropdown .navbar-item {
-    padding: 0.5rem 3rem 0.5rem 1rem;
+    padding: 0.2rem 3rem 0.2rem 1rem;
     white-space: nowrap;
+  }
+
+  .navbar-dropdown .navbar-item-special {
+    padding-bottom: 20px;
+    color: var(--link-font-color);
   }
 
   .navbar-dropdown .navbar-item:last-child {
@@ -277,7 +291,7 @@ body {
 
 .navbar-menu a.navbar-item:hover,
 .navbar-menu .navbar-link:hover {
-  color:#6db33f;
+  color: #6db33f;
 }
 
 .navbar-dropdown a.navbar-item {
@@ -311,4 +325,13 @@ body {
 
 .page-versions .version-menu {
   padding-top: 40px;
+}
+
+.is-community .navbar-dropdown {
+  left: -80px;
+}
+
+.navbar-item-special-2 .external-link-icon {
+  width: 12px;
+  margin-left: 10px;
 }
