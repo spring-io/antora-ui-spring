@@ -150,17 +150,27 @@ html.is-clipped--nav {
   background: transparent url(../img/chevron-white.svg) no-repeat center / 50%;
 }
 
-.nav-item.is-active>.nav-item-toggle {
+.nav-item.is-current-page>.nav-item-toggle {
   background: transparent url(../img/chevron-white.svg) no-repeat center / 50%;
 }
 
-.dark-theme .nav-item.is-active>.nav-item-toggle {
+.dark-theme .nav-item.is-current-page>.nav-item-toggle {
   background: transparent url(../img/chevron.svg) no-repeat center / 50%;
 }
 
-.nav-item.is-active > .nav-item-toggle {
+.nav-item.is-current-page > .nav-item-toggle {
   transform: rotate(0deg);
 }
+
+
+.nav-item.is-active>.nav-item-toggle {
+  transform: rotate(0deg);
+}
+
+.dark-theme .nav-item.is-active>.nav-item-toggle {
+  transform: rotate(0deg);
+}
+
 
 .nav-link, .nav-text {
   display: block;
