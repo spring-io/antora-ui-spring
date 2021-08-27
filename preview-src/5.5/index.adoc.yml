@@ -1,0 +1,24 @@
+url: /5.5/index.html
+component:
+  name: security
+version: '5.5'
+latest:
+  url: '/index.html'
+  version: '5.6'
+  displayVersion: '5.6'
+  title: 'Spring Security'
+previous:
+  content: Quickstart
+  url: '#'
+  urlType: 'internal'
+next:
+  content: Liber Recusabo
+  url: '#'
+  urlType: 'internal'
+breadcrumbs:
+  - content: Spring Security
+    url: '#'
+    urlType: fragment
+  - content: Overview
+    url: '#'
+    urlType: fragment

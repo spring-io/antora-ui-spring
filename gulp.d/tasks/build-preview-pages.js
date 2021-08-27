@@ -35,7 +35,9 @@ module.exports = (src, previewSrc, previewDest, sink = () => map()) => (done) =>
           map((file, enc, next) => {
             const siteRootPath = path.relative(ospath.dirname(file.path), ospath.resolve(previewSrc))
             const uiModel = { ...baseUiModel }
-            uiModel.page = { ...uiModel.page }
+            const pageModel = loadYmlFile(file.path + ".yml")
+            const sharedPageModel = pageModel.component ? baseUiModel.shared[pageModel.component.name][pageModel.version] : {}
+            uiModel.page = { ...uiModel.page, ...pageModel, ...sharedPageModel }
             uiModel.siteRootPath = siteRootPath
             uiModel.siteRootUrl = path.join(siteRootPath, 'index.html')
             uiModel.uiRootPath = path.join(siteRootPath, '_')
@@ -43,7 +45,9 @@ module.exports = (src, previewSrc, previewDest, sink = () => map()) => (done) =>
               uiModel.page = { layout: '404', title: 'Page Not Found' }
             } else {
               const doc = asciidoctor.load(file.contents, { safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES })
-              uiModel.page.attributes = Object.entries(doc.getAttributes())
+              const docAttributes = doc.getAttributes()
+
+              uiModel.page.attributes = Object.entries(docAttributes)
                 .filter(([name, val]) => name.startsWith('page-'))
                 .reduce((accum, [name, val]) => {
                   accum[name.substr(5)] = val
@@ -69,6 +73,10 @@ module.exports = (src, previewSrc, previewDest, sink = () => map()) => (done) =>
 
 function loadSampleUiModel (src) {
   return fs.readFile(ospath.join(src, 'ui-model.yml'), 'utf8').then((contents) => yaml.safeLoad(contents))
+}
+
+function loadYmlFile (srcPath) {
+  return fs.existsSync(srcPath) ? yaml.safeLoad(fs.readFileSync(srcPath, 'utf8')) : {}
 }
 
 function registerPartials (src) {

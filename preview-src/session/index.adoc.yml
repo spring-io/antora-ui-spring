@@ -1,0 +1,16 @@
+url: /session/index.html
+component:
+  name: session
+version: '2.5'
+previous:
+  content: Quickstart
+  url: '#'
+  urlType: 'internal'
+next:
+  content: Liber Recusabo
+  url: '#'
+  urlType: 'internal'
+breadcrumbs:
+  - content: Spring Session
+    url: '#'
+    urlType: fragment

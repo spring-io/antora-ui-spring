@@ -1,126 +1,123 @@
 antoraVersion: '1.0.0'
 site:
   url: http://localhost:5252
-  title: Brand Docs
-  homeUrl: &home_url /xyz/5.2/index.html
+  title: Spring
+  homeUrl: /index.html
   components:
-  - name: abc
-    title: Project ABC
+  - name: security
+    title: &component_title Spring Security
     url: '#'
-    versions:
-    - &latest_version_abc
-      url: '#'
-      version: '1.1'
-      displayVersion: '1.1'
-    - url: '#'
-      version: '1.0'
-      displayVersion: '1.0'
-    latestVersion: *latest_version_abc
-  - &component
-    name: xyz
-    title: &component_title Project XYZ
-    url: /xyz/6.0/index.html
-    versions:
-    - &latest_version_xyz
-      url: /xyz/6.0/index.html
-      version: '6.0'
-      displayVersion: '6.0'
-    - &component_version
+    versions: &security_versions
+    - &security_latest_version
+      url: '/index.html'
+      version: '5.6'
+      displayVersion: '5.6'
       title: *component_title
-      url: '#'
-      version: '5.2'
-      displayVersion: '5.2'
-    - url: '#'
-      version: '5.1'
-      displayVersion: '5.1'
-    - url: '#'
-      version: '5.0'
-      displayVersion: '5.0'
-    latestVersion: *latest_version_xyz
-  - name: '123'
-    title: Project 123
+    - &security_5_5_version
+      url: '/5.5/index.html'
+      version: '5.5'
+      displayVersion: '5.5'
+    latest: *security_latest_version
+  - name: session
+    title: &component_title Spring Session
     url: '#'
     versions:
-    - &latest_version_123
-      url: '#'
-      version: '2.2'
-      displayVersion: '2.2'
-    - url: '#'
-      version: '2.1'
-      displayVersion: '2.1'
-    - url: '#'
-      version: '2.0'
-      displayVersion: '2.0'
-    latestVersion: *latest_version_123
-page:
-  url: *home_url
-  home: true
-  title: Brand&#8217;s Hardware &amp; Software Requirements
-  component: *component
-  componentVersion: *component_version
-  version: '5.2'
-  displayVersion: '5.2'
-  module: ROOT
-  relativeSrcPath: index.adoc
-  editUrl: http://example.com/project-xyz/blob/master/index.adoc
-  origin:
-    private: false
-  previous:
-    content: Quickstart
-    url: '#'
-    urlType: 'internal'
-  next:
-    content: Liber Recusabo
-    url: '#'
-    urlType: 'internal'
-  breadcrumbs:
-  - content: Quickstart
-    url: '#'
-    urlType: fragment
-  - content: Brand&#8217;s Hardware &amp; Software Requirements
-    url: /xyz/5.2/index.html
-    urlType: internal
-  versions:
-  - version: '6.0'
-    displayVersion: '6.0'
-    url: '#'
-  - version: '5.2'
-    displayVersion: '5.2'
-    url: '#'
-  - version: '5.1'
-    displayVersion: '5.1'
-    url: '#'
-  - version: '5.0'
-    displayVersion: '5.0'
-    missing: true
-    url: '#'
-  navigation:
-  - root: true
-    items:
-    - content: Quickstart
-      url: '#'
-      urlType: fragment
-      items:
-      - content: Brand&#8217;s Hardware &amp; Software Requirements
-        url: /xyz/5.2/index.html
-        urlType: internal
-      - content: Cu Solet
-        url: '/xyz/5.2/index.html#cu-solet'
-        urlType: internal
-      - content: English + 中文
-        url: '/xyz/5.2/index.html#english+中文'
-        urlType: internal
-    - content: Liber Recusabo
-      url: '#liber-recusabo'
-      urlType: fragment
-    - content: Reference
-      items:
-      - content: Keyboard Shortcuts
+      - &latest_version
+        url: '/session/index.html'
+        version: '2.6'
+        displayVersion: '2.6'
+        title: *component_title
+    latest: *latest_version
+
+shared:
+  security:
+    5.5:
+      home: true
+      title: Spring Security
+      relativeSrcPath: index.adoc
+      editUrl: http://example.com/project-xyz/blob/master/index.adoc
+      component:
+        title: Spring Security
         url: '#'
-        urlType: fragment
-      - content: Importing and Exporting
+        versions:
+          - url: '/index.html'
+            version: '5.6'
+            displayVersion: '5.6'
+            title: *component_title
+          - url: '/5.5/index.html'
+            version: '5.5'
+            displayVersion: '5.5'
+      componentVersion: *security_5_5_version
+      versions:
+        - version: '5.6'
+          displayVersion: '5.6'
+          url: '#'
+        - version: '5.5'
+          displayVersion: '5.5'
+          url: '#'
+      navigation:
+        - root: true
+          items:
+            - content: Overview
+              url: '/5.5/index.html'
+            - content: Features
+              url: '#'
+              items:
+                - content: Authentication
+                  url: '#'
+                - content: Protection Against Exploits
+                  url: '#'
+    5.6:
+      home: true
+      title: Spring Security
+      relativeSrcPath: index.adoc
+      editUrl: http://example.com/project-xyz/blob/master/index.adoc
+      component:
+        title: &component_title Spring Security
         url: '#'
-        urlType: fragment
-      - content: Some Code
-        url: '/xyz/5.2/index.html#some-code'
-        urlType: internal
+        versions: *security_versions
+      componentVersion: *security_latest_version
+      versions:
+        - version: '5.6'
+          displayVersion: '5.6'
+          url: '#'
+        - version: '5.5'
+          displayVersion: '5.5'
+          url: '#'
+      navigation:
+        - root: true
+          items:
+            - content: Overview
+              url: '/index.html'
+            - content: Features
+              url: '/features/index.html'
+              items:
+                - content: Authentication
+                  url: '/features/authentication/index.html'
+                - content: Protection Against Exploits
+                  url: '/features/exploits/index.html'
+  session:
+    2.5:
+      home: true
+      title: Spring Session
+      relativeSrcPath: index.adoc
+      editUrl: http://example.com/project-xyz/blob/master/index.adoc
+      component:
+        title: Spring Session
+        url: '#'
+        versions:
+          - &session_latest_version
+            url: '/session/index.html'
+            version: '2.5'
+            displayVersion: '2.5'
+            title: 'Spring Session'
+      latest: *session_latest_version
+      componentVersion: *session_latest_version
+      navigation:
+        - root: true
+          items:
+            - content: Session
+              url: '/session/index.html'
+            - content: Features
+              url: '#'
+
