@@ -1,5 +1,5 @@
 <article class="doc">
-{{#if (ne page.url page.latest.url)}}
+{{#if (and page.latest (ne page.url page.latest.url))}}
 <div class="admonitionblock important">
   <table>
     <tbody><tr>
