@@ -111,7 +111,6 @@ shared:
             version: '2.5'
             displayVersion: '2.5'
             title: 'Spring Session'
-      latest: *session_latest_version
       componentVersion: *session_latest_version
       navigation:
         - root: true
