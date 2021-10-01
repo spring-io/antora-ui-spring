@@ -24,6 +24,7 @@
 
   aside.toc.sidebar {
     flex: 0 0 var(--toc-width);
+    flex-basis: var(--toc-width--widescreen);
     order: 1;
   }
 }
