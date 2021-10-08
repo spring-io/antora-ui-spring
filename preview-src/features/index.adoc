@@ -1,4 +1,5 @@
 = Features
 :antora-page-url: /features/index.html
+:page-section-summary-toc: true
 
 This contains a listing of features

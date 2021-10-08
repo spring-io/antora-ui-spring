@@ -1,0 +1,19 @@
+{{#if navigation.length}}
+<h2>Section Summary</h2>
+<ul class="nav-section-summary">
+  {{#each navigation}}
+  <li>
+    {{#if ./content}}
+    {{#if ./url}}
+    <a href="
+      {{~#if (eq ./urlType 'internal')}}{{{relativize ./url}}}
+      {{~else}}{{{./url}}}{{~/if}}">{{{./content}}}</a>
+    {{else}}
+    <span>{{{./content}}}</span>
+    {{/if}}
+    {{/if}}
+{{!-- {{> toc-summary-tree navigation=./items level=(increment ../level)}} --}}
+  </li>
+  {{/each}}
+</ul>
+{{/if}}
