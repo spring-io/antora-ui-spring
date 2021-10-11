@@ -2,6 +2,8 @@ on:
   push:
     branches-ignore:
       - 'gh-pages'
+    tags-ignore:
+      - '*'
   workflow_dispatch:
 env:
   GH_TOKEN_DISPATCH: ${{ secrets.GH_TOKEN_DISPATCH }}
