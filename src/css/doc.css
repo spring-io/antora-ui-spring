@@ -630,6 +630,10 @@ h1.page + aside.toc.embedded {
   fill: currentColor;
 }
 
+.dark-theme .doc .source-toolbox .copy-toast {
+  color: var(--color-black);
+}
+
 .doc .source-toolbox .copy-toast {
   flex: none;
   position: relative;
