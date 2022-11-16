@@ -1,14 +1,18 @@
-name: reference
-
+name: On PR
 on:
   pull_request:
-    branches-ignore:
-      - 'gh-pages'
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Source
-        uses: actions/checkout@v2
-      - name: Build
-        run: ${GITHUB_WORKSPACE}/.github/actions/build.sh
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    - name: Build
+      run: |
+        npm ci
+        npx gulp bundle
