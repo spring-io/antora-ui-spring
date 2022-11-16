@@ -18,6 +18,7 @@ div.codetools {
   --button-width: 28px;
   --button-height: 24px;
   --arrow-size: 5px;
+
   display: flex;
   position: absolute;
   bottom: 9px;
@@ -90,18 +91,17 @@ div.codetools button:active span.copied {
   transition: filter none;
 }
 
-div.codetools span.copied:before {
+div.codetools span.copied::before {
   position: absolute;
   bottom: calc(var(--arrow-size) * -1);
   left: 50%;
   margin-left: calc(var(--arrow-size) / -2);
   content: "";
   border: var(--arrow-size) solid var(--codetools-popup-background-color);
-  border-color: transparent transparent var(--codetools-popup-background-color)
-    transparent;
+  border-color: transparent transparent var(--codetools-popup-background-color) transparent;
 }
 
-div.codetools span.copied:after {
+div.codetools span.copied::after {
   content: "Copied to clipboard!";
   position: absolute;
   top: calc(var(--button-height) + var(--arrow-size));
@@ -134,7 +134,7 @@ code:not(.unfolded) span.fold-block.hide-when-unfolded {
 
 code.unfolded span.fold-block.hide-when-unfolded,
 code:not(.unfolded) span.fold-block.hide-when-folded {
-  max-height: 0px;
+  max-height: none;
   opacity: 0;
 }
 
@@ -154,18 +154,9 @@ code.folding span.fold-block.hide-when-folded {
   opacity: 0;
 }
 
-code.unfolding span.fold-block.hide-when-unfolded {
-  transition: max-height 200ms cubic-bezier(0, 1, 0, 1), opacity 200ms linear;
-}
-
-code.folding span.fold-block.hide-when-unfolded {
-  transition: max-height 200ms cubic-bezier(1, 0, 1, 0), opacity 200ms linear;
-}
-
-code.unfolding span.fold-block.hide-when-folded {
-  transition: max-height 200ms cubic-bezier(1, 0, 1, 0), opacity 200ms linear;
-}
-
+code.unfolding span.fold-block.hide-when-folded,
+code.unfolding span.fold-block.hide-when-unfolded,
+code.folding span.fold-block.hide-when-unfolded,
 code.folding span.fold-block.hide-when-folded {
   transition: max-height 200ms cubic-bezier(0, 1, 0, 1), opacity 200ms linear;
 }

@@ -63,8 +63,7 @@ body {
 }
 
 .navbar-burger:not(.is-active) span {
-  transition: transform ease-out 0.25s, opacity 0s 0.25s,
-    margin-top ease-out 0.25s 0.25s;
+  transition: transform ease-out 0.25s, opacity 0s 0.25s, margin-top ease-out 0.25s 0.25s;
 }
 
 .navbar-burger span + span {
@@ -92,7 +91,7 @@ body {
   color: var(--navbar-menu-font-color);
   display: block;
   line-height: var(--doc-line-height);
-  padding: 0rem 1rem;
+  padding: 0 1rem;
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -246,21 +245,14 @@ body {
   }
 
   .navbar-dropdown {
-    /* background: var(--navbar-menu-background);
-    border: 1px solid var(--navbar-menu-border-color); */
     border-top: none;
-    border-radius: 0 0 0.25rem 0.25rem;
     display: none;
     top: 100%;
     left: 0;
     position: absolute;
-
     background: var(--navbar-menu-background);
     width: 230px;
-    box-shadow: var(
-      --navbar-menu-boxshadow,
-      0 5px 30px 0 rgb(108 135 135 / 50%)
-    );
+    box-shadow: var(--navbar-menu-boxshadow, 0 5px 30px 0 rgb(108 135 135 / 50%));
     padding: 28px 12px;
     border-radius: 6px;
   }

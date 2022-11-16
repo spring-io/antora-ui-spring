@@ -35,11 +35,9 @@
   }
 }
 
-
 .flex {
   display: flex;
 }
-
 
 .main-body--wrapper,
 .container-fluid,
@@ -59,6 +57,7 @@ footer #social-icons {
   flex-shrink: 0;
   width: 160px;
 }
+
 footer #social-icons a {
   height: 40px;
 }
@@ -77,22 +76,28 @@ footer #spring-links a:hover {
   color: #086dc3;
   text-decoration: underline;
 }
+
 #youtube-icon .cls-1 {
   fill: var(--social-icon-circle);
 }
+
 #youtube-icon .cls-2 {
   fill: var(--social-icon-color);
 }
+
 #github-icon .cls-1 {
   fill: var(--social-icon-circle);
 }
+
 #github-icon .cls-2 {
   fill: var(--social-icon-color);
   fill-rule: evenodd;
 }
+
 #twitter-icon .cls-1 {
   fill: var(--social-icon-circle);
 }
+
 #twitter-icon .cls-2 {
   fill: var(--social-icon-color);
 }

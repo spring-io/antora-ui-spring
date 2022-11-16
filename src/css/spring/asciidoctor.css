@@ -62,14 +62,14 @@
   display: none;
 }
 
-.doc #header .details span.author:after {
+.doc #header .details span.author::after {
   content: "\2022";
   font-weight: 400;
   margin: 0.4em;
   color: var(--asciidoctor-author-separator-color);
 }
 
-#header .details span.author:nth-last-child(2):after {
+#header .details span.author:nth-last-child(2)::after {
   content: "";
 }
 
@@ -107,7 +107,7 @@
 }
 
 .doc h6 {
-  font-size: .75em;
+  font-size: 0.75em;
 }
 
 .doc h1,
@@ -243,13 +243,11 @@
   border-radius: 4px;
 }
 
-
-
 .doc pre.highlight {
   position: relative;
 }
 
-.doc table pre.highlight code[data-lang]:before {
+.doc table pre.highlight code[data-lang]::before {
   display: none;
 }
 
@@ -287,15 +285,12 @@
   display: block;
   width: 100%;
   overflow-x: auto;
+  font-size: calc(15 / var(--pixel-to-rem));
+  margin: 1.5rem 0 0;
 }
 
 .doc table.tableblock td {
   min-width: 6rem;
-}
-
-.doc table.tableblock {
-  font-size: calc(15 / var(--pixel-to-rem));
-  margin: 1.5rem 0 0;
 }
 
 .doc table.tableblock + * {
@@ -730,8 +725,7 @@ i.fa.icon-warning {
   background: var(--asciidoctor-kbd-background);
   border: 1px solid var(--asciidoctor-kbd-border-color);
   border-radius: 0.25em;
-  box-shadow: 0 1px 0 var(--asciidoctor-kbd-border-color),
-    0 0 0 0.1em var(--body-background) inset;
+  box-shadow: 0 1px 0 var(--asciidoctor-kbd-border-color), 0 0 0 0.1em var(--body-background) inset;
   padding: 0.25em 0.5em;
   vertical-align: text-bottom;
   white-space: nowrap;
@@ -924,6 +918,7 @@ html.dark-theme #doc {
     background: no-repeat top right / 203px 95px;
     background-image: url("../img/doc-background.svg");
   }
+
   html.dark-theme #doc {
     background: no-repeat top right / 203px 95px;
     background-image: url("../img/doc-background-dark.svg");

@@ -113,9 +113,6 @@ body.fixed-toc #toc {
 #tocbar-container {
   display: var(--toc-bar-display);
   width: 100%;
-}
-
-#tocbar-container {
   height: var(--tocbar-height);
   background-color: var(--body-background-color);
   border-bottom: 1px solid var(--panel-border-color);

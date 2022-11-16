@@ -1,0 +1,50 @@
+/*! docsearch 2.6.x | © Algolia | github.com/algolia/docsearch */
+@import "docsearch.js/dist/cdn/docsearch.css";
+
+.algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
+  max-height: calc(100vh - 3.25rem);
+}
+
+@media screen and (max-width: 768px) {
+  .algolia-autocomplete .ds-dropdown-menu {
+    min-width: calc(100vw - 2.75rem) !important;
+  }
+}
+
+body .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
+  background: var(--panel-background);
+}
+
+body .algolia-autocomplete .ds-dropdown-menu::before {
+  background: var(--panel-background);
+}
+
+body .algolia-autocomplete .algolia-docsearch-suggestion {
+  background: var(--panel-background);
+}
+
+body .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+  color: var(--body-font-color);
+}
+
+body .algolia-autocomplete .algolia-docsearch-suggestion--title {
+  color: var(--body-font-color);
+}
+
+body .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+  color: var(--color-gray-50, #ccc);
+}
+
+body .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+  color: var(--link-font-color);
+}
+
+body .algolia-autocomplete .algolia-docsearch-footer {
+  width: 140px;
+}
+
+body .algolia-autocomplete .algolia-docsearch-footer--logo {
+  background: url('../img/search-by-algolia-light-background.svg') no-repeat;
+  background-size: 130px 20px;
+  width: 140px;
+}

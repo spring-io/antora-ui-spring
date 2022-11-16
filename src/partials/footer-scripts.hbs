@@ -1,29 +1,7 @@
 <script src="{{{uiRootPath}}}/js/site.js"></script>
 <script async src="{{{uiRootPath}}}/js/vendor/highlight.js"></script>
 <script async src="{{{uiRootPath}}}/js/vendor/tabs.js"></script>
-<script src="{{uiRootPath}}/js/vendor/switchtheme.js"></script>
+<script src="{{{uiRootPath}}}/js/vendor/switchtheme.js"></script>
 {{#if env.ALGOLIA_API_KEY}}
-<script src="{{uiRootPath}}/js/vendor/docsearch.min.js"></script>
-<!-- fetched from https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js -->
-<script>
-var search = docsearch({
-  {{#with env.ALGOLIA_APP_ID}}
-  appId: '{{this}}',
-  {{/with}}
-  apiKey: '{{env.ALGOLIA_API_KEY}}',
-  indexName: '{{env.ALGOLIA_INDEX_NAME}}',
-  inputSelector: '#search-input',
-  autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
-  algoliaOptions: { hitsPerPage: 10 }
-}).autocomplete
-search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
-</script>
-{{#if page.home}}
-<script>
-window.addEventListener('load', function focusSearchInput () {
-  window.removeEventListener('load', focusSearchInput)
-  document.querySelector('#search-input').focus()
-})
-</script>
-{{/if}}
+<script async id="search-script" src="{{{uiRootPath}}}/js/vendor/docsearch.js"{{#if env.ALGOLIA_APP_ID}} data-app-id="{{env.ALGOLIA_APP_ID}}"{{/if}} data-api-key="{{env.ALGOLIA_API_KEY}}" data-index-name="{{env.ALGOLIA_INDEX_NAME}}" data-input-selector="#search-input"></script>
 {{/if}}

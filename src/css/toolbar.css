@@ -33,8 +33,6 @@ html.dark-theme .nav-toggle {
   background-size: 49%;
 }
 
-
-
 @media screen and (min-width: 1024px) {
   .nav-toggle {
     display: none;

@@ -25,16 +25,13 @@
   --body-background-color: white;
   --panel-background-color: #f6f8fa;
   --panel-group-background-color: #e1e8e8;
-  --panel-border-color: #eaedf0;
   --color-accent-1: #ebf2f2;
   --color-accent-2: #d7e7e7;
   --color-accent-3: #6db33f;
-  --body-font-color: #191e1e;
   --body-font-light-color: #273030;
   --body-font-dark-color: #141818;
   --link-font-color: #1565c0;
-  --hover-link-font-color: #104d92;
-  --scrollbar-thumb-color: silver;
+  --link_hover-font-color: #104d92;
   --mark-background-color: #39ff14;
   --selected-background-color: #191e1e;
   /* fonts */
@@ -46,7 +43,6 @@
   --body-font-color: #191e1e;
   --body-font-family: "roboto", sans-serif;
   --body-font-weight-bold: 500;
-  --monospace-font-family: "Roboto Mono", monospace;
   --monospace-font-weight-bold: 500;
   /* base */
   --body-background: var(--color-white);
@@ -110,8 +106,6 @@
   --heading-font-weight: normal;
   --alt-heading-font-weight: var(--body-font-weight-bold);
   --section-divider-color: var(--panel-border-color);
-  --link-font-color: #1565c0;
-  --link_hover-font-color: #104d92;
   --link_unresolved-font-color: var(--important-color);
   --abstract-background: var(--color-smoke-70);
   --abstract-font-color: var(--color-jet-20);
@@ -169,5 +163,4 @@
   --z-index-toolbar: 2;
   --z-index-page-version-menu: 3;
   --z-index-navbar: 4;
-
 }

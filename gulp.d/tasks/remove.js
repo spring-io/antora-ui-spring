@@ -1,9 +1,13 @@
 'use strict'
 
-const fs = require('fs-extra')
+const { promises: fsp } = require('fs')
 const { Transform } = require('stream')
 const map = (transform) => new Transform({ objectMode: true, transform })
 const vfs = require('vinyl-fs')
 
 module.exports = (files) => () =>
-  vfs.src(files, { allowEmpty: true }).pipe(map((file, enc, next) => fs.remove(file.path, next)))
+  vfs.src(files, { allowEmpty: true }).pipe(map(({ path }, enc, next) => rm(path, next)))
+
+function rm (path, cb) {
+  return fsp.rm(path, { recursive: true }).then(cb).catch(cb)
+}
