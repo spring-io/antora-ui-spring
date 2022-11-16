@@ -25,4 +25,4 @@ jobs:
         automatic_release_tag: latest
         prerelease: true
         title: Development Build
-        files: [build/ui-bundle.zip]
+        files: build/ui-bundle.zip
