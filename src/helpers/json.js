@@ -1,5 +1,3 @@
 'use strict'
 
-module.exports = (context) => {
-  return JSON.stringify(context, null, 2);
-}
+module.exports = (data) => JSON.stringify(data, null, 2)

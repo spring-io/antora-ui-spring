@@ -63,7 +63,7 @@ const buildTask = createTask({
 
 const bundleBuildTask = createTask({
   name: 'bundle:build',
-  call: series(cleanTask, buildTask),
+  call: series(cleanTask, lintTask, buildTask),
 })
 
 const bundlePackTask = createTask({

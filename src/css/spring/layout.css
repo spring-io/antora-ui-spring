@@ -22,8 +22,7 @@
 
 #banner {
   height: 100%;
-  background: no-repeat top var(--layout-banner-logo-offset) left
-    var(--layout-banner-logo-offset) / auto var(--layout-banner-logo-height);
+  background: no-repeat top var(--layout-banner-logo-offset) left var(--layout-banner-logo-offset) / auto var(--layout-banner-logo-height);
   background-image: url("../img/banner-logo.svg");
 }
 
@@ -35,4 +34,3 @@
   max-width: var(--layout-max-width);
   margin: 0 auto;
 }
-

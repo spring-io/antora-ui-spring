@@ -10,7 +10,7 @@ html.dark-theme {
   --color-accent-1-invert: #d8d3cc;
   --color-accent-2: #2d333a;
   --color-accent-3: #6db33f;
-  --body-font-color: #FFF;
+  --body-font-color: #fff;
   --asciidoctor-heading-font-color: #fff;
   --body-font-light-color: #abacaf;
   --body-font-dark-color: #cecfd1;
@@ -18,7 +18,7 @@ html.dark-theme {
   --hover-link-font-color: #107ddd;
   --scrollbar-thumb-color: #5f5f5f;
   --mark-background-color: #2eca12;
-  --selected-background-color: #FFF;
+  --selected-background-color: #fff;
   --doc-font-color: #fff;
 
   /* Layout */
@@ -70,15 +70,15 @@ html.dark-theme {
 
   /* Customizations to spring.io due to antora */
   --footer-background: var(--body-background-color);
-  --footer-font-color: rgba(255,255,255,.5);
-  --footer-link-font-color: rgba(255,255,255,.5);
+  --footer-font-color: rgba(255, 255, 255, 0.5);
+  --footer-link-font-color: rgba(255, 255, 255, 0.5);
   --toc-active-font-color: var(--body-background-color);
 
   /* Antora */
   --nav-background: var(--body-background-color);
   --nav-secondary-background: var(--body-background-color);
   --nav-font-color: var(--color-white);
-  --nav-muted-color: #aaaaaa;
+  --nav-muted-color: #aaa;
   --nav-heading-font-color: var(--color-white);
   --navbar-background: var(--body-background-color);
   --navbar-font-color: var(--color-white);
@@ -86,10 +86,10 @@ html.dark-theme {
   --navbar-menu-boxshadow: 0 5px 30px 0 rgb(0 0 0 0 / 50%);
   --navbar-menu-font-color: var(--color-white);
   --toolbar-background: var(--body-background-color);
-  /*--toolbar-border-color: var(--body-background-color);*/
-  --nav-panel-divider-color: rgba(255,255,255,.2);
+  /* --toolbar-border-color: var(--body-background-color); */
+  --nav-panel-divider-color: rgba(255, 255, 255, 0.2);
   --toolbar-font-color: var(--navbar-font-color);
-  --toolbar-muted-color: #aaaaaa;
+  --toolbar-muted-color: #aaa;
   --page-version-menu-background: var(--navbar-background);
   --toc-heading-font-color: var(--color-white);
 }

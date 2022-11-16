@@ -13,58 +13,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+;(function () {
+  'use strict'
 
-(function () {
-  "use strict";
+  const localStorage = window.localStorage
+  const htmlElement = document.documentElement
+  const prefersDarkColorScheme = window.matchMedia('(prefers-color-scheme: dark)')
 
-  const localStorage = window.localStorage;
-  const htmlElement = document.documentElement;
-  const prefersDarkColorScheme = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  );
+  swithInitialTheme()
+  window.addEventListener('load', onWindowLoad)
 
-  swithInitialTheme();
-  window.addEventListener("load", onWindowLoad);
-
-  function swithInitialTheme() {
-    if (isInitialThemeDark()) {
-      htmlElement.classList.add("dark-theme");
-    }
+  function swithInitialTheme () {
+    if (isInitialThemeDark()) htmlElement.classList.add('dark-theme')
   }
 
-  function onWindowLoad() {
-    const toggleCheckboxElement = document.querySelector(
-      "#switch-theme-checkbox"
-    );
-    toggleCheckboxElement.checked = isInitialThemeDark();
-    toggleCheckboxElement.addEventListener(
-      "change",
-      onThemeChange.bind(toggleCheckboxElement)
-    );
+  function onWindowLoad () {
+    const toggleCheckboxElement = document.querySelector('#switch-theme-checkbox')
+    toggleCheckboxElement.checked = isInitialThemeDark()
+    toggleCheckboxElement.addEventListener('change', onThemeChange.bind(toggleCheckboxElement))
   }
 
-  function isInitialThemeDark() {
-    const theme = loadTheme();
-    return theme ? theme === "dark" : prefersDarkColorScheme.matches;
+  function isInitialThemeDark () {
+    const theme = loadTheme()
+    return theme ? theme === 'dark' : prefersDarkColorScheme.matches
   }
 
-  function onThemeChange() {
+  function onThemeChange () {
     if (this.checked) {
-        htmlElement.classList.add("dark-theme");
-      saveTheme("dark");
+      htmlElement.classList.add('dark-theme')
+      saveTheme('dark')
     } else {
-        htmlElement.classList.remove("dark-theme");
-      saveTheme("light");
+      htmlElement.classList.remove('dark-theme')
+      saveTheme('light')
     }
   }
 
-  function saveTheme(theme) {
-    if (localStorage) {
-      localStorage.setItem("theme", theme);
-    }
+  function saveTheme (theme) {
+    if (localStorage) localStorage.setItem('theme', theme)
   }
 
-  function loadTheme() {
-    return localStorage !== null ? localStorage.getItem("theme") : null;
+  function loadTheme () {
+    if (localStorage != null) return localStorage.getItem('theme')
   }
-})();
+})()

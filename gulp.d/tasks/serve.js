@@ -6,12 +6,14 @@ const os = require('os')
 const ANY_HOST = '0.0.0.0'
 const URL_RX = /(https?):\/\/(?:[^/: ]+)(:\d+)?/
 
-module.exports = (root, opts = {}, watch = undefined) => (done) => {
-  connect.server({ ...opts, middleware: opts.host === ANY_HOST ? decorateLog : undefined, root }, function () {
-    this.server.on('close', done)
-    if (watch) watch()
-  })
-}
+module.exports =
+  (root, opts = {}, watch = undefined) =>
+    (done) => {
+      connect.server({ ...opts, middleware: opts.host === ANY_HOST ? decorateLog : undefined, root }, function () {
+        this.server.on('close', done)
+        if (watch) watch()
+      })
+    }
 
 function decorateLog (_, app) {
   const _log = app.log

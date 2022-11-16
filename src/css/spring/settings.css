@@ -20,12 +20,9 @@
   /* General */
   --html-font-size: 1em;
   --pixel-to-rem: 16 * 1rem;
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* stylelint-disable-line */
   --font-weight: 400;
-  --monospace-font-family: "SFMono-Regular", "Consolas", "Liberation Mono",
-    "Menlo", monospace;
+  --monospace-font-family: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", monospace;
   --body-background-color: white;
   --panel-background-color: #f6f8fa;
   --panel-group-background-color: #e1e8e8;
@@ -76,11 +73,7 @@
   --asciidoctor-table-border-color: var(--asciidoctor-panel-border-color);
   --asciidoctor-table-header-footer-background: var(--color-accent-1);
   --asciidoctor-table-stripe-background: var(--color-accent-1);
-  --asciidoctor-table-footer-background: linear-gradient(
-    to bottom,
-    var(--color-accent-1) 0%,
-    var(--body-background-color) 100%
-  );
+  --asciidoctor-table-footer-background: linear-gradient(to bottom, var(--color-accent-1) 0%, var(--body-background-color) 100%);
   --asciidoctor-admonition-background: var(--color-accent-1);
   --asciidoctor-admonition-pre-background: var(--color-accent-2);
   --asciidoctor-admonition-label-font-weight: 500;
@@ -156,7 +149,7 @@
   --codetools-popup-font-color: var(--body-background-color);
 
   /* Social Icons */
-  --social-icon-color: #ffffff;
+  --social-icon-color: #fff;
   --social-icon-circle: #191e1e;
 }
 

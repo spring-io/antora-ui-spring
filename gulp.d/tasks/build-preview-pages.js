@@ -1,13 +1,8 @@
 'use strict'
 
-// NOTE remove patch after upgrading from asciidoctor.js to @asciidoctor/core
-Error.call = (self, ...args) => {
-  const err = new Error(...args)
-  return Object.assign(self, { message: err.message, stack: err.stack })
-}
-
-const asciidoctor = require('asciidoctor.js')()
-const fs = require('fs-extra')
+const Asciidoctor = require('@asciidoctor/core')()
+const fs = require('fs')
+const { promises: fsp } = fs
 const handlebars = require('handlebars')
 const merge = require('merge-stream')
 const ospath = require('path')
@@ -20,63 +15,68 @@ const yaml = require('js-yaml')
 
 const ASCIIDOC_ATTRIBUTES = { experimental: '', icons: 'font', sectanchors: '', 'source-highlighter': 'highlight.js' }
 
-module.exports = (src, previewSrc, previewDest, sink = () => map()) => (done) =>
-  Promise.all([
-    loadSampleUiModel(previewSrc),
-    toPromise(
-      merge(compileLayouts(src), registerPartials(src), registerHelpers(src), copyImages(previewSrc, previewDest))
-    ),
-  ])
-    .then(([baseUiModel, { layouts }]) => [{ ...baseUiModel, env: process.env }, layouts])
-    .then(([baseUiModel, layouts]) =>
-      vfs
-        .src('**/*.adoc', { base: previewSrc, cwd: previewSrc })
-        .pipe(
-          map((file, enc, next) => {
-            const siteRootPath = path.relative(ospath.dirname(file.path), ospath.resolve(previewSrc))
-            const uiModel = { ...baseUiModel }
-            const pageModel = loadYmlFile(file.path + ".yml")
-            const sharedPageModel = pageModel.component ? baseUiModel.shared[pageModel.component.name][pageModel.version] : {}
-            uiModel.page = { ...uiModel.page, ...pageModel, ...sharedPageModel }
-            uiModel.siteRootPath = siteRootPath
-            uiModel.siteRootUrl = path.join(siteRootPath, 'index.html')
-            uiModel.uiRootPath = path.join(siteRootPath, '_')
-            if (file.stem === '404') {
-              uiModel.page = { layout: '404', title: 'Page Not Found' }
-            } else {
-              const doc = asciidoctor.load(file.contents, { safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES })
-              const docAttributes = doc.getAttributes()
-
-              uiModel.page.attributes = Object.entries(docAttributes)
-                .filter(([name, val]) => name.startsWith('page-'))
-                .reduce((accum, [name, val]) => {
-                  accum[name.substr(5)] = val
-                  return accum
-                }, {})
-              uiModel.page.layout = doc.getAttribute('page-layout', 'default')
-              uiModel.page.title = doc.getDocumentTitle()
-              uiModel.page.contents = Buffer.from(doc.convert())
-            }
-            file.extname = '.html'
-            try {
-              file.contents = Buffer.from(layouts.get(uiModel.page.layout)(uiModel))
-              next(null, file)
-            } catch (e) {
-              next(transformHandlebarsError(e, uiModel.page.layout))
-            }
-          })
+module.exports =
+  (src, previewSrc, previewDest, sink = () => map()) =>
+    (done) =>
+      Promise.all([
+        loadSampleUiModel(previewSrc),
+        toPromise(
+          merge(compileLayouts(src), registerPartials(src), registerHelpers(src), copyImages(previewSrc, previewDest))
+        ),
+      ])
+        .then(([baseUiModel, { layouts }]) => [{ ...baseUiModel, env: process.env }, layouts])
+        .then(([baseUiModel, layouts]) =>
+          vfs
+            .src('**/*.adoc', { base: previewSrc, cwd: previewSrc })
+            .pipe(map((file, enc, next) => loadUiModelForPage(file.path).then((page) => next(null, { file, page }))))
+            .pipe(
+              map(({ file, page = {} }, enc, next) => {
+                const siteRootPath = path.relative(ospath.dirname(file.path), ospath.resolve(previewSrc))
+                const uiModel = { ...baseUiModel }
+                const sharedPageModel = page.component ? baseUiModel.shared[page.component.name][page.version] : {}
+                uiModel.page = { ...uiModel.page, ...page, ...sharedPageModel }
+                uiModel.siteRootPath = siteRootPath
+                uiModel.siteRootUrl = path.join(siteRootPath, 'index.html')
+                uiModel.uiRootPath = path.join(siteRootPath, '_')
+                if (file.stem === '404') {
+                  uiModel.page = { layout: '404', title: 'Page Not Found' }
+                } else {
+                  const doc = Asciidoctor.load(file.contents, { safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES })
+                  uiModel.page.attributes = Object.entries(doc.getAttributes())
+                    .filter(([name, val]) => name.startsWith('page-'))
+                    .reduce((accum, [name, val]) => {
+                      accum[name.substr(5)] = val
+                      return accum
+                    }, {})
+                  uiModel.page.layout = doc.getAttribute('page-layout', 'default')
+                  if (doc.hasAttribute('docrole')) uiModel.page.role = doc.getAttribute('docrole')
+                  uiModel.page.title = doc.getDocumentTitle()
+                  uiModel.page.contents = Buffer.from(doc.convert())
+                }
+                file.extname = '.html'
+                try {
+                  file.contents = Buffer.from(layouts.get(uiModel.page.layout)(uiModel))
+                  next(null, file)
+                } catch (e) {
+                  next(transformHandlebarsError(e, uiModel.page.layout))
+                }
+              })
+            )
+            .pipe(vfs.dest(previewDest))
+            .on('error', done)
+            .pipe(sink())
         )
-        .pipe(vfs.dest(previewDest))
-        .on('error', done)
-        .pipe(sink())
-    )
 
 function loadSampleUiModel (src) {
-  return fs.readFile(ospath.join(src, 'ui-model.yml'), 'utf8').then((contents) => yaml.safeLoad(contents))
+  return fsp.readFile(ospath.join(src, 'ui-model.yml'), 'utf8').then((contents) => yaml.load(contents))
 }
 
-function loadYmlFile (srcPath) {
-  return fs.existsSync(srcPath) ? yaml.safeLoad(fs.readFileSync(srcPath, 'utf8')) : {}
+function loadUiModelForPage (srcPath) {
+  srcPath += '.yml'
+  return fsp.readFile(srcPath).then(
+    (contents) => yaml.load(contents),
+    () => undefined
+  )
 }
 
 function registerPartials (src) {
@@ -89,6 +89,7 @@ function registerPartials (src) {
 }
 
 function registerHelpers (src) {
+  handlebars.registerHelper('relativize', relativize)
   handlebars.registerHelper('resolvePage', resolvePage)
   handlebars.registerHelper('resolvePageURL', resolvePageURL)
   return vfs.src('helpers/*.js', { base: src, cwd: src }).pipe(
@@ -121,6 +122,22 @@ function copyImages (src, dest) {
     .src('**/*.{png,svg}', { base: src, cwd: src })
     .pipe(vfs.dest(dest))
     .pipe(map((file, enc, next) => next()))
+}
+
+function relativize (to, { data: { root } }) {
+  if (!to) return '#'
+  const from = root.page.url
+  if (to.charAt() !== '/') return to
+  if (!from) return (root.site.path || '') + to
+  let hash = ''
+  const hashIdx = to.indexOf('#')
+  if (~hashIdx) {
+    hash = to.substr(hashIdx)
+    to = to.substr(0, hashIdx)
+  }
+  return to === from
+    ? hash || (to.charAt(to.length - 1) === '/' ? './' : path.basename(to))
+    : (path.relative(path.dirname(from + '.'), to) || '.') + (to.charAt(to.length - 1) === '/' ? '/' + hash : hash)
 }
 
 function resolvePage (spec, context = {}) {
