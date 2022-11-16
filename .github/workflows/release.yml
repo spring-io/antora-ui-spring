@@ -1,26 +1,26 @@
+name: On Tag
 on:
   push:
-    branches-ignore:
-      - '*'
-    tags:
-      - 'v*'
+    branches-ignore: ['**']
+    tags: ['v*']
   workflow_dispatch:
-env:
-  GH_TOKEN_DISPATCH: ${{ secrets.GH_TOKEN_DISPATCH }}
-
 jobs:
-  tagged-release:
-    name: "Tagged Release"
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 14.17.0
-        uses: actions/setup-node@v1
-      - name: Build
-        run: ${GITHUB_WORKSPACE}/.github/actions/build.sh
-      - uses: "marvinpinto/action-automatic-releases@v1.2.1"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          files: |
-            build/*.zip
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+    - name: Build
+      run: |
+        npm ci
+        npx gulp bundle
+    - name: Release
+      uses: marvinpinto/action-automatic-releases@v1.2.1
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        prerelease: false
+        files: [build/ui-bundle.zip]
