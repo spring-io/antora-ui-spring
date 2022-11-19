@@ -282,8 +282,6 @@
 /* Tables */
 
 .doc table.tableblock {
-  display: block;
-  width: 100%;
   overflow-x: auto;
   font-size: calc(15 / var(--pixel-to-rem));
   margin: 1.5rem 0 0;

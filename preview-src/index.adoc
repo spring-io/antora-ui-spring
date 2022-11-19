@@ -196,7 +196,7 @@ agam graeci
 At ornatus splendide sed.
 
 .Library dependencies
-[#dependencies%autowidth%footer,stripes=hover]
+[#dependencies%footer,stripes=hover]
 |===
 |Library |Version
 
