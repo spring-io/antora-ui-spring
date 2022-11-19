@@ -1,4 +1,4 @@
-= Hardware and Software Requirements
+= Hardware & Software Requirements
 Author Name
 :idprefix:
 :idseparator: -
