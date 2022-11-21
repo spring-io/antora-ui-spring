@@ -818,5 +818,4 @@ h1.page + aside.toc.embedded {
 
 html.dark-theme .doc img {
   filter: invert();
-  -webkit-filter: invert(100%);
 }
