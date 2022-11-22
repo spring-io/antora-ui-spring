@@ -5,6 +5,7 @@ Author Name
 :!example-caption:
 :!table-caption:
 :page-pagination:
+:tabs-sync-option:
 
 image:multirepo-ssg.svg[Multirepo SSG,200,float=right]
 Platonem complectitur mediocritatem ea eos.
@@ -50,10 +51,38 @@ This is an example paragraph.
 [example]
 This is an example paragraph.
 
-=== Tabs.js
+=== Tabs
 
-You can have code in different tabs
+You can have code in different tabs:
 
+ifdef::asciidoctor-tabs-loaded[]
+.`FilterChain` Usage Example
+[tabs]
+====
+Java::
++
+[,java]
+----
+public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) {
+    // do something before the rest of the application
+    chain.doFilter(request, response); // invoke the rest of the application
+    // do something after the rest of the application
+}
+----
+
+Kotlin::
++
+[,kotlin]
+----
+fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterChain) {
+    // do something before the rest of the application
+    chain.doFilter(request, response) // invoke the rest of the application
+    // do something after the rest of the application
+}
+----
+====
+endif::[]
+ifndef::asciidoctor-tabs-loaded[]
 .`FilterChain` Usage Example
 ====
 .Java
@@ -76,6 +105,7 @@ fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterCh
 }
 ----
 ====
+endif::[]
 
 === Some Code
 

@@ -1,4 +1,8 @@
-antoraVersion: '1.0.0'
+antoraVersion: '3.1.2'
+asciidoc:
+  extensions:
+  # TIP uncomment the next line to switch to Asciidoctor Tabs
+  #- '@asciidoctor/tabs'
 site:
   url: http://localhost:5252
   title: Spring
@@ -28,7 +32,6 @@ site:
         displayVersion: '2.6'
         title: *component_title
     latest: *latest_version
-
 shared:
   security:
     5.5:
