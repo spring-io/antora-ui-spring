@@ -3,6 +3,7 @@ asciidoc:
   extensions:
   # TIP uncomment the next line to switch to Asciidoctor Tabs
   #- '@asciidoctor/tabs'
+  - '@springio/asciidoctor-extensions'
 site:
   url: http://localhost:5252
   title: Spring

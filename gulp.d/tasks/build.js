@@ -2,7 +2,6 @@
 
 const autoprefixer = require('autoprefixer')
 const browserify = require('browserify')
-const buffer = require('vinyl-buffer')
 const concat = require('gulp-concat')
 const cssnano = require('cssnano')
 const fs = require('fs')
@@ -44,10 +43,7 @@ module.exports = (src, dest, preview) => () => {
           const abspath = require.resolve(relpath)
           const basename = ospath.basename(abspath)
           const destpath = ospath.join(dest, 'font', basename)
-          if (!fs.existsSync(destpath)) {
-            fs.mkdirSync(ospath.join(dest, 'font'), { recursive: true })
-            fs.copyFileSync(abspath, destpath)
-          }
+          if (!fs.existsSync(destpath)) fs.cpSync(abspath, destpath, { recursive: true })
           return path.join('..', 'font', basename)
         },
       },
@@ -66,43 +62,19 @@ module.exports = (src, dest, preview) => () => {
 
   return merge(
     vfs
-      .src('js/+([0-9])-*.js', { ...opts, sourcemaps })
-      .pipe(uglify())
+      .src('js/+([0-9])-*.js', { ...opts, read: false, sourcemaps })
+      .pipe(bundle(opts))
+      .pipe(uglify({ output: { comments: /^! / } }))
       // NOTE concat already uses stat from newest combined file
       .pipe(concat('js/site.js')),
     vfs
-      .src('js/vendor/*.js', { ...opts, read: false })
-      .pipe(
-        // see https://gulpjs.org/recipes/browserify-multiple-destination.html
-        map((file, enc, next) => {
-          if (file.relative.endsWith('.bundle.js')) {
-            const mtimePromises = []
-            const bundlePath = file.path
-            browserify(file.relative, { basedir: src, detectGlobals: false })
-              .plugin('browser-pack-flat/plugin')
-              .on('file', (bundledPath) => {
-                if (bundledPath !== bundlePath) mtimePromises.push(fsp.stat(bundledPath).then(({ mtime }) => mtime))
-              })
-              .bundle((bundleError, bundleBuffer) =>
-                Promise.all(mtimePromises).then((mtimes) => {
-                  const newestMtime = mtimes.reduce((max, curr) => (curr > max ? curr : max), file.stat.mtime)
-                  if (newestMtime > file.stat.mtime) file.stat.mtimeMs = +(file.stat.mtime = newestMtime)
-                  if (bundleBuffer !== undefined) file.contents = bundleBuffer
-                  file.path = file.path.slice(0, file.path.length - 10) + '.js'
-                  next(bundleError, file)
-                })
-              )
-          } else {
-            fsp.readFile(file.path, 'UTF-8').then((contents) => {
-              file.contents = Buffer.from(contents)
-              next(null, file)
-            })
-          }
-        })
-      )
-      .pipe(buffer())
+      .src('js/vendor/*([^.])?(.bundle).js', { ...opts, read: false })
+      .pipe(bundle(opts))
       .pipe(uglify({ output: { comments: /^! / } })),
-    // NOTE use this statement to bundle a JavaScript library that cannot be browserified, like jQuery
+    vfs
+      .src('js/vendor/*.min.js', opts)
+      .pipe(map((file, enc, next) => next(null, Object.assign(file, { extname: '' }, { extname: '.js' })))),
+    // NOTE use the next line to bundle a JavaScript library that cannot be browserified, like jQuery
     //vfs.src(require.resolve('<package-name-or-require-path>'), opts).pipe(concat('js/vendor/<library-name>.js')),
     vfs
       .src(['css/site.css', 'css/vendor/*.css'], { ...opts, sourcemaps })
@@ -130,6 +102,32 @@ module.exports = (src, dest, preview) => () => {
     vfs.src('layouts/*.hbs', opts),
     vfs.src('partials/*.hbs', opts)
   ).pipe(vfs.dest(dest, { sourcemaps: sourcemaps && '.' }))
+}
+
+function bundle ({ base: basedir, ext: bundleExt = '.bundle.js' }) {
+  return map((file, enc, next) => {
+    if (bundleExt && file.relative.endsWith(bundleExt)) {
+      const mtimePromises = []
+      const bundlePath = file.path
+      browserify(file.relative, { basedir, detectGlobals: false })
+        .plugin('browser-pack-flat/plugin')
+        .on('file', (bundledPath) => {
+          if (bundledPath !== bundlePath) mtimePromises.push(fsp.stat(bundledPath).then(({ mtime }) => mtime))
+        })
+        .bundle((bundleError, bundleBuffer) =>
+          Promise.all(mtimePromises).then((mtimes) => {
+            const newestMtime = mtimes.reduce((max, curr) => (curr > max ? curr : max), file.stat.mtime)
+            if (newestMtime > file.stat.mtime) file.stat.mtimeMs = +(file.stat.mtime = newestMtime)
+            if (bundleBuffer !== undefined) file.contents = bundleBuffer
+            next(bundleError, Object.assign(file, { path: file.path.slice(0, file.path.length - 10) + '.js' }))
+          })
+        )
+      return
+    }
+    fsp.readFile(file.path, 'UTF-8').then((contents) => {
+      next(null, Object.assign(file, { contents: Buffer.from(contents) }))
+    })
+  })
 }
 
 function postcssPseudoElementFixer (css, result) {
