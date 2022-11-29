@@ -24,7 +24,23 @@ module.exports =
           merge(compileLayouts(src), registerPartials(src), registerHelpers(src), copyImages(previewSrc, previewDest))
         ),
       ])
-        .then(([baseUiModel, { layouts }]) => [{ ...baseUiModel, env: process.env }, layouts])
+        .then(([baseUiModel, { layouts }]) => {
+          const extensions = ((baseUiModel.asciidoc || {}).extensions || []).map((request) => {
+            ASCIIDOC_ATTRIBUTES[request.replace(/^@|\.js$/, '').replace(/[/]/g, '-') + '-loaded'] = ''
+            const extension = require(request)
+            extension.register.call(Asciidoctor.Extensions)
+            return extension
+          })
+          const siteAsciiDocConfig = { extensions }
+          for (const component of baseUiModel.site.components) {
+            for (const version of component.versions || []) {
+              version.asciidoc = siteAsciiDocConfig
+            }
+          }
+          baseUiModel = { ...baseUiModel, env: process.env }
+          delete baseUiModel.asciidoc
+          return [baseUiModel, layouts]
+        })
         .then(([baseUiModel, layouts]) =>
           vfs
             .src('**/*.adoc', { base: previewSrc, cwd: previewSrc })

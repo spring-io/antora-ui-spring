@@ -1,0 +1,62 @@
+@import "@asciidoctor/tabs";
+
+.doc .tabset {
+  margin: 1rem 0 0;
+}
+
+.doc .tabset > .title {
+  color: var(--asciidoctor-caption-font-color);
+  font-size: calc(14 / var(--pixel-to-rem));
+  font-style: italic;
+  font-weight: var(--asciidoctor-caption-font-weight);
+  letter-spacing: 0.01em;
+  padding-bottom: 0.25rem;
+}
+
+.doc .tabset > .content,
+.doc .tabset .tab-pane {
+  border: 0;
+  padding: 0;
+}
+
+.doc .tabset .tabs {
+  font-size: calc(12 / var(--pixel-to-rem));
+  /*
+  margin: 0 0 2px 1px;
+  */
+  margin: 0 0 0.25rem;
+}
+
+.doc .tabset .tabs > ul li {
+  border: 1px solid var(--tabs-border-color);
+  height: auto;
+  line-height: inherit;
+  margin: 0;
+  padding: 0.3rem 0.6rem;
+}
+
+.doc .tabset:not(.is-loading) .tabs > ul li {
+  transition: background-color 200ms;
+}
+
+.doc .tabset .tabs > ul li:not(.is-active) {
+  background-color: var(--tabs-background-color);
+  color: var(--tabs-font-color);
+}
+
+.doc .tabset.is-loading .tabs li:first-child,
+.doc .tabset .tabs li.is-active {
+  background-color: var(--tabs-selected-background-color);
+  border-color: var(--tabs-selected-background-color);
+  color: var(--tabs-selected-font-color);
+}
+
+.doc .tabset .tabs li[id]::after {
+  content: none;
+}
+
+/*
+.doc .tabset pre > code {
+  border-radius: 0;
+}
+*/

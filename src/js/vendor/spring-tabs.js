@@ -16,12 +16,8 @@
 ;(function () {
   'use strict'
 
-  window.addEventListener('load', onWindowLoad)
-
-  function onWindowLoad () {
-    addTabs()
-    configureTabs()
-  }
+  addTabs()
+  configureTabs()
 
   function addTabs () {
     for (const primaryElement of document.querySelectorAll('.primary')) {

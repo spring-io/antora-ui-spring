@@ -1,6 +1,6 @@
 <script src="{{{uiRootPath}}}/js/site.js"></script>
 <script async src="{{{uiRootPath}}}/js/vendor/highlight.js"></script>
-<script async src="{{{uiRootPath}}}/js/vendor/tabs.js"></script>
+<script async src="{{{uiRootPath}}}/js/vendor/{{#if (asciidocExtensionRegistered '@asciidoctor/tabs')}}asciidoctor{{else}}spring{{/if}}-tabs.js"></script>
 <script src="{{{uiRootPath}}}/js/vendor/switchtheme.js"></script>
 {{#if env.ALGOLIA_API_KEY}}
 <script async id="search-script" src="{{{uiRootPath}}}/js/vendor/docsearch.js"{{#if env.ALGOLIA_APP_ID}} data-app-id="{{env.ALGOLIA_APP_ID}}"{{/if}} data-api-key="{{env.ALGOLIA_API_KEY}}" data-index-name="{{env.ALGOLIA_INDEX_NAME}}" data-input-selector="#search-input"></script>
