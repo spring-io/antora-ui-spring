@@ -37,11 +37,10 @@
   }, document.createElement('ul'))
 
   var menu = sidebar.querySelector('.toc-menu')
-  var titlePage = document.getElementById('page-title')
   if (!menu) (menu = document.createElement('div')).className = 'toc-menu'
 
   var title = document.createElement('h3')
-  title.textContent = titlePage.textContent || 'Contents'
+  title.textContent = sidebar.dataset.title || 'Contents'
   menu.appendChild(title)
   menu.appendChild(list)
 

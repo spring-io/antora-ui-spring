@@ -1,4 +1,4 @@
-= Hardware and Software Requirements
+= Hardware & Software Requirements
 Author Name
 :idprefix:
 :idseparator: -
@@ -196,7 +196,7 @@ agam graeci
 At ornatus splendide sed.
 
 .Library dependencies
-[#dependencies%autowidth%footer,stripes=hover]
+[#dependencies%footer,stripes=hover]
 |===
 |Library |Version
 

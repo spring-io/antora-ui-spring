@@ -134,7 +134,7 @@ code:not(.unfolded) span.fold-block.hide-when-unfolded {
 
 code.unfolded span.fold-block.hide-when-unfolded,
 code:not(.unfolded) span.fold-block.hide-when-folded {
-  max-height: none;
+  max-height: 0;
   opacity: 0;
 }
 

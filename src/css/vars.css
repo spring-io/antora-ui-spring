@@ -19,7 +19,7 @@
   /* General */
   --html-font-size: 1em;
   --pixel-to-rem: 16 * 1rem;
-  --font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family: -apple-system, blinkmacsystemfont, "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-weight: 400;
   --monospace-font-family: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", monospace;
   --body-background-color: white;
@@ -41,7 +41,7 @@
   --body-font-size--print: 0.9375em; /* 15px */
   --body-line-height: 1.15;
   --body-font-color: #191e1e;
-  --body-font-family: "roboto", sans-serif;
+  --body-font-family: "Roboto", sans-serif;
   --body-font-weight-bold: 500;
   --monospace-font-weight-bold: 500;
   /* base */
