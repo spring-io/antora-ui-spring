@@ -18,7 +18,7 @@
   ],
   "devDependencies": {
     "@asciidoctor/core": "~2.2",
-    "@asciidoctor/tabs": "1.0.0-alpha.7",
+    "@asciidoctor/tabs": "1.0.0-alpha.8",
     "@fontsource/roboto": "~4.5",
     "@fontsource/roboto-mono": "~4.5",
     "autoprefixer": "~10.4",

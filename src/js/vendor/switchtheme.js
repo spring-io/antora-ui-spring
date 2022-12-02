@@ -25,6 +25,9 @@
 
   function swithInitialTheme () {
     if (isInitialThemeDark()) htmlElement.classList.add('dark-theme')
+    window.requestAnimationFrame(function () {
+      htmlElement.classList.add('theme-set')
+    })
   }
 
   function onWindowLoad () {
