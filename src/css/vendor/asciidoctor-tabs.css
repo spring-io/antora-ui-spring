@@ -13,39 +13,23 @@
   padding-bottom: 0.25rem;
 }
 
-.doc .tabset > .content,
-.doc .tabset .tab-pane {
-  border: 0;
-  padding: 0;
-}
-
 .doc .tabset .tabs {
   font-size: calc(12 / var(--pixel-to-rem));
-  /*
-  margin: 0 0 2px 1px;
-  */
   margin: 0 0 0.25rem;
 }
 
-.doc .tabset .tabs > ul li {
+.doc .tabset .tabs > ul li.tab {
+  background-color: var(--tabs-background-color);
   border: 1px solid var(--tabs-border-color);
+  color: var(--tabs-font-color);
   height: auto;
   line-height: inherit;
   margin: 0;
   padding: 0.3rem 0.6rem;
 }
 
-.doc .tabset:not(.is-loading) .tabs > ul li {
-  transition: background-color 200ms;
-}
-
-.doc .tabset .tabs > ul li:not(.is-active) {
-  background-color: var(--tabs-background-color);
-  color: var(--tabs-font-color);
-}
-
-.doc .tabset.is-loading .tabs li:first-child,
-.doc .tabset .tabs li.is-active {
+.doc .tabset.is-loading .tabs > ul li.tab:first-child,
+.doc .tabset .tabs > ul li.tab.is-active {
   background-color: var(--tabs-selected-background-color);
   border-color: var(--tabs-selected-background-color);
   color: var(--tabs-selected-font-color);
@@ -55,8 +39,12 @@
   content: none;
 }
 
-/*
-.doc .tabset pre > code {
-  border-radius: 0;
+.doc .tabset > .content,
+.doc .tabset .tab-pane {
+  border: 0;
+  padding: 0;
 }
-*/
+
+html.theme-set .doc .tabset .tabs > ul li {
+  transition: background-color 200ms ease-in-out, color 100ms linear;
+}
