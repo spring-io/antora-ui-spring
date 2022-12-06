@@ -5,6 +5,7 @@ Author Name
 :!example-caption:
 :!table-caption:
 :page-pagination:
+:chomp-package-replacement: com.acme
 :tabs-sync-option:
 
 image:multirepo-ssg.svg[Multirepo SSG,200,float=right]
@@ -50,6 +51,93 @@ This is an example paragraph.
 .Optional title
 [example]
 This is an example paragraph.
+
+=== Code Folding
+
+Fold with no replacement text.
+
+[,java]
+----
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MyApplication {
+    public static void main(String[] args) {
+        // @fold:on
+        // @formatter:off
+        SpringApplication.run(MyApplication.class, args);
+        // @formatter:on
+        // @fold:off
+    }
+}
+----
+
+Same fold with replacement text.
+
+[,java]
+----
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MyApplication {
+    public static void main(String[] args) {
+        // @fold:on // reveal logic...
+        // @formatter:off
+        SpringApplication.run(MyApplication.class, args);
+        // @formatter:on
+        // @fold:off
+    }
+}
+----
+
+Another example of folds.
+
+[,java,chomp=all]
+----
+package org.example;
+
+import java.net.InetAddress;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties("my.service")
+public class MyProperties {
+    // @fold:on // fields...
+    private boolean enabled;
+
+    private InetAddress remoteAddress;
+
+    private final Security security = /* @chomp:line // instantiate your instance of the Security class... */ new Security();
+    // @fold:off
+
+    // @fold:on // getters / setters...
+    public boolean isEnabled() {
+        return this.enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public InetAddress getRemoteAddress() {
+        return this.remoteAddress;
+    }
+
+    public void setRemoteAddress(InetAddress remoteAddress) {
+        this.remoteAddress = remoteAddress;
+    }
+
+    public Security getSecurity() {
+        return this.security;
+    }
+    // @fold:off
+}
+----
 
 === Tabs
 
@@ -349,4 +437,3 @@ ____
 == Fin
 
 That's all, folks!
-
