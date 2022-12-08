@@ -1,50 +1,55 @@
 @import "@asciidoctor/tabs";
 
-.doc .tabset {
+.doc .tabs {
   margin: 1rem 0 0;
 }
 
-.doc .tabset > .title {
-  color: var(--asciidoctor-caption-font-color);
-  font-size: calc(14 / var(--pixel-to-rem));
-  font-style: italic;
-  font-weight: var(--asciidoctor-caption-font-weight);
-  letter-spacing: 0.01em;
+.doc .tabs > .title {
   padding-bottom: 0.25rem;
 }
 
-.doc .tabset .tabs {
-  font-size: calc(12 / var(--pixel-to-rem));
-  margin: 0 0 0.25rem;
+.doc .tablist.ulist {
+  margin-bottom: 0.25rem;
 }
 
-.doc .tabset .tabs > ul li.tab {
-  background-color: var(--tabs-background-color);
+.doc .tablist > ul {
+  font-size: calc(12 / var(--pixel-to-rem));
+}
+
+.doc .tablist > ul li {
   border: 1px solid var(--tabs-border-color);
-  color: var(--tabs-font-color);
-  height: auto;
   line-height: inherit;
-  margin: 0;
   padding: 0.3rem 0.6rem;
 }
 
-.doc .tabset.is-loading .tabs > ul li.tab:first-child,
-.doc .tabset .tabs > ul li.tab.is-active {
+.doc .tablist.ulist > ul li + li {
+  margin-left: 0;
+}
+
+.doc .tabs.is-loading .tablist > ul li:not(:first-child),
+.doc .tabs:not(.is-loading) .tablist > ul li:not(.is-selected) {
+  background-color: var(--tabs-background-color);
+  color: var(--tabs-font-color);
+}
+
+.doc .tabs.is-loading .tablist > ul li:first-child,
+.doc .tabs:not(.is-loading) .tablist > ul li.is-selected {
   background-color: var(--tabs-selected-background-color);
   border-color: var(--tabs-selected-background-color);
   color: var(--tabs-selected-font-color);
 }
 
-.doc .tabset .tabs li[id]::after {
+.doc .tabs.is-loading .tablist > ul li:first-child::after,
+.doc .tabs:not(.is-loading) .tablist > ul li.is-selected::after {
   content: none;
 }
 
-.doc .tabset > .content,
-.doc .tabset .tab-pane {
+.doc .tabpanel {
+  background-color: initial;
   border: 0;
   padding: 0;
 }
 
-html.theme-set .doc .tabset .tabs > ul li {
+html.theme-set .doc .tabs .tablist > ul li {
   transition: background-color 200ms ease-in-out, color 100ms linear;
 }
