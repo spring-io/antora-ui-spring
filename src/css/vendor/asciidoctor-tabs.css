@@ -13,34 +13,41 @@
   padding-bottom: 0.25rem;
 }
 
-.doc .tabset .tabs {
+.doc .tabs > ul {
   font-size: calc(12 / var(--pixel-to-rem));
   margin: 0 0 0.25rem;
 }
 
-.doc .tabset .tabs > ul li.tab {
-  background-color: var(--tabs-background-color);
+.doc .tabs > ul li {
   border: 1px solid var(--tabs-border-color);
-  color: var(--tabs-font-color);
-  height: auto;
   line-height: inherit;
-  margin: 0;
   padding: 0.3rem 0.6rem;
 }
 
-.doc .tabset.is-loading .tabs > ul li.tab:first-child,
-.doc .tabset .tabs > ul li.tab.is-active {
+.doc .tabs.ulist > ul li + li {
+  margin-left: 0;
+}
+
+.doc .tabset.is-loading .tabs > ul li:not(:first-child),
+.doc .tabset:not(.is-loading) .tabs > ul li:not(.is-active) {
+  background-color: var(--tabs-background-color);
+  color: var(--tabs-font-color);
+}
+
+.doc .tabset.is-loading .tabs > ul li:first-child,
+.doc .tabset:not(.is-loading) .tabs > ul li.is-active {
   background-color: var(--tabs-selected-background-color);
   border-color: var(--tabs-selected-background-color);
   color: var(--tabs-selected-font-color);
 }
 
-.doc .tabset .tabs li[id]::after {
+.doc .tabset.is-loading .tabs > ul li:first-child::after,
+.doc .tabset:not(.is-loading) .tabs > ul li.is-active::after {
   content: none;
 }
 
-.doc .tabset > .content,
-.doc .tabset .tab-pane {
+.doc .tab-pane {
+  background-color: initial;
   border: 0;
   padding: 0;
 }

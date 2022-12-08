@@ -18,7 +18,7 @@
   ],
   "devDependencies": {
     "@asciidoctor/core": "~2.2",
-    "@asciidoctor/tabs": "1.0.0-alpha.8",
+    "@asciidoctor/tabs": "1.0.0-alpha.10",
     "@fontsource/roboto": "~4.5",
     "@fontsource/roboto-mono": "~4.5",
     "@springio/asciidoctor-extensions": "1.0.0-alpha.4",
