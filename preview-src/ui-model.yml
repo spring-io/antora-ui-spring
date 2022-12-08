@@ -2,7 +2,7 @@ antoraVersion: '3.1.2'
 asciidoc:
   extensions:
   # TIP uncomment the next line to switch to Asciidoctor Tabs
-  #- '@asciidoctor/tabs'
+  - '@asciidoctor/tabs'
   - '@springio/asciidoctor-extensions'
 site:
   url: http://localhost:5252
