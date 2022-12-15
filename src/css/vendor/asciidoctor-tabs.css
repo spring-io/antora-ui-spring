@@ -44,12 +44,12 @@
   content: none;
 }
 
+.doc .tabs:not(.is-loading) .tablist > ul li {
+  transition: background-color 200ms ease-in-out, color 100ms linear;
+}
+
 .doc .tabpanel {
   background-color: initial;
   border: 0;
   padding: 0;
-}
-
-html.theme-set .doc .tabs .tablist > ul li {
-  transition: background-color 200ms ease-in-out, color 100ms linear;
 }
