@@ -1,50 +1,110 @@
 /*! docsearch 2.6.x | © Algolia | github.com/algolia/docsearch */
 @import "docsearch.js/dist/cdn/docsearch.css";
 
-.algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
-  max-height: calc(100vh - 3.25rem);
+.algolia-autocomplete-results {
+  position: relative;
+  top: 14px;
+  right: -1px;
 }
 
-@media screen and (max-width: 768px) {
-  .algolia-autocomplete .ds-dropdown-menu {
-    min-width: calc(100vw - 2.75rem) !important;
-  }
+.algolia-autocomplete {
+  left: auto !important;
+  top: auto !important;
 }
 
-body .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
+.algolia-autocomplete .ds-dropdown-menu {
   background: var(--panel-background);
+  border: 1px solid var(--codetools-border-color);
+  border-radius: 4px;
+  box-shadow: none;
+  display: flex !important;
+  flex-direction: column;
+  max-height: calc(var(--nav-height) - 8px);
+  max-width: none;
+  min-width: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35vw;
 }
 
-body .algolia-autocomplete .ds-dropdown-menu::before {
-  background: var(--panel-background);
+.algolia-autocomplete .ds-dropdown-menu::before {
+  content: none;
 }
 
-body .algolia-autocomplete .algolia-docsearch-suggestion {
-  background: var(--panel-background);
+.algolia-autocomplete .ds-dropdown-menu .ds-dataset-1 {
+  background: none;
+  border: none;
+  border-radius: inherit;
+  overscroll-behavior: none;
+  padding: 0 8px;
 }
 
-body .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
-  color: var(--body-font-color);
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestions {
+  margin: 8px 0;
 }
 
-body .algolia-autocomplete .algolia-docsearch-suggestion--title {
-  color: var(--body-font-color);
+.algolia-autocomplete .algolia-docsearch-suggestion {
+  background: none;
 }
 
-body .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
-  color: var(--color-gray-50, #ccc);
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header,
+.algolia-autocomplete .algolia-docsearch-suggestion--title {
+  color: inherit;
 }
 
-body .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+  color: var(--color-gray-50);
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight {
   color: var(--link-font-color);
 }
 
-body .algolia-autocomplete .algolia-docsearch-footer {
-  width: 140px;
+.algolia-autocomplete .ds-footer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--body-background-color);
+  border-top: 1px solid var(--codetools-border-color);
+  padding: 10px 8px 8px;
+  border-radius: 0 0 4px 4px;
 }
 
-body .algolia-autocomplete .algolia-docsearch-footer--logo {
-  background: url('../img/search-by-algolia-light-background.svg') no-repeat;
-  background-size: 130px 20px;
-  width: 140px;
+.algolia-autocomplete .ds-pagination {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  line-height: 1;
+}
+
+.algolia-autocomplete .ds-pagination > :not(:first-child) {
+  margin-left: 0.5em;
+}
+
+.algolia-autocomplete .ds-pagination a {
+  color: var(--link-font-color);
+}
+
+.algolia-autocomplete .ds-pagination--prev::before,
+.algolia-autocomplete .ds-pagination--next::after {
+  display: inline-block;
+  width: 0.5em;
+  font-size: 1.2em;
+  line-height: 0;
+}
+
+.algolia-autocomplete .ds-pagination--prev::before {
+  content: "\2039";
+}
+
+.algolia-autocomplete .ds-pagination--next::after {
+  content: "\203a";
+  text-align: right;
+}
+
+.algolia-autocomplete .algolia-docsearch-footer {
+  margin-top: 0;
+  width: 112px;
+  height: 16px;
 }
