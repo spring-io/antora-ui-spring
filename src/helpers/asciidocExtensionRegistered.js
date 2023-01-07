@@ -2,7 +2,7 @@
 
 module.exports = (requireRequest, { data }) => {
   const { componentVersion } = data.root.page
-  if (!componentVersion || !componentVersion.asciidoc) return
+  if (!componentVersion || !componentVersion.asciidoc || !componentVersion.extensions) return
   const cache = data.extensionCache || (data.extensionCache = {})
   let extension
   if (requireRequest in cache) {
