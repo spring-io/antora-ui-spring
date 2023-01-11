@@ -291,9 +291,45 @@ body {
 }
 
 .search {
-  height: 40px;
+  align-items: center;
   border-left: 1px solid var(--toolbar-border-color);
+  display: flex;
+  height: 100%;
+  padding: 8px 10px;
+  position: relative;
   width: 192px;
+}
+
+.search .field {
+  align-items: center;
+  border: 1px solid var(--kbd-border-color);
+  border-radius: 0.1em;
+  display: flex;
+  flex: auto;
+  height: inherit;
+}
+
+.search .field * {
+  color: var(--body-font-dark-color);
+}
+
+.search .query {
+  background: transparent;
+  border: none;
+  flex: auto;
+  font-size: 0.95rem;
+  height: inherit;
+  padding: 2px 0.25em;
+  width: 7ex;
+}
+
+.search .filter,
+.search .filter label {
+  margin-right: 0.5em;
+}
+
+.search .query:focus {
+  outline: none;
 }
 
 .edit-this-page {

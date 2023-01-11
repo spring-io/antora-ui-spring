@@ -142,8 +142,8 @@ function copyImages (src, dest) {
 
 function relativize (to, { data: { root } }) {
   if (!to) return '#'
-  const from = root.page.url
   if (to.charAt() !== '/') return to
+  const from = root.page.url
   if (!from) return (root.site.path || '') + to
   let hash = ''
   const hashIdx = to.indexOf('#')

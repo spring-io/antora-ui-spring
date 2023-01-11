@@ -5,7 +5,12 @@
   {{/with}}
 {{> breadcrumbs}}
 <div class="search">
-  <input id="search-input" type="text" placeholder="Search docs"{{#if page.home}} autofocus{{/if}}>
+  <div id="search" class="field has-filter">
+    <input class="query" type="text" placeholder="Search docs"{{#if page.home}} autofocus{{/if}}>
+    <label class="filter checkbox">
+      <input type="checkbox" data-facet-filter="version:{{{page.version}}}"> {{{page.version}}} only
+    </label>
+  </div>
 </div>
 {{> page-versions}}
   {{#if (and page.fileUri (not env.CI))}}
