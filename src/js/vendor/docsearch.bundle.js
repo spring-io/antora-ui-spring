@@ -65,7 +65,7 @@
       .closest('#' + searchField.id)
       .find('.filter input')
       .on('change', toggleFilter.bind(typeahead))
-      .prop('checked', window.localStorage.getItem(SEARCH_FILTER_ACTIVE_KEY) === 'true')
+      .prop('checked', window.localStorage.getItem(SEARCH_FILTER_ACTIVE_KEY) !== 'false')
     menu.find('.ds-pagination--prev').on('click', paginate.bind(typeahead, -1)).css('visibility', 'hidden')
     menu.find('.ds-pagination--next').on('click', paginate.bind(typeahead, 1)).css('visibility', 'hidden')
     monitorCtrlKey.call(typeahead)
