@@ -565,7 +565,7 @@ h1.page + aside.toc.embedded {
   white-space: pre-wrap;
 }
 
-.doc pre.highlight code,
+.doc pre.highlight code.hljs,
 .doc .listingblock pre:not(.highlight),
 .doc .literalblock pre {
   background: var(--pre-background);
@@ -575,7 +575,7 @@ h1.page + aside.toc.embedded {
   padding: 0.75rem;
 }
 
-.doc pre code[data-lang]::before {
+.doc pre > code[data-lang]::before {
   color: var(--pre-annotation-font-color);
 }
 
