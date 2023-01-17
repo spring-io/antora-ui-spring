@@ -1,12 +1,13 @@
 url: /5.5/index.html
 component:
   name: security
-version: '5.5'
+version: '5.5.9'
 latest:
   url: '/index.html'
-  version: '5.6'
-  displayVersion: '5.6'
+  version: '5.6.10'
+  displayVersion: '5.6.10'
   title: 'Spring Security'
+  versionSegment: '5.6'
 previous:
   content: Quickstart
   url: '#'

@@ -15,27 +15,30 @@ site:
     versions: &security_versions
     - &security_latest_version
       url: '/index.html'
-      version: '5.6'
-      displayVersion: '5.6'
+      version: '5.6.10'
+      displayVersion: '5.6.10'
       title: *component_title
+      versionSegment: '5.6'
     - &security_5_5_version
       url: '/5.5/index.html'
-      version: '5.5'
-      displayVersion: '5.5'
+      version: '5.5.9'
+      displayVersion: '5.5.9'
+      versionSegment: '5.5'
     latest: *security_latest_version
   - name: session
-    title: &component_title Spring Session
+    title: &session_component_title Spring Session
     url: '#'
     versions:
-      - &latest_version
+      - &session_latest_version
         url: '/session/index.html'
-        version: '2.6'
-        displayVersion: '2.6'
-        title: *component_title
-    latest: *latest_version
+        version: '2.5.9'
+        displayVersion: '2.5.9'
+        title: *session_component_title
+        versionSegment: '2.5'
+    latest: *session_latest_version
 shared:
   security:
-    5.5:
+    5.5.9:
       home: true
       title: Spring Security
       relativeSrcPath: index.adoc
@@ -45,19 +48,23 @@ shared:
         url: '#'
         versions:
           - url: '/index.html'
-            version: '5.6'
-            displayVersion: '5.6'
+            version: '5.6.10'
+            displayVersion: '5.6.10'
             title: *component_title
+            versionSegment: '5.6'
           - url: '/5.5/index.html'
-            version: '5.5'
-            displayVersion: '5.5'
+            version: '5.5.9'
+            displayVersion: '5.5.9'
+            versionSegment: '5.5'
       componentVersion: *security_5_5_version
       versions:
-        - version: '5.6'
-          displayVersion: '5.6'
+        - version: '5.6.10'
+          displayVersion: '5.6.10'
           url: '#'
-        - version: '5.5'
-          displayVersion: '5.5'
+          versionSegment: '5.6'
+        - version: '5.5.9'
+          displayVersion: '5.5.9'
+          versionSegment: '5.5'
           url: '#'
       navigation:
         - root: true
@@ -71,7 +78,7 @@ shared:
                   url: '#'
                 - content: Protection Against Exploits
                   url: '#'
-    5.6:
+    5.6.10:
       home: true
       title: Spring Security
       relativeSrcPath: index.adoc
@@ -82,12 +89,14 @@ shared:
         versions: *security_versions
       componentVersion: *security_latest_version
       versions:
-        - version: '5.6'
-          displayVersion: '5.6'
+        - version: '5.6.10'
+          displayVersion: '5.6.10'
           url: '#'
-        - version: '5.5'
-          displayVersion: '5.5'
+          versionSegment: '5.6'
+        - version: '5.5.9'
+          displayVersion: '5.5.9'
           url: '#'
+          versionSegment: '5.5'
       navigation:
         - root: true
           items:
@@ -101,7 +110,7 @@ shared:
                 - content: Protection Against Exploits
                   url: '/features/exploits/index.html'
   session:
-    2.5:
+    2.5.9:
       home: true
       title: Spring Session
       relativeSrcPath: index.adoc
@@ -110,11 +119,7 @@ shared:
         title: Spring Session
         url: '#'
         versions:
-          - &session_latest_version
-            url: '/session/index.html'
-            version: '2.5'
-            displayVersion: '2.5'
-            title: 'Spring Session'
+          - *session_latest_version
       componentVersion: *session_latest_version
       navigation:
         - root: true
