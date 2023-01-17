@@ -168,6 +168,29 @@ fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterCh
     // do something after the rest of the application
 }
 ----
+
+Wide Table::
++
+|===
+|Spring Boot 2.x |ClientRegistration
+
+|`spring.security.oauth2.client.registration._[registrationId]_`
+|`registrationId`
+
+|`spring.security.oauth2.client.registration._[registrationId]_.client-id`
+|`clientId`
+
+|`spring.security.oauth2.client.registration._[registrationId]_.client-secret`
+|`clientSecret`
+
+|`spring.security.oauth2.client.registration._[registrationId]_.client-authentication-method`
+|`clientAuthenticationMethod`
+
+|`spring.security.oauth2.client.registration._[registrationId]_.authorization-grant-type`
+|`authorizationGrantType`
+|===
++
+The table should fit within the tab panel and scroll horizontally.
 ====
 endif::[]
 ifndef::asciidoctor-tabs-loaded[]
