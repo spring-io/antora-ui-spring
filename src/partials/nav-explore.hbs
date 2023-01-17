@@ -11,7 +11,7 @@
       <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
       <ul class="versions">
         {{#each ./versions}}
-        {{#if ./versionSegment}}
+        {{#if (or ./versionSegment (not @root.site.url))}}
         <li class="version
           {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
           {{~#if (eq this ../latest)}} is-latest{{/if}}">
