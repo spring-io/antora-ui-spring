@@ -1,7 +1,7 @@
 url: /session/index.html
 component:
   name: session
-version: '2.5'
+version: '2.5.9'
 previous:
   content: Quickstart
   url: '#'
