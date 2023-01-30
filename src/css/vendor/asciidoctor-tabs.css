@@ -44,7 +44,7 @@
   content: none;
 }
 
-.doc .tabs:not(.is-loading) .tablist > ul li {
+.doc .tabs.is-loaded .tablist > ul li {
   transition: background-color 200ms ease-in-out, color 100ms linear;
 }
 
