@@ -15,6 +15,7 @@
     }
     var searchField = document.getElementById(config.searchFieldId || 'search')
     searchField.appendChild(Object.assign(document.createElement('div'), { className: 'algolia-autocomplete-results' }))
+    const pageVersion = config.pageVersion
     var controller = docsearch({
       appId: config.appId,
       apiKey: config.apiKey,
@@ -33,6 +34,9 @@
             '<span class="ds-pagination--curr">Page 1</span>' +
             '<a href="#" class="ds-pagination--prev">Prev</a>' +
             '<a href="#" class="ds-pagination--next">Next</a></div>' +
+            '<label class="filter checkbox">' +
+            `<input type="checkbox" data-facet-filter="version:${pageVersion}" checked> ${pageVersion} only` +
+            '</label>' +
             '<div class="algolia-docsearch-footer">' +
             'Search by <a class="algolia-docsearch-footer--logo" href="https://www.algolia.com/docsearch" ' +
             'target="_blank" rel="noopener">Algolia</a>' +
