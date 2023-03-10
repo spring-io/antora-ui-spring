@@ -1,5 +1,5 @@
 /*! docsearch 2.6.x | © Algolia | github.com/algolia/docsearch */
-@import "docsearch.js/dist/cdn/docsearch.css";
+@import "https://cdn.jsdelivr.net/npm/@docsearch/css@3";
 
 .algolia-autocomplete-results {
   position: relative;

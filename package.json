@@ -27,7 +27,7 @@
     "browserify": "~17.0",
     "core-js": "~3.26",
     "cssnano": "~5.1",
-    "docsearch.js": "~2.6",
+    "@docsearch/js": "3",
     "eslint": "~6.8",
     "eslint-config-standard": "~14.1",
     "eslint-plugin-import": "~2.22",
