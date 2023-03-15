@@ -26,6 +26,7 @@
 
   function onThemeChange () {
     document.documentElement.classList.toggle('dark-theme', this.checked)
+    document.documentElement.setAttribute('data-theme', this.checked ? 'dark' : 'light')
     saveTheme(this.checked ? 'dark' : 'light')
   }
 
