@@ -1,7 +1,7 @@
 url: /index.html
 component:
   name: security
-version: '5.6.10'
+version: '6.0.2'
 latest:
   url: '/index.html'
 previous:

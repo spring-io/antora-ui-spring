@@ -15,8 +15,8 @@ site:
     versions: &security_versions
     - &security_latest_version
       url: '/index.html'
-      version: '5.6.10'
-      displayVersion: '5.6.10'
+      version: '6.0.2'
+      displayVersion: '6.0.2'
       title: *component_title
       versionSegment: '5.6'
     - &security_5_5_version
@@ -48,8 +48,8 @@ shared:
         url: '#'
         versions:
           - url: '/index.html'
-            version: '5.6.10'
-            displayVersion: '5.6.10'
+            version: '6.0.2'
+            displayVersion: '6.0.2'
             title: *component_title
             versionSegment: '5.6'
           - url: '/5.5/index.html'
@@ -58,8 +58,8 @@ shared:
             versionSegment: '5.5'
       componentVersion: *security_5_5_version
       versions:
-        - version: '5.6.10'
-          displayVersion: '5.6.10'
+        - version: '6.0.2'
+          displayVersion: '6.0.2'
           url: '#'
           versionSegment: '5.6'
         - version: '5.5.9'
@@ -78,7 +78,7 @@ shared:
                   url: '#'
                 - content: Protection Against Exploits
                   url: '#'
-    5.6.10:
+    6.0.2:
       home: true
       title: Spring Security
       relativeSrcPath: index.adoc
@@ -89,8 +89,8 @@ shared:
         versions: *security_versions
       componentVersion: *security_latest_version
       versions:
-        - version: '5.6.10'
-          displayVersion: '5.6.10'
+        - version: '6.0.2'
+          displayVersion: '6.0.2'
           url: '#'
           versionSegment: '5.6'
         - version: '5.5.9'
