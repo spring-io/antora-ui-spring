@@ -10,6 +10,7 @@
       appId: config.appId,
       indexName: config.indexName,
       apiKey: config.apiKey,
+      searchParameters: [`version:${config.pageVersion}`]
     })
   }
 })()
