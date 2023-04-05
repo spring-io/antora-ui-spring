@@ -10,9 +10,7 @@
       appId: config.appId,
       indexName: config.indexName,
       apiKey: config.apiKey,
-      // searchParameters: {
-      //   facetFilters: ['version:6.0.2'],
-      // },
+      searchParameters: { facetFilters: [`version:${config.pageVersion}`] },
     })
   }
 })()
