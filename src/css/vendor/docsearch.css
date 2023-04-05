@@ -2,7 +2,7 @@
 @import "https://cdn.jsdelivr.net/npm/@docsearch/css@3";
 
 .DocSearch-Button {
-  margin:0;
+  margin: 0;
   width: 100%;
   border-radius: 0;
   height: 40px;
@@ -18,17 +18,14 @@
 
 .DocSearch-Button .DocSearch-Search-Icon {
   color: var(--docsearch-muted-color);
+  width: 18px;
+  margin: 0 3px;
 }
 
 .DocSearch-Button:hover .DocSearch-Search-Icon {
-  color:var(--docsearch-text-color);
+  color: var(--docsearch-text-color);
 }
 
 .DocSearch-Button-Placeholder {
   font-size: 14px;
-}
-
-.DocSearch-Button .DocSearch-Search-Icon {
-  width: 18px;
-  margin: 0 3px;
 }
