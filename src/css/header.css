@@ -293,27 +293,26 @@ body {
 .search {
   align-items: center;
   border-left: 1px solid var(--toolbar-border-color);
-  display: flex;
+  display: block;
   height: 100%;
-  padding: 8px 10px;
   position: relative;
   width: 192px;
 }
 
-.search .field {
+/* .search .field {
   align-items: center;
   border: 1px solid var(--kbd-border-color);
   border-radius: 0.1em;
   display: flex;
   flex: auto;
   height: inherit;
-}
+} */
 
-.search .field * {
+/* .search .field * {
   color: var(--body-font-dark-color);
-}
+} */
 
-.search .query {
+/* .search .query {
   background: transparent;
   border: none;
   flex: auto;
@@ -330,7 +329,7 @@ body {
 
 .search .query:focus {
   outline: none;
-}
+} */
 
 .edit-this-page {
   height: 40px;
