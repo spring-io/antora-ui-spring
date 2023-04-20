@@ -2,7 +2,5 @@
 <script async src="{{{uiRootPath}}}/js/vendor/highlight.js"></script>
 <script async src="{{{uiRootPath}}}/js/vendor/{{#if (asciidocExtensionRegistered '@asciidoctor/tabs')}}asciidoctor{{else}}spring{{/if}}-tabs.js" data-sync-storage-key="docs:preferred-tab"></script>
 {{#if env.ALGOLIA_API_KEY}}
-{{#if (and page.latest (eq page.url page.latest.url))}}
 <script async id="search-script" src="{{{uiRootPath}}}/js/vendor/docsearch.js"{{#if env.ALGOLIA_APP_ID}} data-app-id="{{env.ALGOLIA_APP_ID}}"{{/if}} data-api-key="{{env.ALGOLIA_API_KEY}}" data-index-name="{{env.ALGOLIA_INDEX_NAME}}" data-stylesheet="{{{uiRootPath}}}/css/vendor/docsearch.css" data-page-version="{{{page.version}}}"></script>
-{{/if}}
 {{/if}}
