@@ -19,15 +19,16 @@
   "devDependencies": {
     "@asciidoctor/core": "~2.2",
     "@asciidoctor/tabs": "1.0.0-beta.3",
+    "@docsearch/js": "3",
     "@fontsource/roboto": "~4.5",
     "@fontsource/roboto-mono": "~4.5",
     "@springio/asciidoctor-extensions": "1.0.0-alpha.8",
+    "algoliasearch": "4",
     "autoprefixer": "~10.4",
     "browser-pack-flat": "~3.5",
     "browserify": "~17.0",
     "core-js": "~3.26",
     "cssnano": "~5.1",
-    "@docsearch/js": "3",
     "eslint": "~6.8",
     "eslint-config-standard": "~14.1",
     "eslint-plugin-import": "~2.22",
@@ -46,8 +47,10 @@
     "gulp-vinyl-zip": "~2.5",
     "handlebars": "~4.7",
     "highlight.js": "9.18.3",
+    "instantsearch.js": "^4.54.1",
     "js-yaml": "~4.1",
     "merge-stream": "~2.0",
+    "micromodal": "^0.4.10",
     "postcss": "~8.4",
     "postcss-calc": "~8.2",
     "postcss-custom-properties": "~12.1",
@@ -59,5 +62,8 @@
     "stylelint": "~13.13",
     "stylelint-config-standard": "~22.0",
     "vinyl-fs": "~3.0"
+  },
+  "dependencies": {
+    "@algolia/client-search": "^4.17.0"
   }
 }

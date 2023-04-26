@@ -9,6 +9,14 @@
   border: 0 none;
   font-weight: normal;
   line-height: 40px;
+  color: var(--docsearch-text-color);
+  background: white;
+}
+
+.DocSearch-Button:focus {
+  outline: none !important;
+  border: 0 none;
+  box-shadow: none;
 }
 
 .DocSearch-Button:hover {
