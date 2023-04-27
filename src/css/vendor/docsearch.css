@@ -29,3 +29,7 @@
 .DocSearch-Button-Placeholder {
   font-size: 14px;
 }
+
+:root {
+  --docsearch-searchbox-background: var(--body-background-color);
+}
