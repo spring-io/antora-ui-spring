@@ -30,6 +30,7 @@
   font-size: 14px;
 }
 
-:root {
+:root,
+html.dark-theme {
   --docsearch-searchbox-background: var(--body-background-color);
 }
