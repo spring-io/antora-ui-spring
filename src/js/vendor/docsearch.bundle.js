@@ -51,37 +51,42 @@
         return
       }
       const _hits = transformItems(hits)
-      container.querySelector('ul').innerHTML = _hits
-        .map((hit) => {
-          let content = ''
-          let breadcrumbs = ''
 
-          if (hit.content) {
-            content = `<p class="hit-description">
-              ${instantsearch.snippet({ hit: hit, attribute: 'content' })}
-            </p>`
-          }
+      if (hits.length === 0) {
+        container.querySelector('ul').innerHTML = '<li class="no-result">No result</li>'
+      } else {
+        container.querySelector('ul').innerHTML = _hits
+          .map((hit) => {
+            let content = ''
+            let breadcrumbs = ''
 
-          if (hit.breadcrumbs) {
-            breadcrumbs = `<div class="hit-breadcrumbs">
-              ${hit.breadcrumbs.map((chain) => {
-                const arr = chain.split('|')
-                return `<span>${arr[0]}</span>`
-              }).join(' > ')}
-            </div>`
-          }
+            if (hit.content) {
+              content = `<p class="hit-description">
+                ${instantsearch.snippet({ hit: hit, attribute: 'content' })}
+              </p>`
+            }
 
-          return `<li>
-            <a href="${hit.url}" class="ais-Hits-item">
-              <div class="hit-name">
-                ${instantsearch.highlight({ hit: hit, attribute: 'label' })}
-              </div>
-              ${breadcrumbs}
-              ${content}
-            </a>
-          </li>`
-        })
-        .join('')
+            if (hit.breadcrumbs) {
+              breadcrumbs = `<div class="hit-breadcrumbs">
+                ${hit.breadcrumbs.map((chain) => {
+                  const arr = chain.split('|')
+                  return `<span>${arr[0]}</span>`
+                }).join(' > ')}
+              </div>`
+            }
+
+            return `<li>
+              <a href="${hit.url}" class="ais-Hits-item">
+                <div class="hit-name">
+                  ${instantsearch.highlight({ hit: hit, attribute: 'label' })}
+                </div>
+                ${breadcrumbs}
+                ${content}
+              </a>
+            </li>`
+          })
+          .join('')
+      }
     }
   )
 
@@ -94,7 +99,7 @@
       container: '#searchbox',
       autofocus: true,
       showSubmit: false,
-      showReset: false,
+      showReset: true,
       placeholder: 'Search in the current documentation',
     }),
     infiniteHits({
@@ -108,7 +113,6 @@
 
   document.getElementById('search').addEventListener('click', () => {
     MicroModal.show('modal-1', {
-      // onClose: (modal) => console.info(`${modal.id} is hidden`),
       disableScroll: true,
     })
   })

@@ -19,7 +19,7 @@
 }
 
 .modal__container {
-  background-color: #fff;
+  background-color: var(--body-background-color);
   /* padding: 30px; */
   max-width: 500px;
   min-width: 50%;
@@ -149,28 +149,54 @@
   height: 300px; */
 }
 .ais-SearchBox { 
-  position: sticky;
+  position: relative;
   top: 0;
   height: 52px;
-  background: #fff;
+  background: var(--body-background-color);
   border-bottom: 1px solid #dce8e8;
+}
+
+.ais-SearchBox-reset {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 10px;
+}
+
+.ais-SearchBox-reset svg {
+  fill: var(--body-font-color);
+}
+
+.ais-SearchBox-reset:hover svg {
+  fill: var(--color-accent-3);
 }
 
 .ais-SearchBox-input {
   display: block;
   width: 100%;
   border: 0 none;
-  background: #fff;
+  background: var(--body-background-color);
   height: 50px;
   line-height: 50px;
   padding: 7px 15px 3px;
   font-size: 17px;
   font-family: "Metropolis",Arial,sans-serif;
+  color: var(--body-font-color);
+}
+
+.ais-SearchBox-input::-webkit-search-decoration,
+.ais-SearchBox-input::-webkit-search-cancel-button,
+.ais-SearchBox-input::-webkit-search-results-button,
+.ais-SearchBox-input::-webkit-search-results-decoration {
+  -webkit-appearance:none;
 }
 
 .ais-SearchBox-input::placeholder {
   font-style: italic;
-  color: #000;
+  color: var(--body-font-color);
   font-weight: lighter;
 }
 
@@ -182,7 +208,7 @@
 
 a.ais-Hits-item { 
   display: block;
-  color: #000;
+  color: var(--body-font-color);
   text-decoration: none;
   padding: 1rem;
 }
@@ -218,3 +244,36 @@ a.ais-Hits-item:hover {
   font-size: .9rem;
   color: rgba(0,0,0,0.7)
 }
+
+.modal #hits ul li.no-result {
+  display: block;
+  color: var(--body-font-color);
+  padding: 1rem;
+  font-style: italic;
+  border: none;
+  opacity: .6;
+}
+
+.dark-theme .modal .hit-description, 
+.dark-theme .modal .hit-breadcrumbs {
+  color: rgba(255,255,255,.7);
+}
+
+.dark-theme .ais-SearchBox,
+.dark-theme .modal #hits ul li {
+  border-color: var(--nav-panel-divider-color);
+}
+
+.dark-theme a.ais-Hits-item:hover {
+  background-color: rgba(255,255,255,.1);
+}
+
+.dark-theme mark.ais-Highlight-highlighted,
+.dark-theme mark.ais-Snippet-highlighted {
+  color: white;
+  background: #6db33f;
+}
+
+/* .ais-Searchbox::-webkit-search-cancel-button {
+  color: white;
+} */
