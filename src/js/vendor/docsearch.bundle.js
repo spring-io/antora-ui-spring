@@ -100,7 +100,7 @@
       autofocus: true,
       showSubmit: false,
       showReset: true,
-      placeholder: 'Search in the current documentation',
+      placeholder: `Search in the current documentation ${config.pageVersion}`,
     }),
     infiniteHits({
       container: document.querySelector('#hits'),
