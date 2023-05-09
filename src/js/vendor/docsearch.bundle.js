@@ -31,51 +31,52 @@
     })
   }
 
-  const infiniteHits = instantsearch.connectors.connectInfiniteHits(
-    (renderArgs, isFirstRender) => {
-      const { hits, showMore, widgetParams } = renderArgs
-      const { container } = widgetParams
-      lastRenderArgs = renderArgs
-      if (isFirstRender) {
-        const sentinel = document.createElement('div')
-        container.appendChild(document.createElement('ul'))
-        container.appendChild(sentinel)
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !lastRenderArgs.isLastPage) {
-              showMore()
-            }
-          })
+  const infiniteHits = instantsearch.connectors.connectInfiniteHits((renderArgs, isFirstRender) => {
+    const { hits, showMore, widgetParams } = renderArgs
+    const { container } = widgetParams
+    lastRenderArgs = renderArgs
+    if (isFirstRender) {
+      const sentinel = document.createElement('div')
+      container.appendChild(document.createElement('ul'))
+      container.appendChild(sentinel)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !lastRenderArgs.isLastPage) {
+            showMore()
+          }
         })
-        observer.observe(sentinel)
-        return
-      }
-      const _hits = transformItems(hits)
+      })
+      observer.observe(sentinel)
+      return
+    }
+    const _hits = transformItems(hits)
 
-      if (hits.length === 0) {
-        container.querySelector('ul').innerHTML = '<li class="no-result">No result</li>'
-      } else {
-        container.querySelector('ul').innerHTML = _hits
-          .map((hit) => {
-            let content = ''
-            let breadcrumbs = ''
+    if (hits.length === 0) {
+      container.querySelector('ul').innerHTML = '<li class="no-result">No result</li>'
+    } else {
+      container.querySelector('ul').innerHTML = _hits
+        .map((hit) => {
+          let content = ''
+          let breadcrumbs = ''
 
-            if (hit.content) {
-              content = `<p class="hit-description">
+          if (hit.content) {
+            content = `<p class="hit-description">
                 ${instantsearch.snippet({ hit: hit, attribute: 'content' })}
               </p>`
-            }
+          }
 
-            if (hit.breadcrumbs) {
-              breadcrumbs = `<div class="hit-breadcrumbs">
-                ${hit.breadcrumbs.map((chain) => {
-                  const arr = chain.split('|')
-                  return `<span>${arr[0]}</span>`
-                }).join(' > ')}
+          if (hit.breadcrumbs) {
+            breadcrumbs = `<div class="hit-breadcrumbs">
+                ${hit.breadcrumbs
+                  .map((chain) => {
+                    const arr = chain.split('|')
+                    return `<span>${arr[0]}</span>`
+                  })
+                  .join(' > ')}
               </div>`
-            }
+          }
 
-            return `<li>
+          return `<li>
               <a href="${hit.url}" class="ais-Hits-item">
                 <div class="hit-name">
                   ${instantsearch.highlight({ hit: hit, attribute: 'label' })}
@@ -84,11 +85,10 @@
                 ${content}
               </a>
             </li>`
-          })
-          .join('')
-      }
+        })
+        .join('')
     }
-  )
+  })
 
   search.addWidgets([
     instantsearch.widgets.configure({
