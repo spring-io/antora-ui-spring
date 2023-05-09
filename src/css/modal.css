@@ -1,84 +1,27 @@
-/**************************\
-  Basic Modal Styles
-\**************************/
-
-/* .modal {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
-    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-} */
-
 .modal__overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(235,242,242,.8);
+  background: rgba(235, 242, 242, 0.8);
   z-index: 999;
   padding: 3rem;
 }
 
 .modal__container {
   background-color: var(--body-background-color);
-  /* padding: 30px; */
   max-width: 500px;
   min-width: 50%;
   margin: 0 auto;
   height: auto;
 }
 
-
 .modal__content {
-  /* margin-top: 2rem;
-  margin-bottom: 2rem; */
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.8);
 }
 
-/* 
-.modal__btn {
-  font-size: 0.875rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  background-color: #e6e6e6;
-  color: rgba(0, 0, 0, 0.8);
-  border-radius: 0.25rem;
-  border-style: none;
-  border-width: 0;
-  cursor: pointer;
-  -webkit-appearance: button;
-  text-transform: none;
-  overflow: visible;
-  line-height: 1.15;
-  margin: 0;
-  will-change: transform;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  transition: -webkit-transform 0.25s ease-out;
-  transition: transform 0.25s ease-out;
-  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
-} 
-
-.modal__btn:focus,
-.modal__btn:hover {
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
-}
-
-.modal__btn-primary {
-  background-color: #00449e;
-  color: #fff;
-}
-*/
-
-/**************************\
-    Demo Animation Style
-  \**************************/
 @keyframes mmfadeIn {
   from {
     opacity: 0;
@@ -144,11 +87,7 @@
   will-change: transform;
 }
 
-#searchbox {
-  /* width: 500px;
-  height: 300px; */
-}
-.ais-SearchBox { 
+.ais-SearchBox {
   position: relative;
   top: 0;
   height: 52px;
@@ -183,7 +122,7 @@
   line-height: 50px;
   padding: 7px 15px 3px;
   font-size: 17px;
-  font-family: "Metropolis",Arial,sans-serif;
+  font-family: "Metropolis", Arial, sans-serif;
   color: var(--body-font-color);
 }
 
@@ -191,7 +130,7 @@
 .ais-SearchBox-input::-webkit-search-cancel-button,
 .ais-SearchBox-input::-webkit-search-results-button,
 .ais-SearchBox-input::-webkit-search-results-decoration {
-  -webkit-appearance:none;
+  -webkit-appearance: none;
 }
 
 .ais-SearchBox-input::placeholder {
@@ -206,7 +145,7 @@
   outline: none;
 }
 
-a.ais-Hits-item { 
+a.ais-Hits-item {
   display: block;
   color: var(--body-font-color);
   text-decoration: none;
@@ -215,7 +154,7 @@ a.ais-Hits-item {
 
 a.ais-Hits-item:hover {
   text-decoration: none;
-  background-color: #F2f2f2;
+  background-color: #f2f2f2;
 }
 
 .modal #hits {
@@ -238,11 +177,12 @@ a.ais-Hits-item:hover {
   border-bottom: none;
 }
 
-.modal .hit-description, .modal .hit-breadcrumbs {
+.modal .hit-description,
+.modal .hit-breadcrumbs {
   margin: 0;
   padding: 0;
-  font-size: .9rem;
-  color: rgba(0,0,0,0.7)
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .modal #hits ul li.no-result {
@@ -251,12 +191,12 @@ a.ais-Hits-item:hover {
   padding: 1rem;
   font-style: italic;
   border: none;
-  opacity: .6;
+  opacity: 0.6;
 }
 
-.dark-theme .modal .hit-description, 
+.dark-theme .modal .hit-description,
 .dark-theme .modal .hit-breadcrumbs {
-  color: rgba(255,255,255,.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .dark-theme .ais-SearchBox,
@@ -265,7 +205,7 @@ a.ais-Hits-item:hover {
 }
 
 .dark-theme a.ais-Hits-item:hover {
-  background-color: rgba(255,255,255,.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .dark-theme mark.ais-Highlight-highlighted,
@@ -275,5 +215,5 @@ a.ais-Hits-item:hover {
 }
 
 .dark-theme .modal__overlay {
-  background: rgba(0,0,0,0.85);
+  background: rgba(0, 0, 0, 0.85);
 }
