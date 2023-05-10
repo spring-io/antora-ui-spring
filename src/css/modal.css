@@ -98,7 +98,7 @@
 .ais-SearchBox-reset {
   position: absolute;
   top: 6px;
-  right: 6px;
+  right: 136px;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -121,6 +121,7 @@
   height: 50px;
   line-height: 50px;
   padding: 7px 15px 3px;
+  padding-right: 160px;
   font-size: 17px;
   font-family: "Metropolis", Arial, sans-serif;
   color: var(--body-font-color);
@@ -216,4 +217,21 @@ a.ais-Hits-item:hover {
 
 .dark-theme .modal__overlay {
   background: rgba(0, 0, 0, 0.85);
+}
+
+.search-by {
+  position: absolute;
+  top: 17px;
+  right: 15px;
+}
+
+.search-by .dark {
+  display: none;
+}
+
+.dark-theme .search-by .dark {
+  display: inline-block;
+}
+.dark-theme .search-by .light {
+  display: none;
 }
