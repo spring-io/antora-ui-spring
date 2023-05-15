@@ -1,51 +1,76 @@
-#switch-theme label {
+.theme-toggler {
+  display: inline-block;
+  height: 10px;
+  width: 36px;
+  background: #d7e7e7;
+  align-self: center;
+  position: relative;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-right: 1rem;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.theme-toggler input {
+  opacity: 0;
+}
+.theme-toggler .moon {
+  display: none;
+}
+.theme-toggler span.text {
+  display: block;
+  overflow: hidden;
+  text-indent: -6000em;
+  background-color: transparent;
+}
+.theme-toggler span.icon {
+  position: absolute;
+  top: -7px;
+  left: -1px;
+  display: block;
+  background: black;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  transition: left 0.5s;
+}
+.theme-toggler span.icon svg {
+  overflow: visible;
+  box-sizing: content-box;
+  height: 1em;
+}
+.theme-toggler span.icon .moon {
+  margin-left: 7px;
+  margin-top: 5px;
+}
+.theme-toggler span.icon .sun {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.theme-toggler:has(input:checked) {
+  background: #41464b;
+}
+
+.theme-toggler:has(input:checked) span.icon {
+  background: white;
+  color: black;
+  left: 14px;
+}
+
+.theme-toggler:has(input:checked) span.icon .sun {
   display: none;
 }
 
-#switch-theme {
+.theme-toggler:has(input:checked) span.icon .moon {
   display: block;
-  float: right;
-  margin: 13px 13px 0 0;
 }
 
-#switch-theme input {
-  cursor: pointer;
-  appearance: none;
-  position: relative;
-  width: 40px;
-  height: 22px;
-  filter: var(--layout-switchtheme-invert-filter);
-  background: no-repeat url("../img/octicons-16.svg#view-sun") 90% 50% / 16px 16px, no-repeat url("../img/octicons-16.svg#view-moon") 10% 50% / 16px 16px;
-  background-color: var(--layout-switchtheme-background-color);
-  border-radius: 25px;
-  outline: none;
-}
-
-#switch-theme input::before {
-  filter: var(--layout-switchtheme-invert-filter);
-  content: "";
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  height: 18px;
-  width: 18px;
-  border-radius: 25px;
-  background-color: var(--layout-switchtheme-button-color);
-  transition: transform 200ms;
-}
-
-#switch-theme:hover input::before {
-  background-color: var(--layout-switchtheme-button-hover-color);
-}
-
-#switch-theme input:checked::before {
-  transform: translateX(18px);
-}
-
-@media screen and (max-width: 1023.5px) {
-  #switch-theme {
-    margin: 0;
-    margin-right: 5px;
-    margin-top: -2px;
+@media screen and (max-width: 1024px) {
+  .theme-toggler {
+    position: absolute;
+    right: 0;
+    top: 90px;
   }
 }

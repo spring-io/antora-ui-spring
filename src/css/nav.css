@@ -85,6 +85,7 @@ html.is-clipped--nav {
 .nav-menu {
   min-height: 100%;
   padding: 0.5rem 0.75rem;
+  padding-top: 40px;
   line-height: var(--nav-line-height);
   position: relative;
 }
@@ -92,9 +93,9 @@ html.is-clipped--nav {
 .nav-menu h3.title {
   color: var(--nav-heading-font-color);
   font-size: inherit;
-  font-weight: var(--body-font-weight-bold);
+  font-weight: bold;
   margin: 0;
-  padding: 0.25em 0 0.125em;
+  padding: 0.25rem 0 0.4rem 0;
 }
 
 .nav-menu a {
@@ -205,7 +206,6 @@ html.is-clipped--nav {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
 }
 
@@ -217,15 +217,18 @@ html.is-clipped--nav {
 .nav-panel-explore .context {
   font-size: calc(15 / var(--rem-base) * 1rem);
   flex-shrink: 0;
-  color: var(--nav-muted-color);
-  box-shadow: 0 -1px 0 var(--nav-panel-divider-color);
-  padding: 0 0.5rem;
+  color: var(--body-font-color);
+  padding: 0 0.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
   line-height: 1;
   height: var(--drawer-height);
+}
+
+.nav-panel-explore .context .title {
+  font-weight: bold;
 }
 
 .nav-panel-explore .context .version {

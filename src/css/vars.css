@@ -19,7 +19,8 @@
   /* General */
   --html-font-size: 1em;
   --pixel-to-rem: 16 * 1rem;
-  --font-family: -apple-system, blinkmacsystemfont, "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family: "Open Sans", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-special: "Metropolis", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-weight: 400;
   --monospace-font-family: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", monospace;
   --body-background-color: white;
@@ -32,7 +33,7 @@
   --body-font-dark-color: #141818;
   --link-font-color: #1565c0;
   --link_hover-font-color: #104d92;
-  --mark-background-color: #6db33f;
+  --mark-background-color: #39ff14;
   --selected-background-color: #191e1e;
   /* fonts */
   --rem-base: 18; /* used to compute rem value from desired pixel value (e.g., calc(18 / var(--rem-base) * 1rem) = 18px) */
@@ -41,7 +42,7 @@
   --body-font-size--print: 0.9375em; /* 15px */
   --body-line-height: 1.15;
   --body-font-color: #191e1e;
-  --body-font-family: "Roboto", sans-serif;
+  --body-font-family: "Open Sans", sans;
   --body-font-weight-bold: 500;
   --monospace-font-weight-bold: 500;
   /* base */
@@ -140,7 +141,7 @@
   --footer-line-height: var(--doc-line-height);
   --footer-background: var(--color-white);
   --footer-font-color: var(--color-gray-30);
-  --footer-link-font-color: var(--color-gray-30);
+  --footer-link-font-color: #111;
   /* dimensions and positioning */
   --navbar-height: calc(83 / var(--rem-base) * 1rem);
   --toolbar-height: calc(45 / var(--rem-base) * 1rem);
@@ -151,8 +152,8 @@
   --nav-height--desktop: var(--body-min-height);
   --nav-panel-menu-height: calc(100% - var(--drawer-height));
   --nav-panel-explore-height: calc(50% + var(--drawer-height));
-  --nav-width: calc(270 / var(--rem-base) * 1rem);
-  --toc-top: calc(var(--body-top) + var(--toolbar-height));
+  --nav-width: calc(300 / var(--rem-base) * 1rem);
+  --toc-top: calc(var(--body-top));
   --toc-height: calc(100vh - var(--toc-top) - 2.5rem);
   --toc-width: calc(162 / var(--rem-base) * 1rem);
   --toc-width--widescreen: calc(216 / var(--rem-base) * 1rem);

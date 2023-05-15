@@ -34,7 +34,8 @@ html.dark-theme .nav-toggle {
 }
 
 @media screen and (min-width: 1024px) {
-  .nav-toggle {
+  .nav-toggle,
+  .toolbar {
     display: none;
   }
 }
@@ -60,19 +61,4 @@ html.dark-theme .nav-toggle.is-active {
 .home-link:hover,
 .home-link.is-current {
   background-image: url(../img/home.svg);
-}
-
-.edit-this-page {
-  display: none;
-  padding-right: 0.5rem;
-}
-
-@media screen and (min-width: 1024px) {
-  .edit-this-page {
-    display: block;
-  }
-}
-
-.toolbar .edit-this-page a {
-  color: var(--toolbar-muted-color);
 }

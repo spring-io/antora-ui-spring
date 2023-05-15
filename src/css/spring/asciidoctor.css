@@ -132,7 +132,9 @@
 }
 
 .doc h1:first-child {
-  margin: 1.3rem 0;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.3rem;
 }
 
 .doc h2:not(.discrete) {
@@ -208,11 +210,21 @@
 .doc p code,
 .doc thead code,
 .doc .admonitionblock code {
-  color: var(--asciidoctor-code-font-color);
-  background: var(--asciidoctor-code-background);
-  border-radius: 0.25em;
+  background-color: #fff;
+  border: 1px solid #e1e1e8;
+  color: #009;
+  border-radius: 0;
   font-size: 0.95em;
   padding: 0.125em 0.25em;
+  font-weight: normal;
+}
+
+html.dark-theme .doc p code,
+html.dark-theme .doc thead code,
+html.dark-theme .doc .admonitionblock code {
+  background-color: #1b1f23;
+  border-color: #2b2f33;
+  color: #fff;
 }
 
 .doc p a code,
@@ -224,6 +236,7 @@
 .doc code,
 .doc pre {
   hyphens: none;
+  font-weight: normal;
 }
 
 .doc pre {

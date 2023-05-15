@@ -9,6 +9,7 @@ footer.footer {
 
 .footer p {
   margin: 0.5rem 0;
+  color: var(--footer-link-font-color);
 }
 
 .footer a {
@@ -17,4 +18,8 @@ footer.footer {
 
 .footer a:hover {
   color: var(--link-font-color);
+}
+
+.footer .has-gray-text {
+  color: #b5b5b5;
 }

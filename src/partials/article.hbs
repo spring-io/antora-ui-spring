@@ -1,4 +1,6 @@
-<article class="doc">
+<div class="doc">
+{{> breadcrumbs}}
+<article>
 {{> article-latest}}
 {{#with page.title}}
 <h1 id="page-title" class="page">{{{this}}}</h1>
@@ -7,3 +9,4 @@
 {{> nav-section-summary}}
 {{> pagination}}
 </article>
+</div>
