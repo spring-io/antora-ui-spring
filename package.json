@@ -62,6 +62,7 @@
     "vinyl-fs": "~3.0"
   },
   "dependencies": {
-    "@algolia/client-search": "^4.17.0"
+    "@algolia/client-search": "^4.17.0",
+    "keyboardjs": "^2.7.0"
   }
 }

@@ -5,15 +5,22 @@
   display: block;
   margin: 0;
   width: 100%;
-  border-radius: 20px;
-  height: 40px;
+  border-radius: 18px;
+  height: 36px;
   font-weight: normal;
-  line-height: 40px;
+  line-height: 36px;
   color: var(--body-font-color);
   background: var(--body-background-color);
   text-align: left;
   padding-left: 35px;
   border: 1px solid var(--nav-border-color);
+}
+
+.DocSearch-Button span {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  opacity: .4;
 }
 
 .DocSearch-Button:focus {
@@ -50,8 +57,27 @@
 
 .DocSearch-Button svg {
   position: absolute;
-  top: 10px;
+  top: 8px;
   left: 10px;
   width: 20px;
   fill: var(--body-font-color);
+}
+
+#showmore a {
+  display: block;
+  text-align: center;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+
+#showmore {
+  border-top: 1px solid #dce8e8;
+}
+#showmore a:hover {
+  color: var(--link_hover-font-color);
+}
+
+
+.dark-theme #showmore {
+  border-color: var(--nav-panel-divider-color);
 }

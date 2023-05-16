@@ -2,7 +2,8 @@
 
 ;(function () {
   'use strict'
-  var MicroModal = require('micromodal')
+  const MicroModal = require('micromodal')
+  const KeyboardJS = require('keyboardjs')
   const config = document.getElementById('search-script').dataset
   const client = algoliasearch(config.appId, config.apiKey)
 
@@ -13,14 +14,26 @@
 
   let lastRenderArgs
 
+  const isMac = () => navigator.platform.indexOf('Mac') > -1
+
   const transformItems = (items) => {
     return items.map((item) => {
-      const label = Object.keys(item.hierarchy).reduce((acc, key) => {
-        if (item._highlightResult.hierarchy[key]) {
+      let label = Object.keys(item.hierarchy).reduce((acc, key) => {
+        const highlight = item._highlightResult.hierarchy[key]
+        if (highlight && highlight.matchLevel !== 'none') {
           return item._highlightResult.hierarchy[key]
         }
         return acc
       }, '')
+      if (!label) {
+        label = Object.keys(item.hierarchy).reduce((acc, key) => {
+          const highlight = item._highlightResult.hierarchy[key]
+          if (highlight) {
+            return item._highlightResult.hierarchy[key]
+          }
+          return acc
+        }, '')
+      }
       return {
         ...item,
         _highlightResult: {
@@ -50,6 +63,9 @@
       return
     }
     const _hits = transformItems(hits)
+    if (container.querySelector('#showmore')) {
+      container.removeChild(container.querySelector('#showmore'))
+    }
 
     if (hits.length === 0) {
       container.querySelector('ul').innerHTML = '<li class="no-result">No result</li>'
@@ -87,12 +103,26 @@
             </li>`
         })
         .join('')
+      if (!lastRenderArgs.isLastPage) {
+        const more = document.createElement('div')
+        const link = document.createElement('a')
+        more.setAttribute('id', 'showmore')
+        link.addEventListener('click', () => {
+          showMore()
+          return false
+        })
+        link.innerHTML = 'Show more'
+        more.appendChild(link)
+        container.appendChild(more)
+      }
     }
   })
 
   search.addWidgets([
     instantsearch.widgets.configure({
       facetFilters: [`version:${config.pageVersion}`],
+      attributesToSnippet: ['content'],
+      attributesToHighlight: ['hierarchy'],
       distinct: true,
     }),
     instantsearch.widgets.searchBox({
@@ -111,9 +141,19 @@
 
   MicroModal.init()
 
-  document.getElementById('search').addEventListener('click', () => {
+  const open = () => {
     MicroModal.show('modal-1', {
       disableScroll: true,
     })
+  }
+
+  document.getElementById('search').addEventListener('click', () => {
+    open()
+  })
+
+  const command = isMac() ? 'command' : 'ctrl'
+  document.getElementById('search-key').innerHTML = `${isMac() ? '⌘' : 'CTRL'} + k`
+  KeyboardJS.bind(`${command} > k`, () => {
+    open()
   })
 })()
