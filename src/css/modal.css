@@ -95,6 +95,22 @@
   border-bottom: 1px solid #dce8e8;
 }
 
+#counter {
+  display: block;
+  height: 40px;
+  text-align: left;
+  line-height: 40px;
+  padding: 0 1rem;
+  border-bottom: 1px solid #dce8e8;
+  font-size: .9rem;
+  color: var(--body-font-color);
+}
+
+#counter strong {
+  color: var(--color-accent-3);
+  font-weight: bold;
+}
+
 .ais-SearchBox-reset {
   position: absolute;
   top: 6px;
@@ -250,6 +266,11 @@ a.ais-Hits-item:hover {
 .dark-theme .search-by .dark {
   display: inline-block;
 }
+
 .dark-theme .search-by .light {
   display: none;
+}
+
+.dark-theme #counter {
+  border-color: var(--nav-panel-divider-color);
 }

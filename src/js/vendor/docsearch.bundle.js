@@ -67,9 +67,13 @@
       container.removeChild(container.querySelector('#showmore'))
     }
 
+    const nbHits = renderArgs.results.nbHits
     if (hits.length === 0) {
       container.querySelector('ul').innerHTML = '<li class="no-result">No result</li>'
+      document.querySelector('#counter').style.display = 'none'
     } else {
+      document.querySelector('#counter').innerHTML = `<strong>${nbHits}</strong> result${nbHits > 1 ? 's' : ''} found`
+      document.querySelector('#counter').style.display = 'block'
       container.querySelector('ul').innerHTML = _hits
         .map((hit) => {
           let content = ''
