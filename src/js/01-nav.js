@@ -32,16 +32,36 @@
     }
   })
 
-  nav.querySelector('[data-panel=explore] .context').addEventListener('click', function () {
-    // NOTE logic assumes there are only two panels
-    find(nav, '[data-panel]').forEach(function (panel) {
-      panel.classList.toggle('is-active')
-    })
+  var isOpen = false
+
+  function openVersion () {
+    if (!isOpen) {
+      menuPanel.querySelector('.context .version').classList.add('is-active')
+      document.querySelector('#nav-versions').classList.add('is-active')
+      isOpen = true
+    }
+  }
+
+  function closeVersion () {
+    if (isOpen) {
+      menuPanel.querySelector('.context .version').classList.remove('is-active')
+      document.querySelector('#nav-versions').classList.remove('is-active')
+      isOpen = false
+    }
+  }
+
+  menuPanel.querySelector('.context').addEventListener('mousemove', function () {
+    openVersion()
+  })
+
+  document.querySelector('#nav-versions').addEventListener('mouseleave', function () {
+    closeVersion()
   })
 
   // NOTE prevent text from being selected by double click
   menuPanel.addEventListener('mousedown', function (e) {
     if (e.detail > 1) e.preventDefault()
+    closeVersion()
   })
 
   function onHashChange () {
