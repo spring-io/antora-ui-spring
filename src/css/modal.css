@@ -229,6 +229,24 @@ a.ais-Hits-item:hover {
   display: none;
 }
 
+#showmore a {
+  display: block;
+  text-align: center;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+
+#showmore {
+  border-top: 1px solid #dce8e8;
+}
+#showmore a:hover {
+  color: var(--link_hover-font-color);
+}
+
+.dark-theme #showmore {
+  border-color: var(--nav-panel-divider-color);
+}
+
 .dark-theme .search-by .dark {
   display: inline-block;
 }
