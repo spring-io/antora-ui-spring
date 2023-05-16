@@ -50,7 +50,7 @@
     }
   }
 
-  menuPanel.querySelector('.context').addEventListener('mousemove', function () {
+  menuPanel.querySelector('.context .version').addEventListener('mousemove', function () {
     openVersion()
   })
 

@@ -205,8 +205,8 @@ html.is-clipped--nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  cursor: pointer;
   height: 30px;
+  margin-bottom: 0.3rem;
 }
 
 .nav-panel-menu .context .title {
@@ -216,6 +216,7 @@ html.is-clipped--nav {
 .nav-panel-menu .context .version {
   display: flex;
   align-items: inherit;
+  cursor: pointer;
 }
 
 /* .nav-panel-menu .context .version.is-active {
@@ -236,7 +237,7 @@ html.is-clipped--nav {
 .nav-versions {
   border-top: none;
   top: 28px;
-  left: 190px;
+  left: 180px;
   position: absolute;
   background: var(--navbar-menu-background);
   width: 230px;
