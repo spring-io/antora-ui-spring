@@ -20,7 +20,7 @@
   position: absolute;
   right: 20px;
   top: 0;
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .DocSearch-Button:focus {
@@ -76,7 +76,6 @@
 #showmore a:hover {
   color: var(--link_hover-font-color);
 }
-
 
 .dark-theme #showmore {
   border-color: var(--nav-panel-divider-color);
