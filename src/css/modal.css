@@ -6,13 +6,11 @@
   bottom: 0;
   background: rgba(235, 242, 242, 0.8);
   z-index: 999;
-  padding: 3rem;
 }
 
 .modal__container {
   background-color: var(--body-background-color);
-  max-width: 500px;
-  min-width: 50%;
+  width: 100%;
   margin: 0 auto;
   height: auto;
 }
@@ -274,4 +272,15 @@ a.ais-Hits-item:hover {
 
 .dark-theme #counter {
   border-color: var(--nav-panel-divider-color);
+}
+
+@media screen and (min-width: 1024px) {
+  .modal__overlay {
+    padding: 3rem;
+  }
+  .modal__container {
+    max-width: 600px;
+    min-width: 50%;
+    width: auto;
+  }
 }

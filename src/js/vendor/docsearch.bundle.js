@@ -151,12 +151,18 @@
     })
   }
 
-  document.getElementById('search').addEventListener('click', () => {
-    open()
+  document.querySelectorAll('.search-button').forEach((element) => {
+    element.addEventListener('click', () => {
+      open()
+    })
   })
 
   const command = isMac() ? 'command' : 'ctrl'
-  document.getElementById('search-key').innerHTML = `${isMac() ? '⌘' : 'CTRL'} + k`
+
+  document.querySelectorAll('.search-key').forEach((element) => {
+    element.innerHTML = `${isMac() ? '⌘' : 'CTRL'} + k`
+  })
+
   KeyboardJS.bind(`${command} > k`, () => {
     open()
   })

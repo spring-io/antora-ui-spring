@@ -8,22 +8,6 @@
   visibility: hidden;
 }
 
-@media screen and (min-width: 769px) {
-  .nav-container {
-    width: var(--nav-width);
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .nav-container {
-    font-size: calc(15.5 / var(--rem-base) * 1rem);
-    flex: none;
-    position: static;
-    top: 0;
-    visibility: visible;
-  }
-}
-
 .nav-container.is-active {
   visibility: visible;
 }
@@ -34,22 +18,6 @@
   top: var(--toolbar-height);
   height: var(--nav-height);
   border: 0 none;
-}
-
-@media screen and (min-width: 769px) {
-  .nav {
-    box-shadow: 0.5px 0 3px var(--nav-border-color);
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .nav {
-    top: var(--navbar-height);
-    box-shadow: none;
-    position: sticky;
-    height: var(--nav-height--desktop);
-    border-right: 1px solid var(--nav-panel-divider-color);
-  }
 }
 
 .nav .panels {
@@ -202,7 +170,7 @@ html.is-clipped--nav {
   font-size: calc(15 / var(--rem-base) * 1rem);
   flex-shrink: 0;
   color: var(--body-font-color);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   height: 30px;
@@ -390,4 +358,47 @@ html.is-clipped--nav {
 .navbar-brand .page-versions {
   display: inline-block;
   margin-left: -0.5rem;
+}
+
+.nav-menu .search {
+  position: relative;
+  border: 0 none;
+  height: 40px;
+  display: none;
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 769px) {
+  .nav-container {
+    width: var(--nav-width);
+  }
+  .nav {
+    box-shadow: 0.5px 0 3px var(--nav-border-color);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav-container {
+    font-size: calc(15.5 / var(--rem-base) * 1rem);
+    flex: none;
+    position: static;
+    top: 0;
+    visibility: visible;
+  }
+
+  .nav-panel-menu .context {
+    display: flex;
+  }
+
+  .nav-menu .search {
+    display: block;
+  }
+
+  .nav {
+    top: var(--navbar-height);
+    box-shadow: none;
+    position: sticky;
+    height: var(--nav-height--desktop);
+    border-right: 1px solid var(--nav-panel-divider-color);
+  }
 }
