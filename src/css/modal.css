@@ -92,7 +92,6 @@
   top: 0;
   height: 52px;
   background: var(--body-background-color);
-  border-bottom: 1px solid #dce8e8;
 }
 
 #counter {
@@ -114,7 +113,7 @@
 .ais-SearchBox-reset {
   position: absolute;
   top: 6px;
-  right: 136px;
+  right: 10px;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -137,10 +136,11 @@
   height: 50px;
   line-height: 50px;
   padding: 7px 15px 3px;
-  padding-right: 160px;
+  padding-right: 60px;
   font-size: 17px;
   font-family: "Metropolis", Arial, sans-serif;
   color: var(--body-font-color);
+  border-bottom: 2px solid #dce8e8;
 }
 
 .ais-SearchBox-input::-webkit-search-decoration,
@@ -160,6 +160,7 @@
   box-shadow: none;
   border: 0 none;
   outline: none;
+  border-bottom: 2px solid var(--color-accent-3);
 }
 
 a.ais-Hits-item {
@@ -205,7 +206,7 @@ a.ais-Hits-item:hover {
 .modal #hits ul li.no-result {
   display: block;
   color: var(--body-font-color);
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   font-style: italic;
   border: none;
   opacity: 0.6;
@@ -237,7 +238,7 @@ a.ais-Hits-item:hover {
 
 .search-by {
   position: absolute;
-  top: 17px;
+  top: 62px;
   right: 15px;
 }
 

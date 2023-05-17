@@ -100,6 +100,12 @@ body {
   font-family: var(--font-family-special);
 }
 
+.navbar-item {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--font-family);
+}
+
 .navbar-item:hover,
 .navbar-link:hover {
   text-decoration: none;
@@ -293,7 +299,6 @@ body {
 }
 
 .navbar-dropdown a.navbar-item {
-  font-weight: 400;
   font-size: 16px;
   padding: 0.375rem 1rem;
 }
