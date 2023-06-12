@@ -142,6 +142,7 @@ html.is-clipped--nav {
   padding: 0.4rem 0.5rem;
   margin: 0 -0.5rem;
   border-radius: 3px;
+  padding-right: 28px;
 }
 
 .nav-link:hover,
