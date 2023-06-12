@@ -14,8 +14,6 @@
 
   let lastRenderArgs
 
-  const isMac = () => navigator.platform.indexOf('Mac') > -1
-
   const transformItems = (items) => {
     return items.map((item) => {
       let label = Object.keys(item.hierarchy).reduce((acc, key) => {
@@ -165,13 +163,14 @@
     })
   })
 
-  const command = isMac() ? 'command' : 'ctrl'
+  const command = 'ctrl'
+  const symbol = 'CTRL'
 
   document.querySelectorAll('.search-key').forEach((element) => {
-    element.innerHTML = `${isMac() ? '⌘' : 'CTRL'} + k`
+    element.innerHTML = `${symbol} + k`
   })
 
-  KeyboardJS.bind(`${command} > k`, () => {
+  KeyboardJS.bind(`${command} > k`, (e) => {
     open()
   })
 })()
