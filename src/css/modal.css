@@ -244,6 +244,12 @@ a.ais-Hits-item:hover {
   display: none;
 }
 
+#nomore {
+  border-top: 1px solid #dce8e8;
+  text-align: center;
+  padding: 1rem 0;
+}
+
 #showmore a {
   display: block;
   text-align: center;
@@ -258,8 +264,13 @@ a.ais-Hits-item:hover {
   color: var(--link_hover-font-color);
 }
 
-.dark-theme #showmore {
+.dark-theme #showmore, .dark-theme #nomore {
   border-color: var(--nav-panel-divider-color);
+}
+
+.dark-theme #nomore {
+  border-color: var(--nav-panel-divider-color);
+  color: #FFF;
 }
 
 .dark-theme .search-by .dark {

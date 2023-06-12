@@ -66,6 +66,9 @@
     if (container.querySelector('#showmore')) {
       container.removeChild(container.querySelector('#showmore'))
     }
+    if (container.querySelector('#nomore')) {
+      container.removeChild(container.querySelector('#nomore'))
+    }
 
     const nbHits = renderArgs.results.nbHits
     if (hits.length === 0) {
@@ -118,6 +121,11 @@
         link.innerHTML = 'Show more'
         more.appendChild(link)
         container.appendChild(more)
+      } else {
+        const noMore = document.createElement('div')
+        noMore.setAttribute('id', 'nomore')
+        noMore.innerHTML = 'No more result'
+        container.appendChild(noMore)
       }
     }
   })
