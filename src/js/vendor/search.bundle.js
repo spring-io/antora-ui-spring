@@ -3,7 +3,9 @@
 ;(function () {
   'use strict'
   const MicroModal = require('micromodal')
-  const KeyboardJS = require('keyboardjs')
+
+  const isMac = () => navigator.platform.indexOf('Mac') > -1
+
   const config = document.getElementById('search-script').dataset
   const client = algoliasearch(config.appId, config.apiKey)
 
@@ -163,14 +165,15 @@
     })
   })
 
-  const command = 'ctrl'
-  const symbol = 'CTRL'
+  const command = isMac() ? 'cmd' : 'ctrl'
+  const symbol = isMac() ? '⌘' : 'CTRL'
 
   document.querySelectorAll('.search-key').forEach((element) => {
     element.innerHTML = `${symbol} + k`
   })
 
-  KeyboardJS.bind(`${command} > k`, (e) => {
+  hotkeys(`${command}+k`, function (event, handler) {
+    event.preventDefault()
     open()
   })
 })()

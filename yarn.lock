@@ -5141,11 +5141,6 @@
   "resolved" "https://registry.npmjs.org/just-debounce/-/just-debounce-1.1.0.tgz"
   "version" "1.1.0"
 
-"keyboardjs@^2.7.0":
-  "integrity" "sha512-3tiQuAoLM1M5Xyo/eQVaqsq9joByTRkB0Byga+0S7BYJvY4HIlfW0SofOj4a20YSAFjv0SIFU/lw+Qjp6KYHPA=="
-  "resolved" "https://registry.npmjs.org/keyboardjs/-/keyboardjs-2.7.0.tgz"
-  "version" "2.7.0"
-
 "keyv@3.0.0":
   "integrity" "sha512-eguHnq22OE3uVoSYG0LVWNP+4ppamWr9+zWBe1bsNcovIMy6huUJFPgy4mGwCd/rnl3vOLGW1MTlu4c57CT1xA=="
   "resolved" "https://registry.npmjs.org/keyv/-/keyv-3.0.0.tgz"
