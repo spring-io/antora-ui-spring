@@ -20,8 +20,6 @@
     "@asciidoctor/core": "~2.2",
     "@asciidoctor/tabs": "1.0.0-beta.3",
     "@docsearch/js": "3",
-    "@fontsource/roboto": "~4.5",
-    "@fontsource/roboto-mono": "~4.5",
     "@springio/asciidoctor-extensions": "1.0.0-alpha.8",
     "algoliasearch": "4",
     "autoprefixer": "~10.4",

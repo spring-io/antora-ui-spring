@@ -122,6 +122,7 @@
   line-height: 1.3;
   margin: 1.3rem 0 0;
   padding-top: 1.8rem;
+  font-family: var(--font-family-special);
 }
 
 .doc h1.sect0 {
@@ -132,7 +133,9 @@
 }
 
 .doc h1:first-child {
-  margin: 1.3rem 0;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.3rem;
 }
 
 .doc h2:not(.discrete) {
@@ -156,8 +159,9 @@
   position: absolute;
   text-decoration: none;
   width: 2.25ex;
-  margin-left: -2ex;
+  margin-left: -2.5ex;
   padding-left: 0.5ex;
+  margin-top: 0.3ex;
   visibility: hidden;
   font-weight: normal;
 }
@@ -208,11 +212,21 @@
 .doc p code,
 .doc thead code,
 .doc .admonitionblock code {
-  color: var(--asciidoctor-code-font-color);
-  background: var(--asciidoctor-code-background);
-  border-radius: 0.25em;
+  background-color: #fff;
+  border: 1px solid #e1e1e8;
+  color: #009;
+  border-radius: 0;
   font-size: 0.95em;
   padding: 0.125em 0.25em;
+  font-weight: normal;
+}
+
+html.dark-theme .doc p code,
+html.dark-theme .doc thead code,
+html.dark-theme .doc .admonitionblock code {
+  background-color: #1b1f23;
+  border-color: #2b2f33;
+  color: #fff;
 }
 
 .doc p a code,
@@ -224,6 +238,7 @@
 .doc code,
 .doc pre {
   hyphens: none;
+  font-weight: normal;
 }
 
 .doc pre {

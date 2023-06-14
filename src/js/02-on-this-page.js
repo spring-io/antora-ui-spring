@@ -1,13 +1,13 @@
 ;(function () {
   'use strict'
 
-  var sidebar = document.querySelector('aside.toc.sidebar')
+  var sidebar = document.querySelector('div.toc')
   if (!sidebar) return
   if (document.querySelector('body.-toc')) return sidebar.parentNode.removeChild(sidebar)
   var levels = parseInt(sidebar.dataset.levels || 2, 10)
   if (levels < 0) return
 
-  var articleSelector = 'article.doc'
+  var articleSelector = 'div.doc>article'
   var article = document.querySelector(articleSelector)
   var headingsSelector = []
   for (var level = 0; level <= levels; level++) {

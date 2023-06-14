@@ -1,25 +1,13 @@
 <div class="toolbar" role="navigation">
 {{> nav-toggle}}
-  {{#with site.homeUrl}}
+{{> nav-search}}
+  {{!-- {{#with site.homeUrl}}
   <a href="{{{relativize this}}}" class="home-link{{#if @root.page.home}} is-current{{/if}}"></a>
   {{/with}}
 {{> breadcrumbs}}
-{{#if env.ALGOLIA_API_KEY}}
-{{#if (and page.latest (eq page.url page.latest.url))}}
 <div class="search">
-  <button class="DocSearch-Button" id="search">
-    <svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <path d="M27.414,24.586l-5.077-5.077C23.386,17.928,24,16.035,24,14c0-5.514-4.486-10-10-10S4,8.486,4,14  s4.486,10,10,10c2.035,0,3.928-0.614,5.509-1.663l5.077,5.077c0.78,0.781,2.048,0.781,2.828,0  C28.195,26.633,28.195,25.367,27.414,24.586z M7,14c0-3.86,3.14-7,7-7s7,3.14,7,7s-3.14,7-7,7S7,17.86,7,14z" id="XMLID_223_"/>
-    </svg>
-    Search
-  </button>
+  <div id="search">
+  </div>
 </div>
-{{/if}}
-{{/if}}
-{{> page-versions}}
-  {{#if (and page.fileUri (not env.CI))}}
-  <div class="edit-this-page"><a href="{{page.fileUri}}">Edit this Page</a></div>
-  {{else if (and page.editUrl (or env.FORCE_SHOW_EDIT_PAGE_LINK (not page.origin.private)))}}
-  <div class="edit-this-page"><a href="{{page.editUrl}}">Edit this Page</a></div>
-  {{/if}}
+{{> page-versions}} --}}
 </div>

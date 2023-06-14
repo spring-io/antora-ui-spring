@@ -2,11 +2,11 @@ url: /features/index.html
 component:
   name: security
   url: '#'
-version: '6.0.2'
+version: '6.1.0'
 latest:
   url: '/features/index.html'
-  version: '6.0.2'
-  displayVersion: '6.0.2'
+  version: '6.1.0'
+  displayVersion: '6.1.0'
   title: Spring Security
 previous:
   content: Quickstart

@@ -1,5 +1,4 @@
-@import "typeface-roboto.css";
-@import "typeface-roboto-mono.css";
+@import "fonts.css";
 @import "vars.css";
 @import "base.css";
 @import "body.css";
@@ -8,12 +7,12 @@
 @import "toolbar.css";
 @import "breadcrumbs.css";
 @import "page-versions.css";
-@import "modal.css";
 @import "toc.css";
 @import "doc.css";
 @import "pagination.css";
 @import "header.css";
 @import "footer.css";
+@import "modal.css";
 @import "highlight.css";
 @import "print.css";
 @import "site-extra.css";

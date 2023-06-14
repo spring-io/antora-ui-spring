@@ -20,7 +20,6 @@
   /* General */
   --html-font-size: 1em;
   --pixel-to-rem: 16 * 1rem;
-  --font-family: -apple-system, blinkmacsystemfont, "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-weight: 400;
   --monospace-font-family: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", monospace;
   --body-background-color: white;

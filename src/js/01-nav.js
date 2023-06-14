@@ -32,16 +32,36 @@
     }
   })
 
-  nav.querySelector('[data-panel=explore] .context').addEventListener('click', function () {
-    // NOTE logic assumes there are only two panels
-    find(nav, '[data-panel]').forEach(function (panel) {
-      panel.classList.toggle('is-active')
-    })
+  var isOpen = false
+
+  function openVersion () {
+    if (!isOpen) {
+      menuPanel.querySelector('.context .version').classList.add('is-active')
+      document.querySelector('#nav-versions').classList.add('is-active')
+      isOpen = true
+    }
+  }
+
+  function closeVersion () {
+    if (isOpen) {
+      menuPanel.querySelector('.context .version').classList.remove('is-active')
+      document.querySelector('#nav-versions').classList.remove('is-active')
+      isOpen = false
+    }
+  }
+
+  menuPanel.querySelector('.context .version').addEventListener('mousemove', function () {
+    openVersion()
+  })
+
+  document.querySelector('#nav-versions').addEventListener('mouseleave', function () {
+    closeVersion()
   })
 
   // NOTE prevent text from being selected by double click
   menuPanel.addEventListener('mousedown', function (e) {
     if (e.detail > 1) e.preventDefault()
+    closeVersion()
   })
 
   function onHashChange () {
@@ -150,5 +170,22 @@
   function findNextElement (from, selector) {
     var el = from.nextElementSibling
     return el && selector ? el[el.matches ? 'matches' : 'msMatchesSelector'](selector) && el : el
+  }
+
+  // Navbar width
+  function setNavbarWidth (width) {
+    document.documentElement.style.setProperty('--nav-width', `${width}px`)
+    window.localStorage && window.localStorage.setItem('nav-width', `${width}`)
+  }
+  document.querySelector('.resize-handle--x').addEventListener('mousedown', (event) => {
+    document.addEventListener('mousemove', resize, false)
+    document.addEventListener('mouseup', () => {
+      document.removeEventListener('mousemove', resize, false)
+    }, false)
+  })
+  function resize (e) {
+    let value = Math.max(250, e.x)
+    value = Math.min(600, value)
+    setNavbarWidth(value)
   }
 })()

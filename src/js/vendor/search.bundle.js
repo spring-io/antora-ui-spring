@@ -2,7 +2,10 @@
 
 ;(function () {
   'use strict'
-  var MicroModal = require('micromodal')
+  const MicroModal = require('micromodal')
+
+  const isMac = () => navigator.platform.indexOf('Mac') > -1
+
   const config = document.getElementById('search-script').dataset
   const client = algoliasearch(config.appId, config.apiKey)
 
@@ -15,12 +18,22 @@
 
   const transformItems = (items) => {
     return items.map((item) => {
-      const label = Object.keys(item.hierarchy).reduce((acc, key) => {
-        if (item._highlightResult.hierarchy[key]) {
+      let label = Object.keys(item.hierarchy).reduce((acc, key) => {
+        const highlight = item._highlightResult.hierarchy[key]
+        if (highlight && highlight.matchLevel !== 'none') {
           return item._highlightResult.hierarchy[key]
         }
         return acc
       }, '')
+      if (!label) {
+        label = Object.keys(item.hierarchy).reduce((acc, key) => {
+          const highlight = item._highlightResult.hierarchy[key]
+          if (highlight) {
+            return item._highlightResult.hierarchy[key]
+          }
+          return acc
+        }, '')
+      }
       return {
         ...item,
         _highlightResult: {
@@ -50,10 +63,20 @@
       return
     }
     const _hits = transformItems(hits)
+    if (container.querySelector('#showmore')) {
+      container.removeChild(container.querySelector('#showmore'))
+    }
+    if (container.querySelector('#nomore')) {
+      container.removeChild(container.querySelector('#nomore'))
+    }
 
+    const nbHits = renderArgs.results.nbHits
     if (hits.length === 0) {
       container.querySelector('ul').innerHTML = '<li class="no-result">No result</li>'
+      document.querySelector('#counter').style.display = 'none'
     } else {
+      document.querySelector('#counter').innerHTML = `<strong>${nbHits}</strong> result${nbHits > 1 ? 's' : ''} found`
+      document.querySelector('#counter').style.display = 'block'
       container.querySelector('ul').innerHTML = _hits
         .map((hit) => {
           let content = ''
@@ -87,12 +110,31 @@
             </li>`
         })
         .join('')
+      if (!lastRenderArgs.isLastPage) {
+        const more = document.createElement('div')
+        const link = document.createElement('a')
+        more.setAttribute('id', 'showmore')
+        link.addEventListener('click', () => {
+          showMore()
+          return false
+        })
+        link.innerHTML = 'Show more'
+        more.appendChild(link)
+        container.appendChild(more)
+      } else {
+        const noMore = document.createElement('div')
+        noMore.setAttribute('id', 'nomore')
+        noMore.innerHTML = 'No more result'
+        container.appendChild(noMore)
+      }
     }
   })
 
   search.addWidgets([
     instantsearch.widgets.configure({
       facetFilters: [`version:${config.pageVersion}`],
+      attributesToSnippet: ['content'],
+      attributesToHighlight: ['hierarchy'],
       distinct: true,
     }),
     instantsearch.widgets.searchBox({
@@ -111,9 +153,27 @@
 
   MicroModal.init()
 
-  document.getElementById('search').addEventListener('click', () => {
+  const open = () => {
     MicroModal.show('modal-1', {
       disableScroll: true,
     })
+  }
+
+  document.querySelectorAll('.search-button').forEach((element) => {
+    element.addEventListener('click', () => {
+      open()
+    })
+  })
+
+  const command = isMac() ? 'cmd' : 'ctrl'
+  const symbol = isMac() ? '⌘' : 'CTRL'
+
+  document.querySelectorAll('.search-key').forEach((element) => {
+    element.innerHTML = `${symbol} + k`
+  })
+
+  hotkeys(`${command}+k`, function (event, handler) {
+    event.preventDefault()
+    open()
   })
 })()

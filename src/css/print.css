@@ -55,7 +55,7 @@
   .navbar > :not(.navbar-brand),
   .nav-container,
   .toolbar,
-  aside.toc,
+  div.toc,
   nav.pagination {
     display: none;
   }
