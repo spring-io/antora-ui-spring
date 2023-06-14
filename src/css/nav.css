@@ -206,7 +206,7 @@ html.is-clipped--nav {
 .nav-versions {
   border-top: none;
   top: 28px;
-  left: 180px;
+  left: calc(var(--nav-width) - 100px);
   position: absolute;
   background: var(--navbar-menu-background);
   width: 230px;
@@ -367,6 +367,42 @@ html.is-clipped--nav {
   height: 40px;
   display: none;
   margin-bottom: 0.5rem;
+}
+
+.resize-handle--x {
+  position: absolute;
+  top: 0;
+  right: -2px;
+  bottom: 0;
+  z-index: 9999;
+  width: 4px;
+  cursor: ew-resize;
+  user-select: none;
+}
+.resize-handle--x:hover span {
+  background-color: var(--panel-background-color);
+}
+
+.resize-handle--x span {
+  position: absolute;
+  width: 12px;
+  top: 50%;
+  left: -4px;
+  height: 30px;
+  background: var(--body-background-color);
+  border: 1px solid var(--panel-border-color);
+}
+
+.resize-handle--x span::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 3px;
+  top: 8px;
+  height: 10px;
+  width: 4px;
+  border-left: 1px solid var(--body-font-color);
+  border-right: 1px solid var(--body-font-color);
 }
 
 @media screen and (min-width: 769px) {

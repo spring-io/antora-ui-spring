@@ -171,4 +171,21 @@
     var el = from.nextElementSibling
     return el && selector ? el[el.matches ? 'matches' : 'msMatchesSelector'](selector) && el : el
   }
+
+  // Navbar width
+  function setNavbarWidth (width) {
+    document.documentElement.style.setProperty('--nav-width', `${width}px`)
+    window.localStorage && window.localStorage.setItem('nav-width', `${width}`)
+  }
+  document.querySelector('.resize-handle--x').addEventListener('mousedown', (event) => {
+    document.addEventListener('mousemove', resize, false)
+    document.addEventListener('mouseup', () => {
+      document.removeEventListener('mousemove', resize, false)
+    }, false)
+  })
+  function resize (e) {
+    let value = Math.max(250, e.x)
+    value = Math.min(600, value)
+    setNavbarWidth(value)
+  }
 })()
