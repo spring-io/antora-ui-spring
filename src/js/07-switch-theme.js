@@ -28,6 +28,11 @@
     document.documentElement.classList.toggle('dark-theme', this.checked)
     document.documentElement.setAttribute('data-theme', this.checked ? 'dark' : 'light')
     saveTheme(this.checked ? 'dark' : 'light')
+    if (this.checked) {
+      this.parentElement.classList.add('active')
+    } else {
+      this.parentElement.classList.remove('active')
+    }
   }
 
   function saveTheme (theme) {

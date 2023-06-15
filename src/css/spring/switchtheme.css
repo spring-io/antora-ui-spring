@@ -49,21 +49,21 @@
   margin-top: 5px;
 }
 
-.theme-toggler:has(input:checked) {
+.theme-toggler.active {
   background: #41464b;
 }
 
-.theme-toggler:has(input:checked) span.icon {
+.theme-toggler.active span.icon {
   background: white;
   color: black;
   left: 14px;
 }
 
-.theme-toggler:has(input:checked) span.icon .sun {
+.theme-toggler.active span.icon .sun {
   display: none;
 }
 
-.theme-toggler:has(input:checked) span.icon .moon {
+.theme-toggler.active span.icon .moon {
   display: block;
 }
 

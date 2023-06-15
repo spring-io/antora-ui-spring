@@ -170,7 +170,12 @@
       </div>
     </div>
     <label class="theme-toggler">
-      <input type="checkbox" type="checkbox" id="switch-theme-checkbox" />
+      <input
+        type="checkbox"
+        type="checkbox"
+        id="switch-theme-checkbox"
+        name="switch-theme-checkbox"
+      />
       <span class="icon"><svg
           aria-hidden="true"
           focusable="false"
@@ -203,3 +208,10 @@
     </label>
   </nav>
 </header>
+<script>
+!function (theme) {
+  if (theme === 'dark') {
+    document.getElementById('switch-theme-checkbox').parentElement.classList.add('active')
+  }
+}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+</script>
