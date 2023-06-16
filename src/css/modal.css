@@ -34,13 +34,13 @@
   cursor: pointer;
 }
 
-.modal__close:hover:before,
-.modal__close:hover:after {
+.modal__close:hover::before,
+.modal__close:hover::after {
   background-color: var(--color-accent-3);
 }
 
-.modal__close:before,
-.modal__close:after {
+.modal__close::before,
+.modal__close::after {
   position: absolute;
   left: 15px;
   content: " ";
@@ -48,10 +48,10 @@
   width: 2px;
   background-color: #333;
 }
-.modal__close:before {
+.modal__close::before {
   transform: rotate(45deg);
 }
-.modal__close:after {
+.modal__close::after {
   transform: rotate(-45deg);
 }
 
