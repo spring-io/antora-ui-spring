@@ -1,0 +1,288 @@
+@import "https://cdn.jsdelivr.net/npm/@docsearch/css@3";
+
+.DocSearch-Button {
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 100%;
+  border-radius: 18px;
+  height: 36px;
+  font-weight: normal;
+  line-height: 36px;
+  color: var(--body-font-color);
+  background: var(--body-background-color);
+  text-align: left;
+  padding-left: 35px;
+  border: 1px solid var(--nav-panel-divider-color);
+}
+
+.DocSearch-Button span {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  opacity: 0.4;
+  color: var(--body-font-color);
+}
+
+.DocSearch-Button:focus {
+  outline: none !important;
+  box-shadow: none;
+  color: var(--body-font-color);
+  background: var(--body-background-color);
+}
+
+.DocSearch-Button:hover,
+.DocSearch-Button:active {
+  box-shadow: none;
+  color: var(--body-font-color);
+  background: var(--body-background-color);
+}
+
+.DocSearch-Button:hover {
+  border: 1px solid #aaa;
+  color: var(--link_hover-font-color);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.DocSearch-Button:hover svg {
+  fill: var(--link_hover-font-color);
+}
+
+.DocSearch-Button .DocSearch-Search-Icon {
+  color: var(--docsearch-muted-color);
+  width: 18px;
+  margin: 0 3px;
+}
+
+.DocSearch-Button:hover .DocSearch-Search-Icon {
+  color: var(--body-font-color);
+}
+
+.DocSearch-Button-Placeholder {
+  font-size: 14px;
+}
+
+.DocSearch-Button svg {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 20px;
+  fill: var(--body-font-color);
+}
+
+.dark-theme .DocSearch-Button {
+  color: rgba(255, 255, 255, 0.7);
+}
+.dark-theme .DocSearch-Button svg {
+  fill: rgba(255, 255, 255, 0.7);
+}
+
+.dark-theme .DocSearch-Button:hover {
+  color: #1f98ff;
+  border-color: #1f98ff;
+}
+
+.dark-theme .DocSearch-Button:hover svg {
+  fill: #1f98ff;
+}
+
+.ais-SearchBox {
+  position: relative;
+  top: 0;
+  height: 52px;
+  background: var(--body-background-color);
+}
+
+#counter {
+  display: block;
+  height: 40px;
+  text-align: left;
+  line-height: 40px;
+  padding: 0 1rem;
+  border-bottom: 1px solid #dce8e8;
+  font-size: 0.9rem;
+  color: var(--body-font-color);
+}
+
+#counter strong {
+  color: var(--color-accent-3);
+  font-weight: bold;
+}
+
+.ais-SearchBox-reset {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 10px;
+}
+
+.ais-SearchBox-reset svg {
+  fill: var(--body-font-color);
+}
+
+.ais-SearchBox-reset:hover svg {
+  fill: var(--color-accent-3);
+}
+
+.ais-SearchBox-input {
+  display: block;
+  width: 100%;
+  border: 0 none;
+  background: var(--body-background-color);
+  height: 50px;
+  line-height: 50px;
+  padding: 7px 15px 3px;
+  padding-right: 60px;
+  font-size: 17px;
+  font-family: "Metropolis", Arial, sans-serif;
+  color: var(--body-font-color);
+  border-bottom: 2px solid #dce8e8;
+}
+
+.ais-SearchBox-input::-webkit-search-decoration,
+.ais-SearchBox-input::-webkit-search-cancel-button,
+.ais-SearchBox-input::-webkit-search-results-button,
+.ais-SearchBox-input::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.ais-SearchBox-input::placeholder {
+  font-style: italic;
+  color: var(--body-font-color);
+  font-weight: lighter;
+}
+
+.ais-SearchBox-input:focus {
+  box-shadow: none;
+  border: 0 none;
+  outline: none;
+  border-bottom: 2px solid var(--color-accent-3);
+}
+
+a.ais-Hits-item {
+  display: block;
+  color: var(--body-font-color);
+  text-decoration: none;
+  padding: 1rem;
+}
+
+a.ais-Hits-item:hover {
+  text-decoration: none;
+  background-color: #f2f2f2;
+}
+
+#hits {
+  max-height: 80vh;
+  position: relative;
+  overflow: scroll;
+}
+#hits ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#hits ul li {
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #dce8e8;
+}
+
+#hits ul li:last-child {
+  border-bottom: none;
+}
+
+.hit-description,
+.hit-breadcrumbs {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+#hits ul li.no-result {
+  display: block;
+  color: var(--body-font-color);
+  padding: 0.5rem 1rem;
+  font-style: italic;
+  border: none;
+  opacity: 0.6;
+}
+
+.dark-theme .hit-description,
+.dark-theme .hit-breadcrumbs {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dark-theme .ais-SearchBox,
+.dark-theme .modal #hits ul li {
+  border-color: var(--nav-panel-divider-color);
+}
+
+.dark-theme a.ais-Hits-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme mark.ais-Highlight-highlighted,
+.dark-theme mark.ais-Snippet-highlighted {
+  color: white;
+  background: #6db33f;
+}
+
+.dark-theme .modal__overlay {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.search-by {
+  position: absolute;
+  top: 62px;
+  right: 15px;
+}
+
+.search-by .dark {
+  display: none;
+}
+
+#nomore {
+  border-top: 1px solid #dce8e8;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+#showmore a {
+  display: block;
+  text-align: center;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+
+#showmore {
+  border-top: 1px solid #dce8e8;
+}
+#showmore a:hover {
+  color: var(--link_hover-font-color);
+}
+
+.dark-theme #showmore,
+.dark-theme #nomore {
+  border-color: var(--nav-panel-divider-color);
+}
+
+.dark-theme #nomore {
+  border-color: var(--nav-panel-divider-color);
+  color: #fff;
+}
+
+.dark-theme .search-by .dark {
+  display: inline-block;
+}
+
+.dark-theme .search-by .light {
+  display: none;
+}
+
+.dark-theme #counter {
+  border-color: var(--nav-panel-divider-color);
+}
