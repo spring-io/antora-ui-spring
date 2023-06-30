@@ -1,8 +1,8 @@
 ;(function () {
   'use strict'
 
-  var article = document.querySelector('article.doc')
-  var toolbar = document.querySelector('.toolbar')
+  var article = document.querySelector('.doc > article')
+  var toolbar = document.querySelector('.header .navbar')
 
   function decodeFragment (hash) {
     return hash && (~hash.indexOf('%') ? decodeURIComponent(hash) : hash).slice(1)
