@@ -102,20 +102,139 @@ footer #spring-links a:hover {
   fill: var(--social-icon-color);
 }
 
-.edit-this-page {
-  padding-top: 1rem;
-  height: 40px;
-  line-height: 40px;
+.sidebar-links {
   display: none;
-  font-size: 14px;
+  padding: 10px 0;
 }
 
-.edit-this-page a {
-  color: var(--asciidoctor-link-font-color);
+.sidebar-links a {
+  display: block;
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  padding-left: 32px;
+  color: var(--body-font-dark-color);
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.sidebar-links a:hover {
+  color: var(--link-font-color);
+  text-decoration: none;
+}
+
+.sidebar-links a:hover svg {
+  fill: var(--link-font-color);
+}
+
+.sidebar-links a svg {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 24px;
+  height: 24px;
+}
+
+html.dark-theme .sidebar-links a svg {
+  fill: #fff;
+}
+
+html.dark-theme .sidebar-links a:hover svg {
+  fill: var(--link-font-color);
+}
+
+#modal-versions .colset {
+  display: flex;
+  flex: 50%;
+}
+#modal-versions .colset .col-left,
+#modal-versions .colset .col-right {
+  display: flex;
+  flex: 50%;
+  padding: 1.5rem 2rem;
+}
+
+#modal-versions .colset .col-right {
+  background: #e5ebeb;
+}
+
+@media screen and (max-width: 1023.5px) {
+  #modal-versions .colset {
+    display: block;
+  }
+  #modal-versions .colset .col-left,
+  #modal-versions .colset .col-right {
+    display: block;
+    width: 100%;
+  }
+}
+
+#modal-versions ul {
+  list-style: none;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+#modal-versions ul li {
+  padding: 0.2rem 0;
+}
+
+#modal-versions a {
+  display: inline-block;
+  color: var(--link-font-color);
+}
+
+#modal-versions ul li.component > a.title {
+  color: var(--body-font-dark-color);
+}
+
+#modal-versions ul ul {
+  font-weight: normal;
+  margin: 0;
+  padding: 0.4rem 0;
+  margin-left: 20px;
+  list-style: circle;
+}
+
+#modal-versions .current {
+  background-color: #80ea6e;
+  color: #111;
+  align-items: center;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 0.75rem;
+  height: 24px;
+  justify-content: center;
+  line-height: 24px;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  white-space: nowrap;
+  margin-left: 0.75rem !important;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+#modal-versions .modal-versions-close {
+  opacity: 0.6;
+  border: none;
+  outline: none;
+  line-height: inherit;
+  position: absolute;
+  background-color: transparent;
+  width: 36px;
+  height: 36px;
+  right: 12px;
+  top: 12px;
+}
+
+#modal-versions .modal-versions-close:hover {
+  opacity: 1;
 }
 
 @media screen and (min-width: 1024px) {
-  .edit-this-page {
+  .sidebar-links {
     display: block;
   }
 }

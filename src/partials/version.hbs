@@ -1,0 +1,46 @@
+<div class="modal micromodal-slide" id="modal-versions" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container" role="dialog" aria-modal="true">
+            <main class="modal__content" id="modal-versions-content">
+              <button data-micromodal-close class="modal-versions-close">
+                <svg width="28px" height="28px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><title/><g id="cross"><line class="cls-1" x1="7" x2="25" y1="7" y2="25"/><line class="cls-1" x1="7" x2="25" y1="25" y2="7"/></g></svg>
+              </button>
+              <div class="colset">
+                <div class="col-left">
+                  <ul class="nav-versions">
+                    {{#each site.components}}
+                    <li class="component{{#if (eq this @root.page.component)}} is-current{{/if}}">
+                      <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
+                      <ul class="versions">
+                        {{#each ./versions}}
+                        <li class="version
+                          {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
+                          {{~#if (eq this ../latest)}} is-latest{{/if}}">
+                          <a href="{{{relativize ./url}}}">
+                            {{./displayVersion}}
+                            {{~#if (eq this ../latest)}}<span class="current">current</span>{{/if}}
+                          </a>
+                        </li>
+                        {{/each}}
+                      </ul>
+                    </li>
+                    {{/each}}
+                  </ul>
+                </div>
+                <div class="col-right">
+                  <ul>
+                    <li>
+                      Related Spring Project
+                      <ul>
+                        <li><a href="#">Spring Framework</a></li>
+                        <li><a href="#">Spring Boot</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </main>
+        </div>
+    </div>
+</div>
+

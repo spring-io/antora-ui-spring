@@ -1,9 +1,6 @@
 /* eslint-disable no-undef */
 
 ;(function () {
-  'use strict'
-  const MicroModal = require('micromodal')
-
   const isMac = () => navigator.platform.indexOf('Mac') > -1
 
   const config = document.getElementById('search-script').dataset
@@ -150,8 +147,6 @@
   ])
 
   search.start()
-
-  MicroModal.init()
 
   const open = () => {
     MicroModal.show('modal-1', {

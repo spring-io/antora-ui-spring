@@ -5,15 +5,17 @@
   display: block;
   margin: 0;
   width: 100%;
-  border-radius: 18px;
-  height: 36px;
+  border-radius: 0;
+  height: 40px;
   font-weight: normal;
-  line-height: 36px;
+  line-height: 40px;
   color: var(--body-font-color);
   background: var(--body-background-color);
   text-align: left;
   padding-left: 35px;
   border: 1px solid var(--nav-panel-divider-color);
+  border-left-width: 0;
+  border-right-width: 0;
 }
 
 .DocSearch-Button span {
@@ -39,7 +41,7 @@
 }
 
 .DocSearch-Button:hover {
-  border: 1px solid #aaa;
+  border-color: #aaa;
   color: var(--link_hover-font-color);
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -64,7 +66,7 @@
 
 .DocSearch-Button svg {
   position: absolute;
-  top: 8px;
+  top: 10px;
   left: 10px;
   width: 20px;
   fill: var(--body-font-color);
@@ -285,4 +287,11 @@ a.ais-Hits-item:hover {
 
 .dark-theme #counter {
   border-color: var(--nav-panel-divider-color);
+}
+
+@media screen and (max-width: 1023.5px) {
+  .DocSearch-Button {
+    border-left-width: 1px;
+    border-right-width: 1px;
+  }
 }
