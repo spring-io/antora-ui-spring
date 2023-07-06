@@ -147,6 +147,7 @@ html.dark-theme .sidebar-links a:hover svg {
 #modal-versions .colset {
   display: flex;
   flex: 50%;
+  color: var(--body-font-dark-color);
 }
 #modal-versions .colset .col-left,
 #modal-versions .colset .col-right {
@@ -157,6 +158,10 @@ html.dark-theme .sidebar-links a:hover svg {
 
 #modal-versions .colset .col-right {
   background: #e5ebeb;
+}
+
+html.dark-theme #modal-versions .colset .col-right {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 @media screen and (max-width: 1023.5px) {
