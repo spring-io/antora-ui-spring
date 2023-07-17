@@ -1,5 +1,5 @@
 html.is-clipped--navbar {
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 body {
@@ -15,7 +15,7 @@ body {
   top: 0;
   width: 100%;
   z-index: var(--z-index-navbar);
-  padding: 8px 0;
+  padding: 0;
   border-bottom: 1px solid var(--nav-panel-divider-color);
 }
 
@@ -25,7 +25,13 @@ body {
 
 .navbar-brand {
   display: flex;
-  padding-left: 1rem;
+  padding: 0 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar-brand {
+    padding: 1rem;
+  }
 }
 
 .navbar-brand .navbar-item:first-child,

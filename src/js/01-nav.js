@@ -5,9 +5,12 @@
   var SECT_CLASS_RX = /^sect(\d)$/
 
   var navContainer = document.querySelector('.nav-container')
-  var navToggle = document.querySelector('.nav-toggle')
+  var navToggle1 = document.querySelector('#nav-toggle-1')
+  var navToggle2 = document.querySelector('#nav-toggle-2')
+  var isNavOpen = window.localStorage && window.localStorage.getItem('sidebar') === 'open'
 
-  navToggle.addEventListener('click', showNav)
+  navToggle1.addEventListener('click', showNav)
+  navToggle2.addEventListener('click', showNav)
   navContainer.addEventListener('click', trapEvent)
 
   var menuPanel = navContainer.querySelector('[data-panel=menu]')
@@ -41,35 +44,15 @@
     })
   })
 
-  // function openVersion () {
-  //   if (!isOpen) {
-  //     menuPanel.querySelector('.context .version').classList.add('is-active')
-  //     document.querySelector('#nav-versions').classList.add('is-active')
-  //     isOpen = true
-  //   }
-  // }
-
-  // function closeVersion () {
-  //   if (isOpen) {
-  //     menuPanel.querySelector('.context .version').classList.remove('is-active')
-  //     document.querySelector('#nav-versions').classList.remove('is-active')
-  //     isOpen = false
-  //   }
-  // }
-
-  // menuPanel.querySelector('.context .version').addEventListener('mousemove', function () {
-  //   openVersion()
-  // })
-
-  // document.querySelector('#nav-versions').addEventListener('mouseleave', function () {
-  //   closeVersion()
-  // })
-
-  // // NOTE prevent text from being selected by double click
-  // menuPanel.addEventListener('mousedown', function (e) {
-  //   if (e.detail > 1) e.preventDefault()
-  //   closeVersion()
-  // })
+  document.querySelector('#nav-collapse-toggle').addEventListener('click', function () {
+    if (isNavOpen) {
+      document.body.classList.add('nav-sm')
+    } else {
+      document.body.classList.remove('nav-sm')
+    }
+    window.localStorage && window.localStorage.setItem('sidebar', !isNavOpen ? 'open' : 'close')
+    isNavOpen = !isNavOpen
+  })
 
   function onHashChange () {
     var navLink
@@ -137,11 +120,13 @@
   }
 
   function showNav (e) {
-    if (navToggle.classList.contains('is-active')) return hideNav(e)
+    if (navToggle1.classList.contains('is-active')) return hideNav(e)
+    if (navToggle2.classList.contains('is-active')) return hideNav(e)
     trapEvent(e)
     var html = document.documentElement
     html.classList.add('is-clipped--nav')
-    navToggle.classList.add('is-active')
+    navToggle1.classList.add('is-active')
+    navToggle2.classList.add('is-active')
     navContainer.classList.add('is-active')
     var bounds = nav.getBoundingClientRect()
     var expectedHeight = window.innerHeight - Math.round(bounds.top)
@@ -153,7 +138,8 @@
     trapEvent(e)
     var html = document.documentElement
     html.classList.remove('is-clipped--nav')
-    navToggle.classList.remove('is-active')
+    navToggle1.classList.remove('is-active')
+    navToggle2.classList.remove('is-active')
     navContainer.classList.remove('is-active')
     html.removeEventListener('click', hideNav)
   }
@@ -184,7 +170,7 @@
     document.documentElement.style.setProperty('--nav-width', `${width}px`)
     window.localStorage && window.localStorage.setItem('nav-width', `${width}`)
   }
-  document.querySelector('.resize-handle--x').addEventListener('mousedown', (event) => {
+  document.querySelector('.nav-resize').addEventListener('mousedown', (event) => {
     document.addEventListener('mousemove', resize, false)
     document.addEventListener('mouseup', () => {
       document.removeEventListener('mousemove', resize, false)

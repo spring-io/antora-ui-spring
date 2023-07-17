@@ -27,11 +27,11 @@
 }
 
 html.is-clipped--nav {
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 .nav-panel-menu {
-  overflow-y: visible;
+  overflow-y: auto;
   height: var(--nav-panel-menu-height);
 }
 
@@ -170,14 +170,16 @@ html.is-clipped--nav {
 }
 
 .nav-panel-menu .context {
-  padding: 1rem;
+  padding: 0.8rem 1rem;
 }
 
 .nav-panel-menu .context .title {
   font-weight: bold;
-  display: inline-block;
+  display: block;
   height: 24px;
   line-height: 24px;
+  padding-right: 30px;
+  margin-bottom: 4px;
 }
 
 button.browse-version {
@@ -190,6 +192,7 @@ button.browse-version {
   width: 36px;
   margin-left: calc(var(--nav-line-height) * -1em);
   right: 12px;
+  top: 15px;
 }
 
 button.browse-version svg {
@@ -205,11 +208,11 @@ html.dark-theme button.browse-version:hover {
 }
 
 .nav-panel-menu .context .version {
+  display: inline-block;
   background-color: #80ea6e;
   color: #111;
   align-items: center;
   border-radius: 4px;
-  display: inline-block;
   font-size: 0.75rem;
   height: 24px;
   justify-content: center;
@@ -217,7 +220,6 @@ html.dark-theme button.browse-version:hover {
   padding-left: 0.75em;
   padding-right: 0.75em;
   white-space: nowrap;
-  margin-left: 0.75rem !important;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -247,7 +249,7 @@ html.dark-theme button.browse-version:hover {
   margin-bottom: 0.5rem;
 }
 
-.resize-handle--x {
+.nav-resize {
   position: absolute;
   top: 0;
   right: -2px;
@@ -258,12 +260,91 @@ html.dark-theme button.browse-version:hover {
   user-select: none;
   border-left: 1px solid var(--nav-panel-divider-color);
 }
-.resize-handle--x:hover span {
-  background-color: var(--panel-background-color);
+
+.nav-collapse {
+  background: var(--panel-background-color);
+  height: 40px;
+  margin-right: 2px;
+  border-top: 1px solid var(--nav-panel-divider-color);
+  position: relative;
 }
 
-.resize-handle--x span {
-  display: none;
+.nav-collapse button {
+  border: none;
+  outline: none;
+  line-height: inherit;
+  position: absolute;
+  height: calc(var(--nav-line-height) * 1.5em);
+  width: calc(var(--nav-line-height) * 1.5em);
+  margin-top: 2px;
+  margin-left: calc(var(--nav-line-height) * -1em);
+  right: 8px;
+  top: 2px;
+  padding: 0;
+  background-color: transparent;
+}
+
+.nav-collapse button span {
+  display: block;
+  height: calc(var(--nav-line-height) * 1.5em);
+  width: calc(var(--nav-line-height) * 1.5em);
+  background: transparent url(../img/chevron.svg) no-repeat center / 50%;
+  transform: rotate(90deg);
+}
+
+@media screen and (min-width: 1024px) {
+  body.nav-sm .nav-container {
+    width: 60px;
+  }
+
+  body.nav-sm .nav-collapse,
+  body.nav-sm .nav-menu {
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  body.nav-sm .DocSearch-Button svg {
+    left: 20px;
+  }
+
+  body.nav-sm .nav-collapse button span {
+    transform: rotate(-90deg);
+  }
+
+  body.nav-sm .nav-menu .search {
+    margin-bottom: 0;
+  }
+
+  body.nav-sm .nav-panel-menu .context {
+    height: 50px;
+  }
+
+  body.nav-sm .nav-panel-menu .context .title,
+  body.nav-sm .nav-panel-menu .context .version,
+  body.nav-sm .nav-resize,
+  body.nav-sm .DocSearch-Button span {
+    display: none;
+  }
+
+  html.is-clipped--nav body.nav-sm .nav-menu > .nav-list {
+    display: block;
+  }
+  body.nav-sm .nav-menu > .nav-list {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 61px;
+    padding: 0.5rem 1rem;
+    width: 300px;
+    bottom: -40px;
+    background: var(--body-background-color);
+    border-right: 1px solid var(--nav-panel-divider-color);
+  }
+
+  body.nav-sm .toggle-sm button.nav-toggle {
+    display: block;
+    margin-left: 10px;
+  }
 }
 
 @media screen and (min-width: 769px) {
@@ -282,10 +363,6 @@ html.dark-theme button.browse-version:hover {
     position: static;
     top: 0;
     visibility: visible;
-  }
-
-  .nav-panel-menu .context {
-    display: flex;
   }
 
   .nav-menu .search {
