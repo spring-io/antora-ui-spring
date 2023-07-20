@@ -267,6 +267,7 @@ html.dark-theme button.browse-version:hover {
   margin-right: 2px;
   border-top: 1px solid var(--nav-panel-divider-color);
   position: relative;
+  display: none;
 }
 
 .nav-collapse button {
@@ -347,6 +348,10 @@ html.dark-theme button.browse-version:hover {
   }
 }
 
+body.nav-sm .nav-panel-menu {
+  overflow: visible;
+}
+
 @media screen and (min-width: 769px) {
   .nav-container {
     width: var(--nav-width);
@@ -363,6 +368,10 @@ html.dark-theme button.browse-version:hover {
     position: static;
     top: 0;
     visibility: visible;
+  }
+
+  .nav-collapse {
+    display: block;
   }
 
   .nav-menu .search {
