@@ -5,6 +5,7 @@
 
   const config = document.getElementById('search-script').dataset
   const client = algoliasearch(config.appId, config.apiKey)
+  let selected = null
 
   const search = instantsearch({
     indexName: config.indexName,
@@ -45,6 +46,7 @@
     const { hits, showMore, widgetParams } = renderArgs
     const { container } = widgetParams
     lastRenderArgs = renderArgs
+    selected = null
     if (isFirstRender) {
       const sentinel = document.createElement('div')
       container.appendChild(document.createElement('ul'))
@@ -127,6 +129,87 @@
     }
   })
 
+  const selectHit = (newSelected) => {
+    const hits = document.querySelectorAll('#hits>ul>li>a')
+    if (hits[selected]) {
+      hits[selected].classList.remove('selected')
+      selected = null
+    }
+    if (hits[newSelected]) {
+      hits[newSelected].classList.add('selected')
+      selected = newSelected
+    }
+
+    if (selected) {
+      hits[selected].scrollIntoView()
+    }
+  }
+
+  const openHit = (index) => {
+    const hits = document.querySelectorAll('#hits>ul>li>a')
+    if (hits[index]) {
+      hits[index].click()
+    }
+  }
+
+  const renderSearchBox = (renderOptions, isFirstRender) => {
+    const { query, refine, clear, isSearchStalled, widgetParams } = renderOptions
+    if (isFirstRender) {
+      const input = document.createElement('input')
+      input.classList.add('ais-SearchBox-input')
+      input.placeholder = `Search in the current documentation ${config.pageVersion}`
+      const loadingIndicator = document.createElement('span')
+      loadingIndicator.textContent = 'Loading...'
+      const button = document.createElement('button')
+      button.classList.add('ais-SearchBox-reset')
+      button.innerHTML = '<svg class="ais-SearchBox-resetIcon" viewBox="0 0 20 20" width="10" height="10" aria-hidden="true"><path d="M8.114 10L.944 2.83 0 1.885 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943L8.113 10z"></path></svg>'
+      input.addEventListener('keydown', (event) => {
+        switch (event.keyCode) {
+          case 40: // Down
+            event.preventDefault()
+            if (selected === null) {
+              selectHit(0)
+            } else {
+              selectHit(selected + 1)
+            }
+            break
+          case 38: // Up
+            event.preventDefault()
+            if (selected === null) {
+              selectHit(0)
+            }
+            selectHit(Math.max(selected - 1, 0))
+            break
+          case 13: // Enter
+            event.preventDefault()
+            if (selected !== null) {
+              openHit(selected)
+            }
+            break
+          case 9: // Tab
+            event.preventDefault()
+            break
+        }
+      })
+      input.addEventListener('input', (event) => {
+        refine(event.target.value)
+      })
+      button.addEventListener('click', () => {
+        clear()
+      })
+      widgetParams.container.appendChild(input)
+      widgetParams.container.appendChild(loadingIndicator)
+      widgetParams.container.appendChild(button)
+    }
+    widgetParams.container.querySelector('input').value = query
+    widgetParams.container.querySelector('span').hidden = !isSearchStalled
+  }
+
+  const searchBox = instantsearch.connectors.connectSearchBox(
+    renderSearchBox
+  )
+
+  // selected
   search.addWidgets([
     instantsearch.widgets.configure({
       facetFilters: [`version:${config.pageVersion}`],
@@ -134,12 +217,8 @@
       attributesToHighlight: ['hierarchy'],
       distinct: true,
     }),
-    instantsearch.widgets.searchBox({
-      container: '#searchbox',
-      autofocus: true,
-      showSubmit: false,
-      showReset: true,
-      placeholder: `Search in the current documentation ${config.pageVersion}`,
+    searchBox({
+      container: document.querySelector('#searchbox'),
     }),
     infiniteHits({
       container: document.querySelector('#hits'),
@@ -149,6 +228,7 @@
   search.start()
 
   const open = () => {
+    selectHit(null)
     MicroModal.show('modal-1', {
       disableScroll: true,
     })

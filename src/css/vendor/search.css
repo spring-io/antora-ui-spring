@@ -289,6 +289,20 @@ a.ais-Hits-item:hover {
   border-color: var(--nav-panel-divider-color);
 }
 
+#hits ul li a.selected {
+  background: #6db33f;
+  color: #fff;
+}
+
+#hits ul li a.selected .hit-description,
+#hits ul li a.selected .hit-breadcrumbs {
+  color: #fff;
+}
+
+#hits ul li a.selected mark {
+  background-color: white;
+}
+
 @media screen and (max-width: 1023.5px) {
   .DocSearch-Button {
     border-left-width: 1px;
