@@ -109,6 +109,13 @@
             </li>`
         })
         .join('')
+
+      container.querySelectorAll('ul a').forEach((a) => {
+        a.addEventListener('click', () => {
+          MicroModal.close('modal-1')
+        })
+      })
+
       if (!lastRenderArgs.isLastPage) {
         const more = document.createElement('div')
         const link = document.createElement('a')
@@ -149,6 +156,7 @@
     const hits = document.querySelectorAll('#hits>ul>li>a')
     if (hits[index]) {
       hits[index].click()
+      MicroModal.close('modal-1')
     }
   }
 
