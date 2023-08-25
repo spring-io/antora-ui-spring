@@ -293,6 +293,10 @@ html.dark-theme button.browse-version:hover {
   transform: rotate(90deg);
 }
 
+.dark-theme .nav-collapse button span {
+  background: transparent url(../img/chevron-white.svg) no-repeat center / 50%;
+}
+
 @media screen and (min-width: 1024px) {
   body.nav-sm .nav-container {
     width: 60px;
