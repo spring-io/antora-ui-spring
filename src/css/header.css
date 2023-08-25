@@ -275,6 +275,11 @@ body {
     transition-property: opacity, transform;
   }
 
+  .navbar-dropdown.lg {
+    width: 300px;
+    left: -20px;
+  }
+
   .navbar-dropdown .navbar-item {
     padding: 0.2rem 3rem 0.2rem 1rem;
     white-space: nowrap;
