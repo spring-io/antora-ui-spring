@@ -5,7 +5,7 @@
               <button data-micromodal-close class="modal-versions-close">
                 <svg width="28px" height="28px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1h{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><title/><g id="cross"><line class="cls-1h" x1="7" x2="25" y1="7" y2="25"/><line class="cls-1h" x1="7" x2="25" y1="25" y2="7"/></g></svg>
               </button>
-              <div class="colset">  
+              <div class="colset">
                 <div class="col-left">
                   <ul class="nav-versions">
                     {{#each site.components}}
@@ -33,10 +33,14 @@
                       Related Spring Documentation
                       <ul>
                         <li><a href="https://docs.spring.io/spring-framework/reference/">Spring Framework</a></li>
-                        <li><a href="https://docs.spring.io/spring-security/reference/">Spring Security</a></li>
-                        <li><a href="https://docs.spring.io/spring-ldap/reference/">Spring LDAP</a></li>
-                        <li><a href="https://docs.spring.io/spring-session/reference/">Spring Session</a></li>
-                        <li><a href="https://docs.spring.io/spring-authorization-server/reference/">Spring Authorization Server</a></li>
+                        <li>
+                          <a href="https://docs.spring.io/spring-security/reference/">Spring Security</a>
+                          <ul>
+                            <li><a href="https://docs.spring.io/spring-ldap/reference/">Spring LDAP</a></li>
+                            <li><a href="https://docs.spring.io/spring-session/reference/">Spring Session</a></li>
+                            <li><a href="https://docs.spring.io/spring-authorization-server/reference/">Spring Authorization Server</a></li>
+                          </ul>
+                        </li>
                       </ul>
                     </li>
                   </ul>
