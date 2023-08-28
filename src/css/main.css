@@ -60,11 +60,11 @@ footer #social-icons {
 
 footer #social-icons a {
   height: 40px;
+  margin-left: 15px;
 }
 
 footer #social-icons svg {
   width: 40px;
-  margin-left: 15px;
 }
 
 footer #social-icons a:hover svg .cls-1,
