@@ -193,6 +193,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc table.tableblock {
+  word-break: break-all;
   font-size: calc(15 / var(--rem-base) * 1rem);
 }
 
