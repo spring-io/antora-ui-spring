@@ -782,3 +782,25 @@ html.dark-theme .doc img {
   padding: 1.5rem 0 1rem;
   color: var(--doc-font-color);
 }
+
+.doc details {
+  border: 1px solid var(--toc-border-color);
+}
+
+.doc details .title::marker {
+  margin-right: 10px;
+}
+.doc details .title {
+  padding: .5rem 1rem;
+  cursor: pointer;
+}
+
+.doc details .title:hover {
+  background: var(--asciidoctor-pre-background);
+}
+
+.doc details div.content {
+  border-top: 1px solid var(--toc-border-color);
+  padding: 1rem;
+  padding-top: 0;
+}
