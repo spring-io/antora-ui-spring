@@ -1,3 +1,4 @@
     {{!-- Add additional meta tags here --}}
     <meta name="version" content="{{{page.version}}}">
     <meta name="component" content="{{{page.component.name}}}">
+    <meta name="latest-version" content="{{~#if (and page.latest (eq page.url page.latest.url))}}true{{~else}}false{{~/if}}">
