@@ -447,6 +447,10 @@ The fog comes
 on little cat feet.
 ____
 
+== Font Awesome
+
+Showing a gear icon: icon:gear[]
+
 == Headers
 
 === H3
