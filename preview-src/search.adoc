@@ -1,0 +1,4 @@
+= Search
+:page-article: search
+
+This won't be displayed because we override the article

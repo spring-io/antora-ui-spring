@@ -1,0 +1,21 @@
+url: /search.html
+component:
+  name: security
+version: '6.1.0'
+latest:
+  url: '/index.html'
+previous:
+  content: Quickstart
+  url: '#'
+  urlType: 'internal'
+next:
+  content: Liber Recusabo
+  url: '#'
+  urlType: 'internal'
+breadcrumbs:
+  - content: Spring Security
+    url: '#'
+    urlType: fragment
+  - content: Overview
+    url: '#'
+    urlType: fragment
