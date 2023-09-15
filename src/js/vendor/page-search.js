@@ -49,14 +49,6 @@
       const sentinel = document.createElement('div')
       container.appendChild(document.createElement('ul'))
       container.appendChild(sentinel)
-      // const observer = new IntersectionObserver((entries) => {
-      //   entries.forEach((entry) => {
-      //     if (entry.isIntersecting && !lastRenderArgs.isLastPage) {
-      //       showMore()
-      //     }
-      //   })
-      // })
-      // observer.observe(sentinel)
       return
     }
     const _hits = transformItems(hits)
@@ -72,7 +64,8 @@
       container.querySelector('ul').innerHTML = '<li class="no-result">No result</li>'
       document.querySelector('#page-counter').style.display = 'none'
     } else {
-      document.querySelector('#page-counter').innerHTML = `<strong>${nbHits}</strong> result${nbHits > 1 ? 's' : ''} found`
+      document.querySelector('#page-counter').innerHTML =
+        `<strong>${nbHits}</strong> result${nbHits > 1 ? 's' : ''} found`
       document.querySelector('#page-counter').style.display = 'block'
       container.querySelector('ul').innerHTML = _hits
         .map((hit) => {
@@ -162,7 +155,7 @@
     const { query, refine, clear, isSearchStalled, widgetParams } = renderOptions
     if (isFirstRender) {
       input.classList.add('ais-SearchBox-input')
-      input.placeholder = `Search in all Spring Documentation`
+      input.placeholder = 'Search in all Spring Documentation'
       const loadingIndicator = document.createElement('span')
       loadingIndicator.textContent = 'Loading...'
       const button = document.createElement('button')
@@ -221,7 +214,7 @@
   // selected
   search.addWidgets([
     instantsearch.widgets.configure({
-      facetFilters: [`isLatestVersion:true`],
+      facetFilters: ['isLatestVersion:true'],
       attributesToSnippet: ['content'],
       attributesToHighlight: ['hierarchy'],
       distinct: true,
@@ -235,8 +228,5 @@
   ])
 
   search.start()
-
-
-  input.focus();
+  input.focus()
 })()
-

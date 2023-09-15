@@ -1,6 +1,11 @@
 .page-search {
   position: relative;
-  padding: 2rem 0;
+  width: 100%;
+}
+
+.page-search .search-wrap {
+  padding: 2rem;
+  max-width: 1200px;
 }
 
 .page-search .light {
@@ -117,6 +122,14 @@
   padding: 1rem 0;
   cursor: pointer;
   padding-left: 10px;
+}
+
+.dark-theme .page-search .light {
+  display: none;
+}
+
+.dark-theme .page-search .dark {
+  display: block;
 }
 
 .dark-theme .ais-SearchBox,
