@@ -99,7 +99,7 @@
   position: sticky;
   top: 74px;
   background-color: var(--body-background-color);
-  z-index: 999;
+  z-index: 2;
   padding-top: 20px;
 }
 
