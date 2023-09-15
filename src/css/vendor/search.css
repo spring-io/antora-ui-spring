@@ -251,7 +251,7 @@ a.ais-Hits-item:hover {
   top: -3px;
   white-space: nowrap;
   left: -200px;
-  color: var(--asciidoctor-link-font-color);;
+  color: var(--asciidoctor-link-font-color);
 }
 
 .search-link:hover {
