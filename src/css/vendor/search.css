@@ -241,6 +241,21 @@ a.ais-Hits-item:hover {
   position: absolute;
   top: 62px;
   right: 15px;
+  line-height: 25px;
+  z-index: 999;
+}
+
+.search-link {
+  display: inline-block;
+  position: absolute;
+  top: -3px;
+  white-space: nowrap;
+  left: -200px;
+  color: var(--asciidoctor-link-font-color);;
+}
+
+.search-link:hover {
+  color: var(--link_hover-font-color);
 }
 
 .search-by .dark {
