@@ -224,7 +224,7 @@
   // selected
   search.addWidgets([
     instantsearch.widgets.configure({
-      facetFilters: [`version:${config.pageVersion}`],
+      facetFilters: [`version:${config.pageVersion}`, `component:${config.pageComponent}`],
       attributesToSnippet: ['content'],
       attributesToHighlight: ['hierarchy'],
       distinct: true,
