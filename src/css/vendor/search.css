@@ -177,7 +177,7 @@ a.ais-Hits-item:hover {
 }
 
 #hits {
-  max-height: 80vh;
+  max-height: 75vh;
   position: relative;
   overflow: scroll;
 }
@@ -245,12 +245,18 @@ a.ais-Hits-item:hover {
   z-index: 999;
 }
 
+.search-link-box {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #dce8e8;
+}
+
 .search-link {
   display: inline-block;
-  position: absolute;
-  top: -3px;
+  background: transparent url(../../img/caret.svg) no-repeat 0 / 15px 15px;
+  padding-left: 20px;
   white-space: nowrap;
-  left: -200px;
+  font-size: 14px;
   color: var(--asciidoctor-link-font-color);
 }
 
@@ -283,7 +289,8 @@ a.ais-Hits-item:hover {
 }
 
 .dark-theme #showmore,
-.dark-theme #nomore {
+.dark-theme #nomore,
+.search-link-box {
   border-color: var(--nav-panel-divider-color);
 }
 
