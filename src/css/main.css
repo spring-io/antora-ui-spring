@@ -195,12 +195,26 @@ html.dark-theme #modal-versions .colset .col-right {
   color: var(--body-font-dark-color);
 }
 
+#modal-versions ul ul li {
+  list-style: disc;
+}
+
 #modal-versions ul ul {
   font-weight: normal;
   margin: 0;
   padding: 0.4rem 0;
   margin-left: 20px;
   list-style: circle;
+}
+
+#modal-versions ul.projects {
+  width: 100%;
+}
+#modal-versions ul.projects-list {
+  max-height: 70dvh;
+  overflow: auto;
+  display: block;
+  margin-left: 0;
 }
 
 #modal-versions .current {
