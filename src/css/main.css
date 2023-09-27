@@ -238,6 +238,10 @@ html.dark-theme #modal-versions .colset .col-right {
   opacity: 1;
 }
 
+html.dark-theme #modal-versions .modal-versions-close .cls-1h {
+  stroke: white;
+}
+
 @media screen and (min-width: 1024px) {
   .sidebar-links {
     display: block;
