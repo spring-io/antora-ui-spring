@@ -1,0 +1,9 @@
+<div class="page-search">
+  <div class="search-wrap">
+    <h1 id="page-title" class="page">Spring Projects</h1>
+    <ul class="projects-list">
+      {{#each (related_projects [''] [''])}}
+        {{> related-project this}}
+      {{/each}}
+    </ul>
+</div>

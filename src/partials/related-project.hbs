@@ -1,0 +1,12 @@
+{{#if ./href}}
+<li><a href="{{./href}}">{{./text}}</a></li>
+{{else}}
+<li>{{./text}}</li>
+{{/if}}
+{{#if ./children}}
+<ul>
+  {{#each ./children}}
+    {{> related-project this}}
+  {{/each}}
+</ul>
+{{/if}}

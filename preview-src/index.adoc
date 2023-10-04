@@ -7,6 +7,8 @@ Author Name
 :page-pagination:
 :chomp-package-replacement: com.acme
 :tabs-sync-option:
+:page-related-doc-categories: security
+:page-related-doc-projects: framework
 
 image:multirepo-ssg.svg[Multirepo SSG,200,float=right]
 Platonem complectitur mediocritatem ea eos.
