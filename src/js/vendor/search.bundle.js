@@ -161,7 +161,7 @@
   }
 
   const renderSearchBox = (renderOptions, isFirstRender) => {
-    const { query, refine, clear, isSearchStalled, widgetParams } = renderOptions
+    const { query, refine, isSearchStalled, widgetParams } = renderOptions
     if (isFirstRender) {
       const input = document.createElement('input')
       input.classList.add('ais-SearchBox-input')
@@ -207,7 +207,7 @@
         refine(event.target.value)
       })
       button.addEventListener('click', () => {
-        clear()
+        MicroModal.close('modal-1')
       })
       widgetParams.container.appendChild(input)
       widgetParams.container.appendChild(loadingIndicator)
