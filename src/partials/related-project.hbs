@@ -1,7 +1,13 @@
+<li>
+{{#if ./children}}
+<a class="anchor"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+{{/if}}
 {{#if ./href}}
-<li><a href="{{./href}}">{{./text}}</a></li>
+<a href="{{./href}}">
+  {{./text}}
+</a>
 {{else}}
-<li>{{./text}}</li>
+  {{./text}}
 {{/if}}
 {{#if ./children}}
 <ul>
@@ -10,3 +16,4 @@
   {{/each}}
 </ul>
 {{/if}}
+</li>

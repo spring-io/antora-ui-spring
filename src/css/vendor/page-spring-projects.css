@@ -1,0 +1,55 @@
+.page-spring-projects .container {
+  padding: 2rem;
+}
+
+.page-spring-projects #page-title {
+  margin: 0;
+}
+
+.page-spring-projects .projects-list,
+.page-spring-projects .projects-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 4px;
+}
+
+.page-spring-projects .projects-list {
+  padding-left: 10px;
+}
+
+.page-spring-projects .projects-list ul {
+  display: none;
+}
+.page-spring-projects .projects-list ul.show {
+  display: block;
+}
+
+.page-spring-projects .projects-list {
+  margin: 1.5rem 0;
+}
+
+.page-spring-projects .projects-list li {
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.page-spring-projects .projects-list li a.anchor {
+  position: absolute;
+  display: block;
+  top: 2px;
+  left: 2px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--body-font-color);
+}
+
+.page-spring-projects .projects-list li a.anchor.active {
+  transform: rotate(90deg);
+  top: 4px;
+}
+
+.page-spring-projects .projects-list li a {
+  color: var(--link-font-color);
+}
