@@ -167,6 +167,12 @@ function relatedProjects (categories = [], projectIds = []) {
           categories: ['data'],
         },
         {
+          href: 'https://docs.spring.io/spring-data/neo4j/reference/',
+          id: 'data/neo4j',
+          text: 'Spring Data Neo4j',
+          categories: ['data'],
+        },
+        {
           href: 'https://docs.spring.io/spring-data/redis/reference/',
           id: 'data/redis',
           text: 'Spring Data Redis',
