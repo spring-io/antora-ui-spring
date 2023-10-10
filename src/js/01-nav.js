@@ -172,9 +172,13 @@
   }
   document.querySelector('.nav-resize').addEventListener('mousedown', (event) => {
     document.addEventListener('mousemove', resize, false)
-    document.addEventListener('mouseup', () => {
-      document.removeEventListener('mousemove', resize, false)
-    }, false)
+    document.addEventListener(
+      'mouseup',
+      () => {
+        document.removeEventListener('mousemove', resize, false)
+      },
+      false
+    )
   })
   function resize (e) {
     let value = Math.max(250, e.x)

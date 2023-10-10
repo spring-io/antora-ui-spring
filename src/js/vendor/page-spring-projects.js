@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-(function () {
+;(function () {
   document.querySelectorAll('.anchor').forEach((el) => {
     const list = el.parentElement.querySelector('ul')
     el.addEventListener('click', function (e) {

@@ -64,8 +64,9 @@
       container.querySelector('ul').innerHTML = '<li class="no-result">No result</li>'
       document.querySelector('#page-counter').style.display = 'none'
     } else {
-      document.querySelector('#page-counter').innerHTML =
-        `<strong>${nbHits}</strong> result${nbHits > 1 ? 's' : ''} found`
+      document.querySelector('#page-counter').innerHTML = `<strong>${nbHits}</strong> result${
+        nbHits > 1 ? 's' : ''
+      } found`
       document.querySelector('#page-counter').style.display = 'block'
       container.querySelector('ul').innerHTML = _hits
         .map((hit) => {
@@ -81,11 +82,11 @@
           if (hit.breadcrumbs) {
             breadcrumbs = `<div class="hit-breadcrumbs">
                   ${hit.breadcrumbs
-              .map((chain) => {
-                const arr = chain.split('|')
-                return `<span>${arr[0]}</span>`
-              })
-              .join(' > ')}
+                    .map((chain) => {
+                      const arr = chain.split('|')
+                      return `<span>${arr[0]}</span>`
+                    })
+                    .join(' > ')}
                 </div>`
           }
 
@@ -160,7 +161,8 @@
       loadingIndicator.textContent = 'Loading...'
       const button = document.createElement('button')
       button.classList.add('ais-SearchBox-reset')
-      button.innerHTML = '<svg class="ais-SearchBox-resetIcon" viewBox="0 0 20 20"' +
+      button.innerHTML =
+        '<svg class="ais-SearchBox-resetIcon" viewBox="0 0 20 20"' +
         ' width="10" height="10" aria-hidden="true"><path d="M8.114 10L.944 2.83 0 1.885' +
         ' 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17' +
         ' 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943' +
@@ -207,9 +209,7 @@
     widgetParams.container.querySelector('span').hidden = !isSearchStalled
   }
 
-  const searchBox = instantsearch.connectors.connectSearchBox(
-    renderSearchBox
-  )
+  const searchBox = instantsearch.connectors.connectSearchBox(renderSearchBox)
 
   // selected
   search.addWidgets([
