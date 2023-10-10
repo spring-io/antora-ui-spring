@@ -217,3 +217,30 @@ See link:LICENSE[] to find the full license text.
 == Authors
 
 Development of Antora is led and sponsored by {url-opendevise}[OpenDevise Inc].
+
+== Extensions to the UI
+
+=== Related Documentation
+
+The UI presents a list of related documentation and that documentation can be filtered using two attributes:
+
+* page-related-doc-categories - The categories to be included in the related documentation
+* page-related-doc-projects - The project ids to be included in the related documentation
+
+For a complete listing of valid categories and ids view https://github.com/spring-io/antora-ui-spring/blob/main/src/helpers/related_projects.js[related_projects.js]
+
+The configuration is typically specified in asciidoc attributes section of the antora-playbook.yml:
+
+.antora-playbook.yml
+[source,yml]
+----
+asciidoc:
+  attributes:
+    # Include the projects with the security category
+    page-related-doc-categories: security
+    # Include the projects with ids framework and graphql
+    page-related-doc-projects: framework,graphql
+----
+
+The Related Documentation links to the `All Projects...` page.
+To include this resource, ensure that the https://github.com/spring-io/antora-extensions/blob/main/README.adoc[antora-extensions] is using 1.7.0+ and the https://github.com/spring-io/antora-extensions/blob/main/README.adoc#static-page[Static Page Extension] is included.
