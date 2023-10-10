@@ -242,5 +242,5 @@ asciidoc:
     page-related-doc-projects: framework,graphql
 ----
 
-The Related Documentation links to the `All Projects...` page.
+The Related Documentation links to the `All Docs...` page.
 To include this resource, ensure that the https://github.com/spring-io/antora-extensions/blob/main/README.adoc[antora-extensions] is using 1.7.0+ and the https://github.com/spring-io/antora-extensions/blob/main/README.adoc#static-page[Static Page Extension] is included.
