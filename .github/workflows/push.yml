@@ -17,6 +17,7 @@ jobs:
     - name: Build
       run: |
         npm ci
+        npm test
         npx gulp bundle
     - name: Release
       uses: marvinpinto/action-automatic-releases@v1.2.1

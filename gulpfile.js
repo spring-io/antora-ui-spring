@@ -19,6 +19,7 @@ const glob = {
   all: [srcDir, previewSrcDir],
   css: `${srcDir}/css/**/*.css`,
   js: ['gulpfile.js', 'gulp.d/**/*.js', `${srcDir}/{helpers,js}/**/*.js`],
+  test: ['test/**/*.js'],
 }
 
 const cleanTask = createTask({
@@ -39,16 +40,34 @@ const lintJsTask = createTask({
   call: task.lintJs(glob.js),
 })
 
+const lintTestJsTask = createTask({
+  name: 'lint:testjs',
+  desc: 'Lint the JavaScript source files using eslint (JavaScript Standard Style)',
+  call: task.lintJs(glob.test),
+})
+
 const lintTask = createTask({
   name: 'lint',
   desc: 'Lint the CSS and JavaScript source files',
-  call: parallel(lintCssTask, lintJsTask),
+  call: parallel(lintCssTask, lintJsTask, lintTestJsTask),
+})
+
+const formatJsTask = createTask({
+  name: 'format:js',
+  desc: 'Format the JavaScript source files using prettify (JavaScript Standard Style)',
+  call: task.format(glob.test),
+})
+
+const formatTestJsTask = createTask({
+  name: 'format:testjs',
+  desc: 'Format the JavaScript source files using prettify (JavaScript Standard Style)',
+  call: task.format(glob.test),
 })
 
 const formatTask = createTask({
   name: 'format',
-  desc: 'Format the JavaScript source files using prettify (JavaScript Standard Style)',
-  call: task.format(glob.js),
+  desc: 'Lint the CSS and JavaScript source files',
+  call: parallel(formatJsTask, formatTestJsTask),
 })
 
 const buildTask = createTask({
