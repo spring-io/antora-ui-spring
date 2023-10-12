@@ -240,14 +240,14 @@ function relatedProjects (categories = [], projectIds = []) {
       id: 'kafka',
       text: 'Spring for Apache Kafka',
       categories: ['messaging'],
-    },    
+    },
     { href: 'https://docs.spring.io/spring-modulith/reference/', id: 'modulith', text: 'Spring Modulith' },
     {
       href: 'https://docs.spring.io/spring-pulsar/reference/',
       id: 'pulsar',
       text: 'Spring for Apache Pulsar',
       categories: ['messaging'],
-    },      
+    },
     { href: 'https://docs.spring.io/spring-shell/reference/', id: 'shell', text: 'Spring Shell' },
   ]
   return projectDocumentation.filter(
