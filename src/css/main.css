@@ -186,6 +186,10 @@ html.dark-theme #modal-versions .colset .col-right {
   padding: 0.2rem 0;
 }
 
+#modal-versions .anchor {
+  display: none;
+}
+
 #modal-versions a {
   display: inline-block;
   color: var(--link-font-color);
