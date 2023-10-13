@@ -9,4 +9,7 @@
     <link rel="stylesheet" href="{{{uiRootPath}}}/css/vendor/search.css">
     <link rel="stylesheet" href="{{{uiRootPath}}}/css/vendor/page-search.css">
     <link rel="stylesheet" href="{{{uiRootPath}}}/css/vendor/{{#if (asciidocExtensionRegistered '@asciidoctor/tabs')}}asciidoctor{{else}}spring{{/if}}-tabs.css">
+    {{#if env.SITE_ASCIINEMA_PROVIDER}}
+    {{> asciinema-styles}}
+    {{/if}}
 
