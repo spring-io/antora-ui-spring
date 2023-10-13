@@ -12,34 +12,6 @@
 
   let lastRenderArgs
 
-  const transformItems = (items) => {
-    return items.map((item) => {
-      let label = Object.keys(item.hierarchy).reduce((acc, key) => {
-        const highlight = item._highlightResult.hierarchy[key]
-        if (highlight && highlight.matchLevel !== 'none') {
-          return item._highlightResult.hierarchy[key]
-        }
-        return acc
-      }, '')
-      if (!label) {
-        label = Object.keys(item.hierarchy).reduce((acc, key) => {
-          const highlight = item._highlightResult.hierarchy[key]
-          if (highlight) {
-            return item._highlightResult.hierarchy[key]
-          }
-          return acc
-        }, '')
-      }
-      return {
-        ...item,
-        _highlightResult: {
-          ...item._highlightResult,
-          label: label,
-        },
-      }
-    })
-  }
-
   const infiniteHits = instantsearch.connectors.connectInfiniteHits((renderArgs, isFirstRender) => {
     const { hits, showMore, widgetParams } = renderArgs
     const { container } = widgetParams
@@ -51,7 +23,7 @@
       container.appendChild(sentinel)
       return
     }
-    const _hits = transformItems(hits)
+    const _hits = [...hits]
     if (container.querySelector('#page-showmore')) {
       container.removeChild(container.querySelector('#page-showmore'))
     }
@@ -72,6 +44,7 @@
         .map((hit) => {
           let content = ''
           let breadcrumbs = ''
+          let label = ''
 
           if (hit.content) {
             content = `<p class="hit-description">
@@ -90,10 +63,20 @@
                 </div>`
           }
 
+          label = Object.keys(hit.hierarchy)
+            .map((key, index) => {
+              if (index > 0 && hit) {
+                return instantsearch.highlight({ hit: hit, attribute: 'hierarchy.' + key })
+              }
+              return null
+            })
+            .filter((item) => !!item)
+            .join(' - ')
+
           return `<li>
                 <a href="${hit.url}" class="ais-Hits-item">
                   <div class="hit-name">
-                    ${instantsearch.highlight({ hit: hit, attribute: 'label' })}
+                    ${label}
                   </div>
                   ${breadcrumbs}
                   ${content}

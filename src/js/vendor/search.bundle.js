@@ -70,16 +70,16 @@
                   .join(' > ')}
               </div>`
           }
-
-          label = Object.keys(hit._highlightResult.hierarchy)
+          label = Object.keys(hit.hierarchy)
             .map((key, index) => {
-              if (index > 0) {
+              if (index > 0 && hit) {
                 return instantsearch.highlight({ hit: hit, attribute: 'hierarchy.' + key })
               }
               return null
             })
             .filter((item) => !!item)
             .join(' - ')
+
           console.log(label)
           return `<li>
               <a href="${hit.url}" class="ais-Hits-item">
