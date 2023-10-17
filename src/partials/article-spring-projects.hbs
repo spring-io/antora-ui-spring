@@ -5,7 +5,7 @@
   <div class="container">
     <h1 id="page-title" class="page">Spring Projects</h1>
     <ul class="projects-list">
-      {{#each (related_projects [''] [''] (spring-projects))}}
+      {{#each (related_projects (undefined) (undefined) (spring-projects))}}
         {{> related-project this}}
       {{/each}}
     </ul>
