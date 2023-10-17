@@ -3,6 +3,8 @@
 module.exports = (categories, projectIds, projects) => relatedProjects(categories, projectIds, projects)
 
 function relatedProjects (categories, projectIds, projects) {
+  categories = categories || []
+  projectIds = projectIds || []
   if (categories.length === 0 && projectIds.length === 0) {
     return projects
   }
