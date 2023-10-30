@@ -343,6 +343,7 @@ h1.page + aside.toc.embedded {
 
 .doc .admonitionblock .icon i::after {
   content: attr(title);
+  font-family: var(--font-family);
 }
 
 .doc .imageblock {
