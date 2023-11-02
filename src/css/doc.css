@@ -721,9 +721,7 @@ h1.page + aside.toc.embedded {
   background: var(--kbd-background);
   border: 1px solid var(--kbd-border-color);
   border-radius: 0.25em;
-  box-shadow:
-    0 1px 0 var(--kbd-border-color),
-    0 0 0 0.1em var(--body-background) inset;
+  box-shadow: 0 1px 0 var(--kbd-border-color), 0 0 0 0.1em var(--body-background) inset;
   padding: 0.25em 0.5em;
   vertical-align: text-bottom;
   white-space: nowrap; /* effectively ignores hyphens setting */
@@ -806,4 +804,15 @@ html.dark-theme .doc img {
   border-top: 1px solid var(--toc-border-color);
   padding: 1rem;
   padding-top: 0;
+}
+
+.doc a.external::after {
+  content: "\f08e";
+  margin-left: 4px;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome, sans-serif;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

@@ -1,6 +1,17 @@
 ;(function () {
   'use strict'
 
+  document.querySelectorAll('.content article a')
+    .forEach(function (item) {
+      const location = window.location
+      if (location) {
+        if (item.hostname && item.hostname !== location.hostname) {
+          item.classList.add('external')
+          item.setAttribute('target', '_blank')
+        }
+      }
+    })
+
   var sidebar = document.querySelector('div.toc')
   if (!sidebar) return
   if (document.querySelector('body.-toc')) return sidebar.parentNode.removeChild(sidebar)
