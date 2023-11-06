@@ -820,8 +820,8 @@ html.dark-theme .doc img {
 .doc .page-author {
   background: var(--asciidoctor-details-background);
   padding: 1rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   color: var(--asciidoctor-details-font-color);
-  font-size: .8em;
+  font-size: 0.8em;
   font-weight: 600;
 }
