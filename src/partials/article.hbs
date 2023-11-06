@@ -5,6 +5,10 @@
 {{#with page.title}}
 <h1 id="page-title" class="page">{{{this}}}</h1>
 {{/with}}
+{{#with page.attributes.author}}
+<p class="page-author">{{this}}</p>
+{{/with}}
+{{log page}}
 {{{page.contents}}}
 {{> nav-section-summary}}
 {{> pagination}}

@@ -816,3 +816,12 @@ html.dark-theme .doc img {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.doc .page-author {
+  background: var(--asciidoctor-details-background);
+  padding: 1rem;
+  margin-bottom: .5rem;
+  color: var(--asciidoctor-details-font-color);
+  font-size: .8em;
+  font-weight: 600;
+}

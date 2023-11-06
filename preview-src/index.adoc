@@ -1,5 +1,5 @@
-= Hardware & Software Requirements
-Author Name
+= Introduction
+:page-author: Jon Doe, Eric Doe
 :idprefix:
 :idseparator: -
 :!example-caption:
