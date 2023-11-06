@@ -61,3 +61,9 @@ nav.pagination .prev a::before {
 nav.pagination .next a::after {
   content: "\203a";
 }
+
+@media screen and (max-width: 768px) {
+  nav.pagination {
+    padding: 1rem 2rem;
+  }
+}
