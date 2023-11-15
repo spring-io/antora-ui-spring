@@ -14,6 +14,10 @@
 
   let lastRenderArgs
 
+  const decodeHtmlEntities = (str) => {
+    return str.replaceAll('&amp;lt;', '&lt;').replaceAll('&amp;gt;', '&gt;')
+  }
+
   const infiniteHits = instantsearch.connectors.connectInfiniteHits((renderArgs, isFirstRender) => {
     const { hits, showMore, widgetParams } = renderArgs
     const { container } = widgetParams
@@ -80,14 +84,13 @@
             .filter((item) => !!item)
             .join(' - ')
 
-          console.log(label)
           return `<li>
               <a href="${hit.url}" class="ais-Hits-item">
                 <div class="hit-name">
-                  ${label}
+                  ${decodeHtmlEntities(label)}
                 </div>
-                ${breadcrumbs}
-                ${content}
+                ${decodeHtmlEntities(breadcrumbs)}
+                ${decodeHtmlEntities(content)}
               </a>
             </li>`
         })
