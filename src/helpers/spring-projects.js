@@ -230,6 +230,7 @@ module.exports = () => [
     ],
   },
   { href: 'https://docs.spring.io/spring-ai/reference/', id: 'ai', text: 'Spring AI' },
+  { href: 'https://docs.spring.io/spring-amqp/reference/', id: 'amqp', text: 'Spring AMQP' },
   { href: 'https://docs.spring.io/spring-cli/reference/', id: 'cli', text: 'Spring CLI' },
   { href: 'https://docs.spring.io/spring-graphql/reference/', id: 'graphql', text: 'Spring GraphQL' },
   { href: 'https://docs.spring.io/spring-kafka/reference/', id: 'kafka', text: 'Spring for Apache Kafka' },
