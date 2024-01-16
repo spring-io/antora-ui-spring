@@ -1,9 +1,10 @@
 = Antora Default UI
+
 // Settings:
 :experimental:
 :hide-uri-scheme:
 // Project URLs:
-:url-project: https://gitlab.com/antora/antora-ui-default
+:url-project: https://github.com/jcohy/antora-ui-jcohy.git
 :url-preview: https://antora.gitlab.io/antora-ui-default
 :url-ci-pipelines: {url-project}/pipelines
 :img-ci-status: {url-project}/badges/master/pipeline.svg
@@ -19,23 +20,9 @@
 :url-nvm-install: {url-nvm}#installation
 :url-source-maps: https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map
 
-image:{img-ci-status}[CI Status (GitLab CI), link={url-ci-pipelines}]
+== 使用默认 UI
 
-This project is an archetype that demonstrates how to produce a UI bundle that can be used by {url-antora}[Antora] to generated a documentation site.
-You can see a preview of the default UI at {url-preview}.
-
-While the default UI is ready to be used with Antora, the intent is that you'll fork it and customize it for your own needs.
-It's intentionally minimalistic so as to give you a good starting point without requiring too much effort to customize.
-
-== Code of Conduct
-
-The Antora project and its project spaces are governed by our https://gitlab.com/antora/antora/-/blob/master/CODE-OF-CONDUCT.adoc[Code of Conduct].
-By participating, you're agreeing to honor this code.
-Let's work together to make this a welcoming, professional, inclusive, and safe environment for everyone.
-
-== Use the Default UI
-
-If you want to simply use the default UI for your Antora-generated site, add the following UI configuration to your playbook:
+如果您只想对 Antora 生成的站点使用默认 UI，请将以下 UI 配置添加到您的 playbook:
 
 [source,yaml]
 ----
@@ -45,20 +32,17 @@ ui:
     snapshot: true
 ----
 
-NOTE: The `snapshot` flag tells Antora to fetch the UI when the `--fetch` command-line flag is present.
-This setting is required because updates to the UI bundle are pushed to the same URL.
-If the URL were to be unique, this setting would not be required.
+NOTE: `snapshot` 属性意味着当命令行存在 `--fetch` 时使用。此配置时必须的，因为对 UI Bundle 的更新将推送到同一 URL。 如果 URL 是唯一的，则不需要此设置。
 
-Read on to learn how to customize the default UI for your own documentation.
+请继续阅读，了解如何自定义您自己的文档的默认 UI。
 
-== Development Quickstart
+== 开发快速入门
 
-This section offers a basic tutorial to teach you how to set up the default UI project, preview it locally, and bundle it for use with Antora.
-A more comprehensive tutorial can be found in the documentation at {url-antora-docs}.
+本节提供了一个基本教程，教你如何设置默认的 UI 项目，并在本地预览它，并将其与 Antora 一起使用。 可以在 {url-antora-docs} 的文档中找到更全面的教程。
 
-=== Prerequisites
+=== 要求
 
-To preview and bundle the default UI, you need the following software on your computer:
+若要预览和捆绑默认 UI，您的计算机上需要以下软件：
 
 * {url-git}[git] (command: `git`)
 * {url-nodejs}[Node.js] (commands: `node` and `npm`)
@@ -66,100 +50,90 @@ To preview and bundle the default UI, you need the following software on your co
 
 ==== git
 
-First, make sure you have git installed.
+首先确保你安装了 git.
 
  $ git --version
 
-If not, {url-git-dl}[download and install] the git package for your system.
+如果没有安装, 请先 {url-git-dl}[下载并安装 git].
 
 ==== Node.js
 
-Next, make sure that you have Node.js installed (which also provides npm).
+其此, 确保你安装了 Node.js (提供 npm).
 
  $ node --version
 
-If this command fails with an error, you don't have Node.js installed.
-If the command doesn't report an LTS version of Node.js (e.g., v10.15.3), it means you don't have a suitable version of Node.js installed.
-In this guide, we'll be installing Node.js 10.
+如果此命令失败并出现错误，则表示您没有安装 Node.js。 如果该命令未报告 Node.js 的 LTS 版本（例如 v10.15.3）， 则表示您没有安装合适的 Node.js 版本。 在本指南中，我们将安装 Node.js 10。
 
-While you can install Node.js from the official packages, we strongly recommend that you use {url-nvm}[nvm] (Node Version Manager) to manage your Node.js installation(s).
-Follow the {url-nvm-install}[nvm installation instructions] to set up nvm on your machine.
+虽然您可以从官方的软件包安装 Node.js，但我们强烈建议您使用  {url-nvm-install}[nvm（Node 版本管理器）]来管理 Node.js 。 按照 nvm 的安装说明在计算机上设置 nvm。
 
-Once you've installed nvm, open a new terminal and install Node.js 10 using the following command:
+安装 nvm 后，打开一个新终端并使用以下命令安装 Node.js 10:
 
  $ nvm install 10
 
-You can switch to this version of Node.js at any time using the following command:
+您可以使用以下命令切换到此版本的 Node.js:
 
  $ nvm use 10
 
-To make Node.js 10 the default in new terminals, type:
+将 Node.js 10 设置为新的终端的默认值，请输入：
 
  $ nvm alias default 10
 
-Now that you have Node.js installed, you can proceed with installing the Gulp CLI.
+安装 Node.js 后，可以继续安装 Gulp CLI。
 
 ==== Gulp CLI
 
-You'll need the Gulp command-line interface (CLI) to run the build.
-The Gulp CLI package provides the `gulp` command which, in turn, executes the version of Gulp declared by the project.
+需要 Gulp 命令行界面 （CLI） 来运行构建。 Gulp CLI 包提供  `gulp`  命令，该命令可以查看 Gulp 版本:
 
-You can install the Gulp CLI globally (which resolves to a location in your user directory if you're using nvm) using the following command:
+可以使用以下命令全局安装 Gulp CLI（如果使用 nvm，则解析为用户目录中的某个位置）：
 
  $ npm install -g gulp-cli
 
-Verify the Gulp CLI is installed and on your PATH by running:
+通过运行以下命令，验证 Gulp CLI 是否已安装并在 PATH 上:
 
  $ gulp --version
 
-If you prefer to install global packages using Yarn, run this command instead:
+如果您使用的时 Yarn 安装全局包，请改为运行以下命令：:
 
  $ yarn global add gulp-cli
 
-Alternately, you can use the `gulp` command that is installed by the project's dependencies.
+或者，您可以使用 `gulp`  命令，此命令由项目的依赖项安装的
 
  $ $(npm bin)/gulp --version
 
-Now that you have the prerequisites installed, you can fetch and build the UI project.
+好了，现在可以克隆并生成 UI 项目。.
 
-=== Clone and Initialize the UI Project
+=== 克隆并初始化 UI 项目
 
-Clone the default UI project using git:
+使用 git 克隆默认 UI 项目：:
 
 [subs=attributes+]
  $ git clone {url-project} &&
    cd "`basename $_`"
 
-The example above clones Antora's default UI project and then switches to the project folder on your filesystem.
-Stay in this project folder when executing all subsequent commands.
+上面的示例克隆项目，并进入项目目录。
 
-Use npm to install the project's dependencies inside the project.
-In your terminal, execute the following command:
+使用 npm 在安装项目的依赖。 在终端中，执行以下命令：
 
  $ npm install
 
-This command installs the dependencies listed in [.path]_package.json_ into the [.path]_node_modules/_ folder inside the project.
-This folder does not get included in the UI bundle and should _not_ be committed to the source control repository.
+此命令将 [.path]_package.json_ 中列出的依赖项安装到项目内的 [.path]_node_modules/_ 文件夹中。 此文件夹不会包含在 UI bundle 中，也不应提交到源代码管理存储库。
 
 [TIP]
 ====
-If you prefer to install packages using Yarn, run this command instead:
+如果您更喜欢使用 Yarn 安装软件包，请改为运行以下命令:
 
  $ yarn
 ====
 
-=== Preview the UI
+=== 预览 UI
 
-The default UI project is configured to preview offline.
-The files in the [.path]_preview-src/_ folder provide the sample content that allow you to see the UI in action.
-In this folder, you'll primarily find pages written in AsciiDoc.
-These pages provide a representative sample and kitchen sink of content from the real site.
+默认 UI 项目配置为脱机预览。 [.path]_preview-src/_  文件夹中的文件提供了示例内容，可用于查看 UI 的运行情况。 在此文件夹中，您将主要找到用 AsciiDoc 编写的页面。 这些页面提供了来自真实站点的内容的代表性示例。
 
-To build the UI and preview it in a local web server, run the `preview` command:
+若要生成 UI 并在本地 Web 服务器中预览它，请运行以下命令: `preview`
 
  $ gulp preview
 
-You'll see a URL listed in the output of this command:
+你将看到此命令的输出中列出了一个 URL:
 
 ....
 [12:00:00] Starting server...
@@ -167,45 +141,39 @@ You'll see a URL listed in the output of this command:
 [12:00:00] Running server
 ....
 
-Navigate to this URL to preview the site locally.
+点击此链接预览.
 
-While this command is running, any changes you make to the source files will be instantly reflected in the browser.
-This works by monitoring the project for changes, running the `preview:build` task if a change is detected, and sending the updates to the browser.
+运行 `preview:build` 命令时，对源文件所做的任何更改都将立即反映在浏览器中。 其工作原理是监视项目的更改，在检测到更改时运行任务，并将更新发送到浏览器。
 
-Press kbd:[Ctrl+C] to stop the preview server and end the continuous build.
+kbd:[Ctrl+C] 停止预览。
 
-=== Package for Use with Antora
+=== 打包
 
-If you need to package the UI so you can use it to generate the documentation site locally, run the following command:
+如果需要打包 UI，以便可以使用它在本地生成文档站点，请运行以下命令:
 
  $ gulp bundle
 
-If any errors are reported by lint, you'll need to fix them.
+如果 lint 报告了任何错误，则需要修复它们。
 
-When the command completes successfully, the UI bundle will be available at [.path]_build/ui-bundle.zip_.
-You can point Antora at this bundle using the `--ui-bundle-url` command-line option.
+命令成功完成后，UI bundle 将在 [.path]_build/ui-bundle.zip_. 中。 您可以使用 --ui-bundle-url 命令行选项将 Antora 指向此包。
 
-If you have the preview running, and you want to bundle without causing the preview to be clobbered, use:
+如果您正在预览，并且想要在不导致预览中断的情况下进行打包，请使用：
 
  $ gulp bundle:pack
 
-The UI bundle will again be available at [.path]_build/ui-bundle.zip_.
+UI bundle 将再次在打包在 [.path]_build/ui-bundle.zip_.
 
 ==== Source Maps
 
-The build consolidates all the CSS and client-side JavaScript into combined files, [.path]_site.css_ and [.path]_site.js_, respectively, in order to reduce the size of the bundle.
-{url-source-maps}[Source maps] correlate these combined files with their original sources.
+该版本将所有 CSS 和客户端 JavaScript 分别合并到组合文件（`site.css` 和 `site.js`）中，以减小包的大小。{url-source-maps}[Source maps] 将这些组合文件与其原始文件相关联。
 
-This "`source mapping`" is accomplished by generating additional map files that make this association.
-These map files sit adjacent to the combined files in the build folder.
-The mapping they provide allows the debugger to present the original source rather than the obfuscated file, an essential tool for debugging.
+这种  "`source mapping`" 是通过生成其他映射文件来实现的。 这些映射文件与生成文件夹中的组合文件相邻。 它们提供的映射允许调试器显示原始源代码，而不是模糊处理的文件，这是调试的基本工具。
 
-In preview mode, source maps are enabled automatically, so there's nothing you have to do to make use of them.
-If you need to include source maps in the bundle, you can do so by setting the `SOURCEMAPS` environment variable to `true` when you run the bundle command:
+在预览模式下，源映射会自动启用，因此您无需执行任何操作即可使用它们。 如果需要在包中包含源映射，可以设置 `SOURCEMAPS` 环境变量，为在运行 bundle 命令时执行此操作
 
  $ SOURCEMAPS=true gulp bundle
 
-In this case, the bundle will include the source maps, which can be used for debugging your production site.
+在这种情况下，包将包含源映射，这些映射可用于调试生产站点。
 
 == Copyright and License
 
@@ -218,18 +186,18 @@ See link:LICENSE[] to find the full license text.
 
 Development of Antora is led and sponsored by {url-opendevise}[OpenDevise Inc].
 
-== Extensions to the UI
+== UI 扩展
 
-=== Related Documentation
+=== 相关主题
 
-The UI presents a list of related documentation and that documentation can be filtered using two attributes:
+UI 显示相关文档的列表，可以使用两个属性筛选该文档：
 
-* page-related-doc-categories - The categories to be included in the related documentation
-* page-related-doc-projects - The project ids to be included in the related documentation
+* page-related-doc-categories - 要包含在相关文档中的类别
+* page-related-doc-projects - 要包含在相关文档中的项目 ID
 
-For a complete listing of valid categories and ids view https://github.com/spring-io/antora-ui-spring/blob/main/src/helpers/related_projects.js[related_projects.js]
+有关有效类别和 ID 的完整列表，请查看 https://github.com/spring-io/antora-ui-spring/blob/main/src/helpers/related_projects.js[related_projects.js]
 
-The configuration is typically specified in asciidoc attributes section of the antora-playbook.yml:
+该配置通常在 `antora-playbook.yml` 的 asciidoc attributes 部分中指定：
 
 .antora-playbook.yml
 [source,yml]
@@ -242,5 +210,4 @@ asciidoc:
     page-related-doc-projects: framework,graphql
 ----
 
-The Related Documentation links to the `All Docs...` page.
-To include this resource, ensure that the https://github.com/spring-io/antora-extensions/blob/main/README.adoc[antora-extensions] is using 1.7.0+ and the https://github.com/spring-io/antora-extensions/blob/main/README.adoc#static-page[Static Page Extension] is included.
+相关文档链接到 `All Docs...`  页面。 要包含此资源，请确保 https://github.com/spring-io/antora-extensions/blob/main/README.adoc[antora-extensions] 使用的是 1.7.0+， 并且包含 https://github.com/spring-io/antora-extensions/blob/main/README.adoc#static-page[Static Page Extension]。
