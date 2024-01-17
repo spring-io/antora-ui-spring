@@ -43,8 +43,8 @@
   --body-line-height: 1.15;
   --body-font-color: #191e1e;
   --body-font-family: "Open Sans", sans;
-  --body-font-weight-bold: 500;
-  --monospace-font-weight-bold: 500;
+  --body-font-weight-bold: 600;
+  --monospace-font-weight-bold: 600;
   /* base */
   --body-background: var(--color-white);
   --panel-background: var(--color-smoke-30);
