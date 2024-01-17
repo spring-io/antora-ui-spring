@@ -286,8 +286,13 @@ body {
     white-space: nowrap;
   }
 
+  .navbar-dropdown .navbar-item-special-3 {
+    color: #111;
+    font-size: .8rem;
+  }
   .navbar-dropdown .navbar-item-special {
     padding-bottom: 20px;
+    margin-bottom: 1.5rem;
     color: var(--link-font-color);
   }
 
