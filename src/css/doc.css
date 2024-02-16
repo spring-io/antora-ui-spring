@@ -603,7 +603,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc .source-toolbox .copy-button {
-  background-image: url(../img/octicons-16.svg#view-clippy);
+  background-image: url(../img/octicons-16.svg#view-copy);
 }
 
 .doc .source-toolbox .fold-button {

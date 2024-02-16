@@ -64,7 +64,7 @@ div.codetools button span.label {
 }
 
 div.codetools button.copy-button {
-  background-image: url("../img/octicons-16.svg#view-clippy");
+  background-image: url("../img/octicons-16.svg#view-copy");
 }
 
 div.codetools button.unfold-button {
