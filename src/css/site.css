@@ -1,5 +1,4 @@
 @import "fonts.css";
-@import "font-awesome.css";
 @import "vars.css";
 @import "base.css";
 @import "body.css";
@@ -18,3 +17,4 @@
 @import "print.css";
 @import "site-extra.css";
 @import "spring/site.css";
+@import "font-awesome.css";
