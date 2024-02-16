@@ -130,6 +130,12 @@ const previewTask = createTask({
   call: series(previewBuildTask, previewServeTask),
 })
 
+const generateOcticons = createTask({
+  name: 'generateOcticons',
+  desc: 'Generates an SVG file with the octicons we use',
+  call: task.generateOcticons(),
+})
+
 module.exports = exportTasks(
   bundleTask,
   cleanTask,
@@ -140,5 +146,6 @@ module.exports = exportTasks(
   bundlePackTask,
   previewTask,
   previewBuildTask,
-  packTask
+  packTask,
+  generateOcticons
 )
