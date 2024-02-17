@@ -55,7 +55,7 @@ const lintTask = createTask({
 const formatJsTask = createTask({
   name: 'format:js',
   desc: 'Format the JavaScript source files using prettify (JavaScript Standard Style)',
-  call: task.format(glob.test),
+  call: task.format(glob.js),
 })
 
 const formatTestJsTask = createTask({
