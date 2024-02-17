@@ -71,36 +71,25 @@ describe('related_projects', () => {
   })
 
   it('categories defined but project.categories is null', () => {
-    const projects = [
-      project('cloud', { categories: ['cloud'] }),
-      project('spring-integration'),
-    ]
+    const projects = [project('cloud', { categories: ['cloud'] }), project('spring-integration')]
     const projectIds = relatedProjectIds(['cloud'], [''], projects)
     expect(projectIds).is.eql(['cloud'])
   })
 
   it('categories is null and projectIds is null returns all results', () => {
-    const projects = [
-      project('cloud'),
-    ]
+    const projects = [project('cloud')]
     const projectIds = relatedProjectIds(undefined, undefined, projects)
     expect(projectIds).is.eql(['cloud'])
   })
 
   it('categories is null and projectIds is defined filters by projectIds', () => {
-    const projects = [
-      project('security'),
-      project('cloud'),
-    ]
+    const projects = [project('security'), project('cloud')]
     const projectIds = relatedProjectIds(undefined, ['cloud'], projects)
     expect(projectIds).is.eql(['cloud'])
   })
 
   it('categories is defined and projectIds is undefined filters by categories', () => {
-    const projects = [
-      project('security', { categories: ['security'] }),
-      project('cloud', { categories: ['cloud'] }),
-    ]
+    const projects = [project('security', { categories: ['security'] }), project('cloud', { categories: ['cloud'] })]
     const projectIds = relatedProjectIds(undefined, ['cloud'], projects)
     expect(projectIds).is.eql(['cloud'])
   })
