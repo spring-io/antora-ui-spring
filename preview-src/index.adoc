@@ -406,7 +406,7 @@ Don't forget this step!
 .Key Points to Remember
 [TIP]
 ====
-If you installed the CLI and the default site generator globally, you can upgrade both of them with the same command.
+If you installed the CLI and the default `site-generator` globally, you can upgrade both of them with the same command.
 
  $ npm i -g @antora/cli @antora/site-generator-default
 ====
