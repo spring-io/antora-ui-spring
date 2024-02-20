@@ -3,7 +3,3 @@
     display: flex;
   }
 }
-
-body {
-  text-rendering: optimizeLegibility;
-}

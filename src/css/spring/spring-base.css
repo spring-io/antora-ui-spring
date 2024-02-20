@@ -1,0 +1,17 @@
+
+/* Disable overscroll bounce */
+
+html {
+  overscroll-behavior: none;
+}
+
+/* Body tweaks */
+
+body {
+  text-rendering: optimizeLegibility;
+  background-color: var(--body-background-color);
+}
+
+div.body {
+  font-family: var(--font-family);
+}

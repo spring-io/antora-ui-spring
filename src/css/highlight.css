@@ -1,80 +1,74 @@
-/*! Adapted from the GitHub style by Vasily Polovnyov <vast@whiteants.net> */
-.hljs-comment,
-.hljs-quote {
-  color: #998;
-  font-style: italic;
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: var(--highlight-background-color);
+  color: var(--highlight-font-color);
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-subst {
-  color: #333;
-  font-weight: var(--monospace-font-weight-bold);
+  color: var(--highlight-keyword-font-color);
 }
 
-.hljs-number,
-.hljs-literal,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag .hljs-attr {
-  color: #008080;
+.hljs-comment,
+.hljs-quote {
+  color: var(--highlight-comment-font-color);
 }
 
 .hljs-string,
 .hljs-doctag {
-  color: #d14;
+  color: var(--highlight-string-font-color);
 }
 
-.hljs-title,
-.hljs-section,
-.hljs-selector-id {
-  color: #900;
-  font-weight: var(--monospace-font-weight-bold);
+.hljs-meta {
+  color: var(--highlight-meta-font-color);
 }
 
-.hljs-subst {
-  font-weight: normal;
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-number,
+.hljs-symbol,
+.hljs-literal {
+  color: var(--highlight-constant-font-color);
 }
 
-.hljs-type,
-.hljs-class .hljs-title {
-  color: #458;
-  font-weight: var(--monospace-font-weight-bold);
+.hljs-variable,
+.hljs-template-variable {
+  color: var(--highlight-variable-font-color);
 }
 
 .hljs-tag,
 .hljs-name,
 .hljs-attribute {
-  color: #000080;
-  font-weight: normal;
+  color: var(--highlight-tag-font-color);
 }
 
-.hljs-regexp,
+.hljs-tag .hljs-attr {
+  color: var(--highlight-tag-attribute-font-color);
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: var(--highlight-type-font-color);
+}
+
+.hljs-regexp {
+  color: var(--highlight-regex-font-color);
+}
+
 .hljs-link {
-  color: #009926;
-}
-
-.hljs-symbol,
-.hljs-bullet {
-  color: #990073;
-}
-
-.hljs-built_in,
-.hljs-builtin-name {
-  color: #0086b3;
-}
-
-.hljs-meta {
-  color: #999;
-  font-weight: var(--monospace-font-weight-bold);
-}
-
-.hljs-deletion {
-  background: #fdd;
+  text-decoration: underline;
+  color: var(--highlight-link-font-color);
 }
 
 .hljs-addition {
-  background: #dfd;
+  color: var(--highlight-addition-font-color);
+}
+
+.hljs-deletion {
+  color: var(--highlight-deletion-font-color);
 }
 
 .hljs-emphasis {
@@ -82,5 +76,24 @@
 }
 
 .hljs-strong {
+  font-weight: bold;
+}
+
+.language-json .hljs-number,
+.language-json .hljs-literal {
+  color: var(--highlight-variable-font-color);
+}
+
+.language-json .hljs-attr {
+  color: var(--highlight-string-font-color);
+}
+
+.language-asciidoc .hljs-title {
+  color: var(--highlight-keyword-font-color);
   font-weight: var(--monospace-font-weight-bold);
+}
+
+.language-java .hljs-comment,
+.language-kotlin .hljs-comment {
+  font-style: italic;
 }

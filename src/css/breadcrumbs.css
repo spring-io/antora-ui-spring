@@ -1,7 +1,19 @@
 .breadcrumbs {
+  margin: 2.5rem 0 0;
+  max-width: var(--doc-max-width);
   flex: 1 1;
-  padding: 0 0.5rem 0 0.75rem;
+  padding: 0;
   line-height: var(--nav-line-height);
+  color: var(--doc-font-color);
+  font-family: var(--font-family);
+  font-size: calc(16 / var(--rem-base) * 1rem);
+}
+
+@media screen and (min-width: 1024px) {
+  .breadcrumbs {
+    max-width: var(--doc-max-width--desktop);
+    min-width: 0;
+  }
 }
 
 a + .breadcrumbs {
@@ -11,9 +23,8 @@ a + .breadcrumbs {
 .breadcrumbs ul {
   display: flex;
   flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
   list-style: none;
+  padding: 0;
 }
 
 .breadcrumbs li {

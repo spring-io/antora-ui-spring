@@ -13,13 +13,25 @@
 }
 
 .doc .tablist > ul {
-  font-size: calc(12 / var(--pixel-to-rem));
+  font-size: calc(12 / var(--rem-base) * 1rem);
 }
 
 .doc .tablist > ul li {
   border: 1px solid var(--tabs-border-color);
   line-height: inherit;
   padding: 0.3rem 0.6rem;
+}
+
+.doc .tablist > ul li:not(:first-child) {
+  border-left: none;
+}
+
+.doc .tabs.is-loading .tablist > ul li:not(:first-child):hover,
+.doc .tabs:not(.is-loading) .tablist > ul li:not(.is-selected):hover {
+  color: var(--tabs-hover-font-color);
+  background-color: var(--tabs-hover-background);
+  transition: filter 300ms;
+  text-decoration: underline;
 }
 
 .doc .tablist.ulist > ul li + li {
