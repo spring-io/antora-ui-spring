@@ -162,15 +162,6 @@ mark {
   margin: 2rem 0 0;
 }
 
-.doc h1,
-.doc h2,
-.doc h3,
-.doc h4,
-.doc h5,
-.doc h6 {
-  font-family: var(--font-family-special);
-}
-
 .doc h1 code,
 .doc h2 code,
 .doc h3 code,

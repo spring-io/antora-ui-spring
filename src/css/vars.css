@@ -25,7 +25,7 @@
   --monospace-font-weight-bold: 600;
 
   /* General */
-  --font-family: "Open Sans", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-special: "Metropolis", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-weight: 400;
   --monospace-font-family: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", monospace;
