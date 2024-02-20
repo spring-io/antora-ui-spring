@@ -11,6 +11,9 @@ module.exports = (requireRequest, { data }) => {
     try {
       extension = require.cache[require.resolve(requireRequest, { paths: require.main.paths })]
     } catch {}
+    try {
+      extension = extension ?? require.cache[require.resolve(requireRequest)]
+    } catch {}
     cache[requireRequest] = extension
   }
   if (!extension) return
