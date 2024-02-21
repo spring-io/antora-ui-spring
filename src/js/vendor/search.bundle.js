@@ -2,7 +2,7 @@
 
 ;(function () {
   const isMac = () => navigator.platform.indexOf('Mac') > -1
-
+  let loaded = false
   const config = document.getElementById('search-script').dataset
   const client = algoliasearch(config.appId, config.apiKey)
   let selected = null
@@ -222,9 +222,11 @@
     }),
   ])
 
-  search.start()
-
   const open = () => {
+    if (!loaded) {
+      search.start()
+      loaded = true
+    }
     selectHit(null)
     MicroModal.show('modal-1', {
       disableScroll: true,

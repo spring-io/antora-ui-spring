@@ -180,6 +180,9 @@ html.is-clipped--nav {
   line-height: 24px;
   padding-right: 30px;
   margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 button.browse-version {
