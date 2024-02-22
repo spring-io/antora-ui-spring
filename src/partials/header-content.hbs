@@ -216,5 +216,5 @@
   if (theme === 'dark') {
     document.getElementById('switch-theme-checkbox').parentElement.classList.add('active')
   }
-}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'))
+}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)')?.matches && 'dark'))
 </script>
