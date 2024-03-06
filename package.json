@@ -19,7 +19,7 @@
   ],
   "devDependencies": {
     "@asciidoctor/core": "~2.2",
-    "@asciidoctor/tabs": "1.0.0-beta.3",
+    "@asciidoctor/tabs": "1.0.0-beta.6",
     "@docsearch/js": "3",
     "@springio/asciidoctor-extensions": "1.0.0-alpha.8",
     "algoliasearch": "4",
@@ -29,9 +29,9 @@
     "chai": "~4.3",
     "chai-fs": "~2.0",
     "chai-spies": "~1.0",
-    "dirty-chai": "~2.0",
     "core-js": "~3.26",
     "cssnano": "~5.1",
+    "dirty-chai": "~2.0",
     "eslint": "~6.8",
     "eslint-config-standard": "~14.1",
     "eslint-plugin-import": "~2.22",
@@ -52,9 +52,9 @@
     "highlight.js": "9.18.3",
     "instantsearch.js": "^4.54.1",
     "js-yaml": "~4.1",
-    "mocha": "~10.2",
     "merge-stream": "~2.0",
     "micromodal": "^0.4.10",
+    "mocha": "~10.2",
     "postcss": "~8.4",
     "postcss-calc": "~8.2",
     "postcss-custom-properties": "~12.1",
@@ -68,6 +68,7 @@
     "vinyl-fs": "~3.0"
   },
   "dependencies": {
-    "@algolia/client-search": "^4.17.0"
+    "@algolia/client-search": "^4.17.0",
+    "@primer/octicons": "^19.8.0"
   }
 }

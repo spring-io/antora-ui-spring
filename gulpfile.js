@@ -55,7 +55,7 @@ const lintTask = createTask({
 const formatJsTask = createTask({
   name: 'format:js',
   desc: 'Format the JavaScript source files using prettify (JavaScript Standard Style)',
-  call: task.format(glob.test),
+  call: task.format(glob.js),
 })
 
 const formatTestJsTask = createTask({
@@ -130,6 +130,12 @@ const previewTask = createTask({
   call: series(previewBuildTask, previewServeTask),
 })
 
+const generateOcticons = createTask({
+  name: 'generateOcticons',
+  desc: 'Generates an SVG file with the octicons we use',
+  call: task.generateOcticons(),
+})
+
 module.exports = exportTasks(
   bundleTask,
   cleanTask,
@@ -140,5 +146,6 @@ module.exports = exportTasks(
   bundlePackTask,
   previewTask,
   previewBuildTask,
-  packTask
+  packTask,
+  generateOcticons
 )

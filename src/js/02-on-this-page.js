@@ -1,16 +1,15 @@
 ;(function () {
   'use strict'
 
-  document.querySelectorAll('.content article a')
-    .forEach(function (item) {
-      const location = window.location
-      if (location) {
-        if (item.hostname && item.hostname !== location.hostname) {
-          item.classList.add('external')
-          item.setAttribute('target', '_blank')
-        }
+  document.querySelectorAll('.content article a').forEach(function (item) {
+    const location = window.location
+    if (location) {
+      if (item.hostname && item.hostname !== location.hostname) {
+        item.classList.add('external')
+        item.setAttribute('target', '_blank')
       }
-    })
+    }
+  })
 
   var sidebar = document.querySelector('div.toc')
   if (!sidebar) return
@@ -18,7 +17,7 @@
   var levels = parseInt(sidebar.dataset.levels || 2, 10)
   if (levels < 0) return
 
-  var articleSelector = 'div.doc>article'
+  var articleSelector = 'article.doc'
   var article = document.querySelector(articleSelector)
   var headingsSelector = []
   for (var level = 0; level <= levels; level++) {

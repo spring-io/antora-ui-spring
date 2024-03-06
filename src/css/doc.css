@@ -1,5 +1,3 @@
-@import "@springio/asciidoctor-extensions/browser/css/source-toolbox";
-
 .doc {
   color: var(--doc-font-color);
   font-size: var(--doc-font-size);
@@ -33,14 +31,23 @@
   margin: 1rem 0 0;
 }
 
+.doc > h1.page:first-child {
+  font-size: calc(36 / var(--rem-base) * 1rem);
+  margin: 1.5rem 0;
+}
+
 @media screen and (min-width: 769px) {
   .doc > h1.page:first-child {
-    margin-top: 0.4rem;
+    margin-top: 2.5rem;
   }
 }
 
-h1.page + aside.toc.embedded {
+.doc > h1.page:first-child + aside.toc.embedded {
   margin-top: -0.5rem;
+}
+
+.doc > h2#name + .sectionbody {
+  margin-top: 1rem;
 }
 
 #preamble + .sect1,
@@ -62,7 +69,8 @@ h1.page + aside.toc.embedded {
   padding: 0.4rem 1rem 0.1rem;
 }
 
-.doc h3:not(.discrete) {
+.doc h3:not(.discrete),
+.doc h4:not(.discrete) {
   font-weight: var(--alt-heading-font-weight);
 }
 
@@ -127,7 +135,8 @@ h1.page + aside.toc.embedded {
 }
 
 .doc p code,
-.doc thead code {
+.doc thead code,
+.doc .colist > table code {
   color: var(--code-font-color);
   background: var(--code-background);
   border-radius: 0.25em;
@@ -162,8 +171,46 @@ h1.page + aside.toc.embedded {
   float: left;
 }
 
+.doc .float-gap.right {
+  margin: 0 1rem 1rem 0;
+}
+
+.doc .float-gap.left {
+  margin: 0 0 1rem 1rem;
+}
+
+.doc .float-group::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.doc .text-left {
+  text-align: left;
+}
+
+.doc .text-center {
+  text-align: center;
+}
+
+.doc .text-right {
+  text-align: right;
+}
+
+.doc .text-justify {
+  text-align: justify;
+}
+
 .doc .stretch {
   width: 100%;
+}
+
+.doc .big {
+  font-size: larger;
+}
+
+.doc .small {
+  font-size: smaller;
 }
 
 .doc .underline {
@@ -183,8 +230,10 @@ h1.page + aside.toc.embedded {
 .doc .imageblock,
 .doc .listingblock,
 .doc .literalblock,
+.doc .tabs,
 .doc .sidebarblock,
 .doc .verseblock,
+.doc .videoblock,
 .doc .quoteblock,
 .doc .partintro,
 .doc details,
@@ -192,23 +241,29 @@ h1.page + aside.toc.embedded {
   margin: 1rem 0 0;
 }
 
+.doc > table.tableblock,
+.doc > table.tableblock + *,
+.doc .tablecontainer,
+.doc .tablecontainer + *,
+.doc :not(.tablecontainer) > table.tableblock,
+.doc :not(.tablecontainer) > table.tableblock + * {
+  margin-top: 1.5rem;
+}
+
 .doc table.tableblock {
-  word-break: break-all;
   font-size: calc(15 / var(--rem-base) * 1rem);
 }
 
-.doc table.tableblock,
-.doc .tablecontainer {
-  margin: 1.5rem 0 0;
+.doc p.tableblock + p.tableblock {
+  margin-top: 0.5rem;
 }
 
-.doc .tablecontainer > table.tableblock {
-  margin-top: 0;
+.doc table.tableblock pre {
+  font-size: inherit;
 }
 
-.doc table.tableblock + *,
-.doc .tablecontainer + * {
-  margin-top: 1.5rem;
+.doc td.tableblock > .content {
+  word-wrap: anywhere; /* aka overflow-wrap; used when hyphens are disabled or aren't sufficient */
 }
 
 .doc td.tableblock > .content > :first-child {
@@ -220,14 +275,58 @@ h1.page + aside.toc.embedded {
   padding: 0.5rem;
 }
 
-.doc table.tableblock thead th {
-  border-bottom: 2.5px solid var(--table-border-color);
+.doc table.tableblock,
+.doc table.tableblock > * > tr > * {
+  border: 0 solid var(--table-border-color);
 }
 
-.doc table.tableblock td,
-.doc table.tableblock > :not(thead) th {
-  border-top: 1px solid var(--table-border-color);
-  border-bottom: 1px solid var(--table-border-color);
+.doc table.grid-all > * > tr > * {
+  border-width: 1px;
+}
+
+.doc table.grid-cols > * > tr > * {
+  border-width: 0 1px;
+}
+
+.doc table.grid-rows > * > tr > * {
+  border-width: 1px 0;
+}
+
+.doc table.grid-all > thead th,
+.doc table.grid-rows > thead th {
+  border-bottom-width: 2.5px;
+}
+
+.doc table.frame-all {
+  border-width: 1px;
+}
+
+.doc table.frame-ends {
+  border-width: 1px 0;
+}
+
+.doc table.frame-sides {
+  border-width: 0 1px;
+}
+
+.doc table.frame-none > colgroup + * > :first-child > *,
+.doc table.frame-sides > colgroup + * > :first-child > * {
+  border-top-width: 0;
+}
+
+/* NOTE let the grid win in case of frame-none */
+.doc table.frame-sides > :last-child > :last-child > * {
+  border-bottom-width: 0;
+}
+
+.doc table.frame-none > * > tr > :first-child,
+.doc table.frame-ends > * > tr > :first-child {
+  border-left-width: 0;
+}
+
+.doc table.frame-none > * > tr > :last-child,
+.doc table.frame-ends > * > tr > :last-child {
+  border-right-width: 0;
 }
 
 .doc table.stripes-all > tbody > tr,
@@ -279,7 +378,7 @@ h1.page + aside.toc.embedded {
   margin-top: 0;
 }
 
-.doc .admonitionblock pre {
+.doc .admonitionblock td.content pre {
   font-size: calc(15 / var(--rem-base) * 1rem);
 }
 
@@ -296,64 +395,82 @@ h1.page + aside.toc.embedded {
   word-wrap: anywhere;
 }
 
-/* .doc .admonitionblock .icon {
+.doc .admonitionblock td.icon {
+  font-size: calc(15 / var(--rem-base) * 1rem);
+  left: 0;
+  line-height: 1;
+  padding: 0;
   position: absolute;
   top: 0;
-  left: 0;
-  font-size: calc(15 / var(--rem-base) * 1rem);
-  padding: 0 0.5rem;
-  height: 1.25rem;
-  line-height: 1;
-  font-weight: var(--admonition-label-font-weight);
-  text-transform: uppercase;
-  border-radius: 0.45rem;
   transform: translate(-0.5rem, -50%);
-} */
+}
 
-.doc .admonitionblock.caution .icon {
+.doc .admonitionblock td.icon i {
+  align-items: center;
+  border-radius: 0.45rem;
+  display: inline-flex;
+  filter: initial;
+  height: 1.25rem;
+  padding: 0 0.5rem;
+  vertical-align: initial;
+  width: fit-content;
+}
+
+.doc .admonitionblock td.icon i::after {
+  content: attr(title);
+  font-weight: var(--admonition-label-font-weight);
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.doc .admonitionblock td.icon i.icon-caution {
   background-color: var(--caution-color);
   color: var(--caution-on-color);
 }
 
-.doc .admonitionblock.important .icon {
+.doc .admonitionblock td.icon i.icon-important {
   background-color: var(--important-color);
   color: var(--important-on-color);
 }
 
-.doc .admonitionblock.note .icon {
+.doc .admonitionblock td.icon i.icon-note {
   background-color: var(--note-color);
   color: var(--note-on-color);
 }
 
-.doc .admonitionblock.tip .icon {
+.doc .admonitionblock td.icon i.icon-tip {
   background-color: var(--tip-color);
   color: var(--tip-on-color);
 }
 
-.doc .admonitionblock.warning .icon {
+.doc .admonitionblock td.icon i.icon-warning {
   background-color: var(--warning-color);
   color: var(--warning-on-color);
 }
 
-.doc .admonitionblock .icon i {
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
-}
-
-.doc .admonitionblock .icon i::after {
-  content: attr(title);
-  font-family: var(--font-family);
-}
-
-.doc .imageblock {
+.doc .imageblock,
+.doc .videoblock {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.doc .imageblock.text-left,
+.doc .videoblock.text-left {
+  align-items: flex-start;
+}
+
+.doc .imageblock.text-right,
+.doc .videoblock.text-right {
+  align-items: flex-end;
+}
+
 .doc .imageblock img,
-.doc .image > img {
+.doc .imageblock object,
+.doc .imageblock svg,
+.doc .image > img,
+.doc .image > object,
+.doc .image > svg {
   display: inline-block;
   height: auto;
   max-width: 100%;
@@ -362,6 +479,12 @@ h1.page + aside.toc.embedded {
 
 .doc .image:not(.left):not(.right) > img {
   margin-top: -0.2em;
+}
+
+.doc .videoblock iframe,
+.doc .videoblock video {
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 #preamble .abstract blockquote {
@@ -449,6 +572,12 @@ h1.page + aside.toc.embedded {
   list-style-type: square;
 }
 
+.doc ul.circle ul:not([class]),
+.doc ul.disc ul:not([class]),
+.doc ul.square ul:not([class]) {
+  list-style: inherit;
+}
+
 .doc ol.arabic {
   list-style-type: decimal;
 }
@@ -478,7 +607,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc ul.checklist {
-  padding-left: 0.5rem;
+  padding-left: 1.75rem;
 }
 
 .doc ul.checklist p > i.fa-check-square-o:first-child,
@@ -486,6 +615,7 @@ h1.page + aside.toc.embedded {
   display: inline-flex;
   justify-content: center;
   width: 1.25rem;
+  margin-left: -1.25rem;
 }
 
 .doc ul.checklist i.fa-check-square-o::before {
@@ -508,9 +638,9 @@ h1.page + aside.toc.embedded {
   margin-top: 0.5rem;
 }
 
-.doc .olist li,
-.doc .ulist li {
-  margin-bottom: 0.5rem;
+.doc .olist li + li,
+.doc .ulist li + li {
+  margin-top: 0.5rem;
 }
 
 .doc .ulist .listingblock,
@@ -525,30 +655,106 @@ h1.page + aside.toc.embedded {
 .doc .literalblock .title,
 .doc .listingblock .title,
 .doc .openblock .title,
-.doc .tableblock caption {
+.doc .videoblock .title,
+.doc table.tableblock caption {
   color: var(--caption-font-color);
   font-size: calc(16 / var(--rem-base) * 1rem);
+  font-style: var(--caption-font-style);
   font-weight: var(--caption-font-weight);
-  font-style: italic;
   hyphens: none;
   letter-spacing: 0.01em;
   padding-bottom: 0.075rem;
+}
+
+.doc table.tableblock caption {
   text-align: left;
 }
 
-.doc .imageblock .title {
+.doc .olist .title,
+.doc .ulist .title {
+  font-style: var(--caption-font-style);
+  font-weight: var(--caption-font-weight);
+  margin-bottom: 0.25rem;
+}
+
+.doc .imageblock .title,
+.doc .videoblock .title {
   margin-top: 0.5rem;
   padding-bottom: 0;
 }
 
-.doc .exampleblock > .content {
+.doc details {
+  margin-left: 1rem;
+}
+
+.doc details > summary {
+  display: block;
+  position: relative;
+  line-height: var(--doc-line-height);
+  margin-bottom: 0.5rem;
+}
+
+.doc details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.doc details > summary::before {
+  content: "";
+  border: solid transparent;
+  border-left-color: currentColor;
+  border-width: 0.3em 0 0.3em 0.5em;
+  position: absolute;
+  top: calc((var(--doc-line-height) * 0.5 - 0.3) * 1em);
+  left: -1rem;
+  transform: translateX(15%);
+}
+
+.doc details[open] > summary::before {
+  border-color: currentColor transparent transparent;
+  border-width: 0.5rem 0.3rem 0;
+  transform: translateY(15%);
+}
+
+.doc details > summary::after {
+  content: "";
+  width: 1rem;
+  height: 1em;
+  position: absolute;
+  top: calc((var(--doc-line-height) * 0.5 - 0.5) * 1em);
+  left: -1rem;
+}
+
+.doc details.result {
+  margin-top: 0.25rem;
+}
+
+.doc details.result > summary {
+  color: var(--caption-font-color);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.doc details.result > .content {
+  margin-left: -1rem;
+}
+
+.doc .exampleblock > .content,
+.doc details.result > .content {
   background: var(--example-background);
   border: 0.25rem solid var(--example-border-color);
   border-radius: 0.5rem;
   padding: 0.75rem;
 }
 
-.doc .exampleblock > .content > :first-child {
+.doc .exampleblock > .content::after,
+.doc details.result > .content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.doc .exampleblock > .content > :first-child,
+.doc details > .content > :first-child {
   margin-top: 0;
 }
 
@@ -562,65 +768,128 @@ h1.page + aside.toc.embedded {
   font-size: calc(22.5 / var(--rem-base) * 1rem);
   font-weight: var(--alt-heading-font-weight);
   line-height: 1.3;
-  margin-bottom: -0.3em;
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
+.doc .sidebarblock > .content > .title + *,
 .doc .sidebarblock > .content > :not(.title):first-child {
   margin-top: 0;
 }
 
 /* NEEDS REVIEW prevent pre in table from causing article to exceed bounds */
-.doc .tableblock pre,
+.doc table.tableblock pre,
 .doc .listingblock.wrap pre {
   white-space: pre-wrap;
 }
 
-.doc pre.highlight code.hljs,
+.doc pre.highlight > code,
 .doc .listingblock pre:not(.highlight),
 .doc .literalblock pre {
   background: var(--pre-background);
   box-shadow: inset 0 0 1.75px var(--pre-border-color);
   display: block;
   overflow-x: auto;
-  padding: 0.75rem;
+  padding: 0.875em;
 }
 
-.doc pre > code[data-lang]::before {
-  color: var(--pre-annotation-font-color);
+.doc .listingblock > .content {
+  position: relative;
 }
 
 .doc .source-toolbox {
-  border-color: var(--pre-annotation-font-color);
+  display: flex;
+  visibility: hidden;
+  position: absolute;
+  top: 0.25rem;
+  right: 0.5rem;
+  color: var(--pre-annotation-font-color);
+  font-family: var(--body-font-family);
+  font-size: calc(13 / var(--rem-base) * 1rem);
+  line-height: 1;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 1;
 }
 
-.doc .source-toolbox > :not(:last-child) {
-  border-color: var(--pre-annotation-font-color);
+.doc .listingblock:hover .source-toolbox {
+  visibility: visible;
 }
 
-.doc .source-toolbox button {
-  filter: var(--codetools-button-filter);
+.doc .source-toolbox .source-lang {
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+}
+
+.doc .source-toolbox > :not(:last-child)::after {
+  content: "|";
+  letter-spacing: 0;
+  padding: 0 1ch;
 }
 
 .doc .source-toolbox .copy-button {
-  background-image: url(../img/octicons-16.svg#view-clippy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  color: inherit;
+  outline: none;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+  width: 1em;
+  height: 1em;
 }
 
-.doc .source-toolbox .fold-button {
-  background-image: url(../img/octicons-16.svg#view-unfold);
+.doc .source-toolbox .copy-icon {
+  flex: none;
+  width: inherit;
+  height: inherit;
 }
 
-.doc code.is-unfolded + .source-toolbox .fold-button {
-  background-image: url(../img/octicons-16.svg#view-fold);
+.doc .source-toolbox img.copy-icon {
+  filter: invert(50.2%);
+}
+
+.doc .source-toolbox svg.copy-icon {
+  fill: currentColor;
 }
 
 .doc .source-toolbox .copy-toast {
+  flex: none;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  margin-top: 1em;
   background-color: var(--doc-font-color);
-  filter: var(--codetools-button-filter);
+  border-radius: 0.25em;
+  padding: 0.5em;
+  color: var(--color-white);
+  cursor: auto;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.5s;
 }
 
-.dark-theme .doc .source-toolbox .copy-toast {
-  color: var(--color-black);
+.doc .source-toolbox .copy-toast::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  border: 0.55em solid transparent;
+  border-left-color: var(--doc-font-color);
+  transform: rotate(-90deg) translateX(50%) translateY(50%);
+  transform-origin: left;
+}
+
+.doc .source-toolbox .copy-button.clicked .copy-toast {
+  opacity: 1;
+  transition: none;
+}
+
+.doc .language-console .hljs-meta {
+  user-select: none;
 }
 
 .doc .dlist dt {
@@ -628,11 +897,12 @@ h1.page + aside.toc.embedded {
 }
 
 .doc .dlist dd {
-  margin: 0 0 0.25rem 1.5rem;
+  margin: 0 0 0 1.5rem;
 }
 
-.doc .dlist dd:last-of-type {
-  margin-bottom: 0;
+.doc .dlist dd + dt,
+.doc .dlist dd > p:first-child {
+  margin-top: 0.5rem;
 }
 
 .doc td.hdlist1,
@@ -658,7 +928,6 @@ h1.page + aside.toc.embedded {
 .doc .colist {
   font-size: calc(16 / var(--rem-base) * 1rem);
   margin: 0.25rem 0 -0.25rem;
-  word-break: break-all;
 }
 
 .doc .colist > table > tr > :first-child,
@@ -760,7 +1029,7 @@ h1.page + aside.toc.embedded {
   line-height: calc(1 / 1.1);
 }
 
-.doc .nowrap {
+.doc :not(pre).nowrap {
   white-space: nowrap;
 }
 
@@ -769,59 +1038,37 @@ h1.page + aside.toc.embedded {
   word-wrap: normal;
 }
 
-html.dark-theme .doc img {
-  filter: invert();
+.doc :not(pre).pre-wrap {
+  white-space: pre-wrap;
 }
 
-.doc .breadcrumbs,
-.doc .breadcrumbs ul {
-  padding: 0;
-  margin: 0;
+#footnotes {
+  font-size: 0.85em;
+  line-height: 1.5;
+  margin: 2rem -0.5rem 0;
 }
 
-.doc .breadcrumbs {
-  padding: 1.5rem 0 1rem;
-  color: var(--doc-font-color);
+.doc td.tableblock > .content #footnotes {
+  margin: 2rem 0 0;
 }
 
-.doc details {
-  border: 1px solid var(--toc-border-color);
+#footnotes hr {
+  border-top-width: 1px;
+  margin-top: 0;
+  width: 20%;
 }
 
-.doc details .title::marker {
-  margin-right: 10px;
-}
-.doc details .title {
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+#footnotes .footnote {
+  margin: 0.5em 0 0 1em;
 }
 
-.doc details .title:hover {
-  background: var(--asciidoctor-pre-background);
+#footnotes .footnote + .footnote {
+  margin-top: 0.25em;
 }
 
-.doc details div.content {
-  border-top: 1px solid var(--toc-border-color);
-  padding: 1rem;
-  padding-top: 0;
-}
-
-.doc a.external::after {
-  content: "\f08e";
-  margin-left: 4px;
+#footnotes .footnote > a:first-of-type {
   display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome, sans-serif;
-  font-size: 12px;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.doc .page-author {
-  background: var(--asciidoctor-details-background);
-  padding: 1rem;
-  margin-bottom: 0.5rem;
-  color: var(--asciidoctor-details-font-color);
-  font-size: 0.8em;
-  font-weight: 600;
+  margin-left: -2em;
+  text-align: right;
+  width: 1.5em;
 }

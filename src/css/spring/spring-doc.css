@@ -1,0 +1,311 @@
+@import "@springio/asciidoctor-extensions/browser/css/source-toolbox";
+
+/* Add Author Styling */
+
+.doc .page-author {
+  background: var(--page-author-background);
+  color: var(--page-author-font-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: calc(12 / var(--rem-base) * 1rem);
+  font-weight: var(--body-font-weight-bold);
+}
+
+/* Apply code styling in admon blocks */
+
+.doc .admonitionblock code {
+  color: var(--code-font-color);
+  background: var(--code-background);
+  border-radius: 0.25em;
+  font-size: 0.95em;
+  padding: 0.125em 0.25em;
+}
+
+/* Tweak code styling */
+
+.doc p a code,
+.doc thead a code,
+.doc .admonitionblock a code {
+  color: var(--code-link-font-color);
+}
+
+.doc pre.highlight > code,
+.doc .listingblock pre:not(.highlight),
+.doc .literalblock pre {
+  border-radius: 4px;
+}
+
+/* Use custom mark color */
+
+mark {
+  background: var(--mark-background-color);
+}
+
+/* Use '#' for on header hovers and tweak position */
+
+.doc h1 .anchor,
+.doc h2 .anchor,
+.doc h3 .anchor,
+.doc h4 .anchor,
+.doc h5 .anchor,
+.doc h6 .anchor {
+  padding-top: 0.2em;
+}
+
+.doc h1 .anchor::before,
+.doc h2 .anchor::before,
+.doc h3 .anchor::before,
+.doc h4 .anchor::before,
+.doc h5 .anchor::before,
+.doc h6 .anchor::before {
+  content: "\0023";
+}
+
+/* Place source toolbox in bottom right */
+
+.doc .source-toolbox {
+  visibility: visible;
+  top: unset;
+  border-color: var(--pre-annotation-font-color);
+}
+
+.doc .source-toolbox > :not(:last-child)::after {
+  content: unset;
+}
+
+.doc .source-toolbox > :not(:last-child) {
+  border-color: var(--pre-annotation-font-color);
+}
+
+.doc .source-toolbox button:hover {
+  background-color: var(--codetools-hover-background-color);
+  transition: filter 300ms;
+}
+
+.doc .source-toolbox button {
+  filter: var(--codetools-button-filter);
+}
+
+.doc .source-toolbox .copy-button,
+.doc .source-toolbox .fold-button,
+.doc code.is-unfolded + .source-toolbox .fold-button {
+  width: 24px;
+  height: 24px;
+}
+
+.doc .source-toolbox .copy-button {
+  background: no-repeat scroll 50% 50% / 16px 16px padding-box border-box url(../img/octicons-16.svg#view-copy);
+}
+
+.doc .source-toolbox .fold-button {
+  background: no-repeat scroll 50% 50% / 16px 16px padding-box border-box url(../img/octicons-16.svg#view-unfold);
+}
+
+.doc code.is-unfolded + .source-toolbox .fold-button {
+  background-image: url(../img/octicons-16.svg#view-fold);
+}
+
+.doc .source-toolbox .copy-toast {
+  background-color: var(--doc-font-color);
+  filter: var(--codetools-button-filter);
+}
+
+.dark-theme .doc .source-toolbox .copy-toast {
+  color: var(--color-black);
+}
+
+/* Use a better font color for code language and hide if in a table */
+
+.doc pre > code[data-lang]::before {
+  color: var(--pre-annotation-font-color);
+  font-size: 0.6em;
+  padding-top: 0.6em;
+}
+
+.doc table pre.highlight code[data-lang]::before {
+  display: none;
+}
+
+/* Tweak example blocks */
+
+.doc .exampleblock > .content,
+.doc details.result > .content {
+  background: var(--example-background);
+  border: 2px solid var(--example-border-color);
+  border-radius: 4px;
+  padding: 0.75rem;
+}
+
+/* Apply first header style directly since our breadcrumbs break :first-child */
+
+.doc > h1#page-title {
+  font-size: calc(42 / var(--rem-base) * 1rem);
+  margin: 0.2rem 0;
+}
+
+@media screen and (min-width: 769px) {
+  .doc > h1#page-title {
+    margin-top: 0.2rem;
+  }
+}
+
+.doc > h1#page-title + aside.toc.embedded {
+  margin-top: -0.5rem;
+}
+
+/* Tweak headers */
+
+.doc h3,
+.doc h4,
+.doc h5,
+.doc h6 {
+  margin: 2rem 0 0;
+}
+
+.doc h1 code,
+.doc h2 code,
+.doc h3 code,
+.doc h4 code,
+.doc h5 code,
+.doc h6 code {
+  font-size: 90%;
+  font-weight: 700;
+}
+
+/* Style Admonition with Icons and Text */
+
+.doc .admonitionblock td.icon i {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: 0.5em 0;
+  filter: invert(100%);
+  padding-left: 2em;
+  vertical-align: middle;
+}
+
+.doc .admonitionblock td.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: calc(14 / var(--rem-base) * 1rem);
+  line-height: 1;
+  transform: translate(-0.5rem, -50%);
+  border-radius: 0.5rem;
+  padding: 0.35em 0.075em;
+}
+
+.doc .admonitionblock td.icon i::after {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  content: attr(title);
+  text-transform: uppercase;
+  font-weight: var(--admonition-font-weight);
+  color: var(--admonition-font-color);
+  font-style: normal;
+  hyphens: none;
+  padding: 0 0.5em;
+  margin: -0.05em;
+  filter: invert(100%);
+}
+
+.doc .admonitionblock i.fa {
+  background-size: 16px 16px;
+}
+
+.doc .admonitionblock.caution td.icon {
+  background-color: var(--caution-color);
+}
+
+.doc .admonitionblock td.icon i.icon-caution {
+  background: no-repeat scroll 0.5em 50% / 16px 16px padding-box border-box url(../img/octicons-16.svg#view-flame);
+}
+
+.doc .admonitionblock.important td.icon {
+  background-color: var(--important-color);
+}
+
+.doc .admonitionblock td.icon i.icon-important {
+  background: no-repeat scroll 0.5em 50% / 16px 16px padding-box border-box url(../img/octicons-16.svg#view-stop);
+}
+
+.doc .admonitionblock.note .icon {
+  background-color: var(--note-color);
+}
+
+.doc .admonitionblock td.icon i.icon-note {
+  background: no-repeat scroll 0.5em 50% / 16px 16px padding-box border-box url(../img/octicons-16.svg#view-info);
+}
+
+.doc .admonitionblock.tip .icon {
+  background-color: var(--tip-color);
+}
+
+.doc .admonitionblock td.icon i.icon-tip {
+  background: no-repeat scroll 0.5em 50% / 16px 16px padding-box border-box url(../img/octicons-16.svg#view-light-bulb);
+}
+
+.doc .admonitionblock.warning .icon {
+  background-color: var(--warning-color);
+}
+
+.doc .admonitionblock td.icon i.icon-warning {
+  background: no-repeat scroll 0.5em 50% / 16px 16px padding-box border-box url(../img/octicons-16.svg#view-alert);
+}
+
+/* Use horizonal scrolling for large tables */
+
+.doc table.tableblock {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.doc table.tableblock td {
+  min-width: 10rem;
+}
+
+.doc td.tableblock > .content {
+  word-wrap: unset;
+}
+
+.doc table.frame-all,
+.doc table.frame-ends,
+.doc table.frame-sides {
+  border-width: 0;
+}
+
+/* Tweak table style to always used striped tables */
+
+.doc table.grid-all > * > tr > * {
+  border: none;
+  border-top: 1px solid var(--table-border-color);
+  border-bottom: 1px solid var(--table-border-color);
+}
+
+.doc table.grid-all > tbody > tr:hover {
+  background: var(--table-stripe-background);
+}
+
+/* Tweak Callouts */
+
+.doc .conum[data-value] {
+  border: none;
+  font-family: var(--monospace-font-family);
+  font-size: calc(12 / var(--rem-base) * 1rem);
+  background: var(--callout-background);
+  color: var(--callout-font-color);
+  line-height: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+/* Improve latest important admon */
+
+.admonitionblock.latest {
+  padding: 1.5rem 1rem 0;
+}

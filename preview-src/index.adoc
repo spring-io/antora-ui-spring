@@ -406,7 +406,7 @@ Don't forget this step!
 .Key Points to Remember
 [TIP]
 ====
-If you installed the CLI and the default site generator globally, you can upgrade both of them with the same command.
+If you installed the CLI and the default `site-generator` globally, you can upgrade both of them with the same command.
 
  $ npm i -g @antora/cli @antora/site-generator-default
 ====
@@ -462,6 +462,135 @@ Showing a gear icon: icon:gear[]
 ===== H5
 
 ====== H6
+
+
+== Edge cases
+
+There are a few things that can trip our stylesheet up if we're not careful:
+
+
+=== Title with Code (`withcode`)
+
+Restdocs uses these and they should look nice.
+
+=== Long Tables
+
+A table with long entries and no breakable space.
+
+[cols="1,2", options="header"]
+.Issues
+|===
+|Name
+|Description
+
+|VeryLongNameWithoutBreakableSpaceVeryLongNameWithoutBreakableSpaceVeryLongNameWithoutBreakableSpaceVeryLongNameWithoutBreakableSpace
+|This is an edge case
+
+|Name
+|Another entry
+|===
+
+That's the end of that.
+
+
+
+=== Another Long Table
+
+When a Spring Boot application starts:
+
+[cols="2,2,2,3,5"]
+|===
+|Startup phase |LivenessState |ReadinessState |HTTP server |Notes
+
+|Starting
+|`BROKEN`
+|`REFUSING_TRAFFIC`
+|Not started
+|Kubernetes checks the "liveness" Probe and restarts the application if it takes too long.
+
+|Started
+|`CORRECT`
+|`REFUSING_TRAFFIC`
+|Refuses requests
+|The application context is refreshed. The application performs startup tasks and does not receive traffic yet.
+
+|Ready
+|`CORRECT`
+|`ACCEPTING_TRAFFIC`
+|Accepts requests
+|Startup tasks are finished. The application is receiving traffic.
+|===
+
+When a Spring Boot application shuts down:
+
+[cols="2,2,2,3,5"]
+|===
+|Shutdown phase |Liveness State |Readiness State |HTTP server |Notes
+
+|Running
+|`CORRECT`
+|`ACCEPTING_TRAFFIC`
+|Accepts requests
+|Shutdown has been requested.
+
+|Graceful shutdown
+|`CORRECT`
+|`REFUSING_TRAFFIC`
+|New requests are rejected
+|If enabled, <<spring-boot-features#boot-features-graceful-shutdown,graceful shutdown processes in-flight requests>>.
+
+|Shutdown complete
+|N/A
+|N/A
+|Server is shut down
+|The application context is closed and the application is shut down.
+|===
+
+TIP: Check out the Kubernetes container lifecycle section for more information about Kubernetes deployment.
+
+
+
+=== Long Shell Blocks
+
+A shell code block can also break things:
+
+[indent=0,subs="attributes"]
+----
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::   v{spring-boot-version}
+
+2019-04-31 13:09:54.117  INFO 56603 --- [           main] o.s.b.s.app.SampleApplication            : Starting SampleApplication v0.1.0 on mycomputer with PID 56603 (/apps/myapp.jar started by pwebb)
+2019-04-31 13:09:54.166  INFO 56603 --- [           main] ationConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6e5a8246: startup date [Wed Jul 31 00:08:16 PDT 2013]; root of context hierarchy
+2019-04-01 13:09:56.912  INFO 41370 --- [           main] .t.TomcatServletWebServerFactory : Server initialized with port: 8080
+2019-04-01 13:09:57.501  INFO 41370 --- [           main] o.s.b.s.app.SampleApplication            : Started SampleApplication in 2.992 seconds (JVM running for 3.658)
+----
+
+
+=== Code With `nowrap`
+
+Have some HTTP that also has `nowrap` set:
+
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/vnd.spring-boot.actuator.v3+json
+Content-Length: 121
+{
+  "events" : [ {
+    "timestamp" : "2021-03-18T16:49:30.625Z",
+    "principal" : "alice",
+    "type" : "logout"
+  } ]
+}
+----
+
+
+
 
 == Fin
 

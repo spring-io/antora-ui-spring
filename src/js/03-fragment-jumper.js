@@ -1,7 +1,7 @@
 ;(function () {
   'use strict'
 
-  var article = document.querySelector('.doc > article')
+  var article = document.querySelector('article.doc')
   var toolbar = document.querySelector('.header .navbar')
 
   function decodeFragment (hash) {
@@ -18,7 +18,7 @@
       window.location.hash = '#' + this.id
       e.preventDefault()
     }
-    window.scrollTo(0, computePosition(this, 0) - toolbar.getBoundingClientRect().bottom)
+    window.scrollTo(0, computePosition(this, 0) - toolbar.getBoundingClientRect().bottom - 10)
   }
 
   window.addEventListener('load', function jumpOnLoad (e) {

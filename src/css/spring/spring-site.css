@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-@import "settings.css";
-@import "settings-dark.css";
-@import "elements.css";
-@import "components.css";
-@import "switchtheme.css";
+@import "spring-base.css";
+@import "spring-doc.css";
+@import "spring-toc.css";
+@import "spring-switchtheme.css";

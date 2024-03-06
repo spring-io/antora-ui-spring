@@ -4,5 +4,6 @@
     "comment-empty-line-before": null,
     "no-descending-specificity": null,
     "rule-empty-line-before": null,
+    "value-keyword-case": ["lower", { "ignoreKeywords": ["BlinkMacSystemFont", "Roboto", "Helvetica", "Arial"] }]
   }
 }

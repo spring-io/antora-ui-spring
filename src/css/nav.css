@@ -120,11 +120,13 @@ html.is-clipped--nav {
 
 .dark-theme .nav-item-toggle {
   background: transparent url(../img/chevron-white.svg) no-repeat center / 50%;
+  filter: opacity(75%);
 }
 
 .nav-item.is-current-page > .nav-item-toggle {
   background: transparent url(../img/chevron-white.svg) no-repeat center / 50%;
   transform: rotate(0deg);
+  filter: opacity(75%);
 }
 
 .dark-theme .nav-item.is-current-page > .nav-item-toggle {
@@ -196,6 +198,8 @@ button.browse-version {
   margin-left: calc(var(--nav-line-height) * -1em);
   right: 12px;
   top: 15px;
+  border-radius: 4px;
+  padding-top: 4px;
 }
 
 button.browse-version svg {
@@ -216,15 +220,12 @@ html.dark-theme button.browse-version:hover {
   color: #111;
   align-items: center;
   border-radius: 4px;
-  font-size: 0.75rem;
-  height: 24px;
+  font-size: calc(12 / var(--rem-base) * 1rem);
   justify-content: center;
-  line-height: 24px;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
+  padding: 0.25em 0.75em;
   white-space: nowrap;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .navbar-project {
@@ -298,6 +299,7 @@ html.dark-theme button.browse-version:hover {
 
 .dark-theme .nav-collapse button span {
   background: transparent url(../img/chevron-white.svg) no-repeat center / 50%;
+  filter: opacity(75%);
 }
 
 @media screen and (min-width: 1024px) {
@@ -370,7 +372,7 @@ body.nav-sm .nav-panel-menu {
 
 @media screen and (min-width: 1024px) {
   .nav-container {
-    font-size: calc(15.5 / var(--rem-base) * 1rem);
+    font-size: calc(14 / var(--rem-base) * 1rem);
     flex: none;
     position: static;
     top: 0;
