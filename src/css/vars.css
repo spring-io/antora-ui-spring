@@ -154,6 +154,10 @@
   --page-version-menu-background: var(--color-smoke-70);
   --page-version-missing-font-color: var(--color-gray-30);
 
+  /* Breadcrumbs */
+  --breadcrumb-font-color: var(--body-font-light-color);
+  --breadcrumb-hover-font-color: var(--link_hover-font-color);
+
   /* Doc */
   --doc-font-color: var(--body-font-color);
   --doc-font-size: inherit;

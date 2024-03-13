@@ -140,13 +140,7 @@ mark {
 
 .doc > h1#page-title {
   font-size: calc(42 / var(--rem-base) * 1rem);
-  margin: 0.2rem 0;
-}
-
-@media screen and (min-width: 769px) {
-  .doc > h1#page-title {
-    margin-top: 0.2rem;
-  }
+  margin: 0.8rem 0 0.2rem 0;
 }
 
 .doc > h1#page-title + aside.toc.embedded {
@@ -308,4 +302,15 @@ mark {
 
 .admonitionblock.latest {
   padding: 1.5rem 1rem 0;
+}
+
+/* Improve Breadcrumbs */
+
+.breadcrumbs,
+.breadcrumbs a {
+  color: var(--breadcrumb-font-color);
+}
+
+.breadcrumbs a:hover {
+  color: var(--breadcrumb-hover-font-color);
 }
