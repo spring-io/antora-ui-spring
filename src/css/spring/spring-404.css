@@ -1,0 +1,20 @@
+body.status-404 .page-404 {
+  text-align: center;
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+body.status-404 h1.page {
+  color: #6db33f;
+  font-size: 130px;
+  font-weight: 100;
+  line-height: 110px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--body-font-family);
+}
+body.status-404 .strong {
+  font-weight: bold;
+}
+body.status-404 a {
+  color: #086dc3;
+}
