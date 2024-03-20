@@ -1,0 +1,1328 @@
+= Content
+:antora-page-url: /samples/exploits/index.html
+:page-author: Author 1, Author 2, Author 3, Author 4
+:idprefix:
+:idseparator: -
+:page-pagination:
+
+This page uses for testings **asciidoc semantic markup**. Inspired by
+https://gitlab.univ-nantes.fr/bousse-e/stereopticon/-/blob/master/asciidoc-tests/index.adoc[Source]
+
+[.impact]
+== Basics
+
+=== Heading and paragraphs
+
+==== This is an asciidoc level 3 heading
+
+One paragraph.
+
+Two paragraphs.
+
+=== Line Breaks
+
+==== Plus sign
+
+Rubies are red, +
+Topazes are blue.
+
+==== Hardbreaks option
+
+[%hardbreaks]
+Ruby is red.
+Java is black.
+
+=== Lead style
+
+[.lead]
+This is a lead paragraph.
+
+
+=== Horizontal Rules
+
+above
+
+'''
+
+below
+
+=== Horizontal Rules (various syntaxes)
+
+---
+
+- - -
+
+***
+
+* * *
+
+
+=== Page break
+
+Content before
+
+<<<
+
+Content after
+
+=== URLs
+
+The homepage for the Asciidoctor Project is https://asciidoctor.org. 
+
+Ask questions on the http://discuss.asciidoctor.org/[*mailing list*].
+
+=== Link to Relative Files
+
+link:protocol.json[Open the JSON file]
+
+
+=== Footnote
+
+The hail-and-rainbow protocol can be initiated at five levels:
+double, tertiary, supernumerary, supermassive, and apocalyptic party.
+A bold statement!
+
+Another outrageous statement.footnote:disclaimer[] 
+
+footnote:[The double hail-and-rainbow level makes my toes tingle.]   
+footnote:disclaimer[Opinions are my own.] 
+
+
+[.impact]
+== Images
+
+=== Images
+
+==== Alone
+
+[#img-sunset] 
+.A mountain sunset 
+[link=https://www.flickr.com/photos/javh/5448336655] 
+image::/_/img/spring-logo.svg[Spring,300,200]
+
+==== Inline
+
+Click image:/_/img/chevron.svg[Play, 10,10] to get the party started.
+
+
+
+You can find image:https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Linux,25,35] everywhere these days.
+
+
+=== Control the float
+
+[.float-group]
+--
+[.left]
+.Image A
+image::/_/img/spring-logo.svg[A,240,180]
+
+[.left]
+.Image B
+image::/_/img/spring-logo.svg[B,240,180]
+--
+
+Text below images.
+
+
+=== Sizing images (1)
+
+image::/_/img/spring-logo.svg[Spring,640,480]
+
+=== Sizing images (2)
+
+image::/_/img/spring-logo.svg[Spring,50%]
+
+
+=== Taming SVGs
+
+image::/_/img/spring-logo.svg[Static,300]
+
+image::/_/img/spring-logo.svg[Interactive,300,opts=interactive]
+
+image::/_/img/spring-logo.svg[Embedded,300,opts=inline]
+
+[.impact]
+== Text formatting
+
+=== Bold and italic
+
+_To tame_ the wild wolpertingers we needed to build a *charm*.
+But **u**ltimate victory could only be won if we divined the *_true name_* of the __war__lock.
+
+
+=== Quotation Marks and Apostrophes
+
+"`What kind of charm?`" Lazarus asked. "`An odoriferous one or a mineral one?`" 
+
+Kizmet shrugged. "`The note from Olaf's desk says '`wormwood and licorice,`' but these could be normal groceries for werewolves.`" 
+
+=== Subscript and Superscript
+
+"`Well the H~2~O formula written on their whiteboard could be part of a shopping list, but I don't think the local bodega sells E=mc^2^,`" Lazarus replied.
+
+=== Monospace
+
+"`Wait!`" Indigo plucked a small vial from her desk's top drawer and held it toward us.
+The vial's label read: `E=mc^2^`; the `_E_` represents _energy_, but also pure _genius!_
+
+=== Literal Monospace
+
+You can reference the value of a document attribute using the syntax `+{name}+`, where `name` is the attribute name.
+
+`pass:[++]` is the increment operator in C.
+
+=== Marking
+
+Werewolves are #allergic to cinnamon#.
+
+=== Font Awesome
+
+Showing a gear icon: icon:gear[]
+
+[.impact]
+== Lists
+
+=== Unordered List
+
+.Kizmet's Favorite Authors
+* Edgar Allen Poe
+* Sheri S. Tepper
+* Bill Bryson
+
+=== Nested Unordered Lists
+
+.Possible DefOps manual locations
+* West wood maze
+** Maze heart
+*** Reflection pool
+** Secret exit
+* Untracked file in git repository
+
+
+=== Complex List Content
+
+* The header in AsciiDoc is optional, but if
+it is used it must start with a document title.
+
+* Optional Author and Revision information
+immediately follows the header title.
+
+* The document header must be separated from
+  the remainder of the document by one or more
+  blank lines and cannot contain blank lines.
+
+=== List continuation
+
+* The header in AsciiDoc must start with a document title.
++
+--
+Here's an example of a document title:
+
+----
+= Document Title
+----
+
+NOTE: The header is optional.
+--
+
+
+=== Attaching to an ancestor list
+
+* parent list item
+** child list item
+
++
+paragraph attached to parent list item
+
+//-
+
+* grandparent list item
++
+--
+** parent list item
+*** child list item
+--
++
+paragraph attached to grandparent list item
+
+=== Dropping the principal text
+
+. {blank}
++
+----
+print("one")
+----
+. {blank}
++
+----
+print("one")
+----
+
+
+=== Checklist
+
+==== Non-interactive
+
+* [*] checked
+* [x] also checked
+* [ ] not checked
+*     normal list item
+
+==== Interactive
+
+[%interactive]
+* [*] checked
+* [x] also checked
+* [ ] not checked
+*     normal list item
+
+
+
+=== Ordered lists (1)
+
+1. Protons
+2. Electrons
+3. Neutrons
+
+//-
+
+. Protons
+. Electrons
+. Neutrons
+
+=== Ordered lists (2)
+
+[start=4]
+. Step four
+. Step five
+. Step six
+
+//-
+
+[%reversed]
+.Parts of an atom
+. Protons
+. Electrons
+. Neutrons
+
+=== Nested ordered lists
+
+
+. Step 1
+. Step 2
+.. Step 2a
+.. Step 2b
+. Step 3
+
+//-
+
+. Linux
+* Fedora
+* Ubuntu
+* Slackware
+. BSD
+* FreeBSD
+* NetBSD
+
+=== Numbering Styles
+
+
+[arabic]
+. One
+. Two
+. Three
+
+[decimal]
+. One
+. Two
+. Three
+
+[loweralpha]
+. One
+. Two
+. Three
+
+[lowergreek]
+. One
+. Two
+. Three
+
+
+=== Description List (1)
+
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+Keyboard:: Used to enter text or control items on the screen.
+Mouse:: Used to point to and select items on your computer screen.
+Monitor:: Displays information in visual form using text and graphics.
+
+
+=== Description list (2)
+
+Horizontal:
+
+[horizontal]
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+
+With lists:
+
+
+Dairy::
+* Milk
+* Eggs
+Bakery::
+* Bread
+Produce::
+* Bananas
+
+
+=== Hybrid complex list (1)
+
+
+Operating Systems::
+  Linux:::
+    . Ubuntu
+      * Desktop
+      * Server
+  BSD:::
+    . FreeBSD
+    . NetBSD
+Cloud Providers::
+  PaaS:::
+    . OpenShift
+    . CloudBees
+  IaaS:::
+    . Amazon EC2
+
+=== Question and Answer Style List
+
+[qanda]
+What is Asciidoctor?::
+  An implementation of the AsciiDoc processor in Ruby.
+What is the answer to the Ultimate Question?:: 42
+
+
+
+
+[.impact]
+== Blocks
+
+=== Block title
+
+Example of a list with a title:
+
+.TODO list
+- Learn the AsciiDoc syntax
+- Install Asciidoctor
+- Write my document
+
+
+=== Tabs
+
+ifdef::asciidoctor-tabs-loaded[]
+.Usage Example
+[tabs]
+====
+Java::
++
+[,java]
+----
+public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) {
+    // do something before the rest of the application
+    chain.doFilter(request, response); // invoke the rest of the application
+    // do something after the rest of the application
+}
+----
+
+Kotlin::
++
+[,kotlin]
+----
+fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterChain) {
+    // do something before the rest of the application
+    chain.doFilter(request, response) // invoke the rest of the application
+    // do something after the rest of the application
+}
+----
+====
+
+
+=== Admonition
+
+==== Multi-lines
+
+[IMPORTANT] 
+.title
+====
+This is an important admonition
+====
+
+==== Single line
+
+CAUTION: caution
+
+WARNING: warning
+
+NOTE: note
+
+
+=== Comment
+
+// A single-line comment.
+
+////
+Multi line
+comment
+////
+
+
+=== Example
+
+==== Multi-lines
+
+====
+This is an example
+======
+This is an example inside an example
+======
+====
+
+==== Single line
+
+[example]
+This is an example
+
+=== Fenced
+
+```
+This is fenced content
+```
+
+=== Listing / Source / Code
+
+==== Multi-lines
+
+----
+This is a listing with highlighting
+that can go over multiple lines
+and without any specific programming language specified
+----
+
+==== Single line
+
+[listing]
+This is a listing block (ie. without highlighting)
+
+[source]
+This is a source block (ie. with highlighting)
+
+
+=== Code block with callouts
+
+[source,ruby]
+----
+require 'sinatra' // <1>
+
+get '/hi' do // <2>
+  "Hello World!" // <3>
+end
+----
+<1> Library import
+<2> URL mapping
+<3> HTTP response body
+
+=== Code block with non-selectable callouts
+
+----
+line of code  // <1>
+line of code  # <2>
+line of code  ;; <3>
+----
+<1> A callout behind a line comment for C-style languages.
+<2> A callout behind a line comment for Ruby, Python, Perl, etc.
+<3> A callout behind a line comment for Clojure.
+
+=== Literal
+
+==== Multi-lines
+
+....
+This is a literal block
+....
+
+==== Single line
+
+[literal]
+This is a literal block
+
+=== Open
+
+==== Multi-lines
+
+--
+This is an open anonymous block
+--
+
+==== Single line
+
+[anything]
+This is an open anonymous block
+
+
+
+=== Passthrough / Stem
+
+==== Multi-lines
+
+++++
+This is a passthrough block
+++++
+
+==== Single line
+
+[pass]
+This is a passthrough block
+
+[stem]
+This is a stem block.
+
+=== Quote (1)
+
+==== Multi-lines
+
+.Gettysburg Address 
+[quote, Abraham Lincoln, Address delivered at the dedication of the Cemetery at Gettysburg]     
+____
+Four score and seven years ago our fathers brought forth
+on this continent a new nation...
+
+Now we are engaged in a great civil war, testing whether
+that nation, or any nation so conceived and so dedicated,
+can long endure. ...
+____
+
+==== Single line
+
+[quote]
+Never do today what you can put off `'til tomorrow.
+
+
+=== Quote (2)
+
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+
+
+> I hold it that a little rebellion now and then is a good thing,
+> and as necessary in the political world as storms in the physical.
+> -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+
+=== Quote (3)
+
+==== Air quotes (not supported)
+
+[, James Baldwin]
+""
+Not everything that is faced can be changed.
+But nothing can be changed until it is faced.
+""
+
+
+=== Sidebar
+
+
+==== Multi-lines
+
+.AsciiDoc history 
+**** 
+AsciiDoc was first released in Nov 2002 by Stuart Rackham.
+It was designed from the start to be a shorthand syntax
+for producing professional documents like DocBook and LaTeX.
+****
+
+==== Single line
+
+[sidebar]
+sidebar block
+
+
+
+=== Verse (1)
+
+[verse, Carl Sandburg, Fog]
+____
+The fog comes
+on little cat feet.
+
+It sits looking
+over harbor and city
+on silent haunches
+and then moves on.
+____
+
+=== Verse (2)
+
+[verse, Carl Sandburg, two lines from the poem Fog]
+The fog comes
+on little cat feet.
+
+
+
+
+
+
+[.impact]
+== Tables
+
+=== Simple table
+
+|==== 
+
+| Cell in column 1, row 1 | Cell in column 2, row 1  
+
+| Cell in column 1, row 2 | Cell in column 2, row 2
+
+| Cell in column 1, row 3 | Cell in column 2, row 3
+
+|==== 
+
+
+=== Number of columns
+
+|===
+
+|Cell in column 1, row 1 |Cell in column 2, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+
+|===
+
+
+=== Column Formatting (1)
+
+table with horizontal, center alignment applied to all columns
+
+[cols="3*^"]
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+
+=== Column Formatting (2)
+
+table with horizontal, center alignment applied to last column
+
+
+[cols="2*,^"]
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+
+=== Column Formatting (3)
+
+table with vertical, middle alignment applied to all columns
+
+[cols="3*.^"]
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+
+=== Column Formatting (4)
+
+table with a different vertical alignment for each column
+
+[cols=".<,.^,.>"]
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+=== Column Formatting (4)
+
+Table rendered with column sizes adjusted by a proportional integer
+
+[cols="1,2,6"]
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+=== Column Formatting (5)
+
+Table rendered with column sizes adjusted by a percentage
+
+[cols="50,20,30"]
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+
+=== Column Formatting (6)
+
+table with variable widths and alignments
+
+[cols=".<2,.^5,^.>3"]
+|===
+|Cell in column 1, row 1 with lots and lots and lots and lots of content
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2 and another bucket of content, and then a jelly roll of content
+|===
+
+
+=== Column Formatting (7)
+
+table with a header, monospaced, and strong styled column
+
+[cols="h,m,s,e"]
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|Cell in column 4, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|Cell in column 4, row 2
+|===
+
+=== Cell Formatting (1)
+
+table where cell was duplicated across three columns
+
+|===
+
+|Cell in column 1, row 1 |Cell in column 2, row 1 |Cell in column 3, row 1
+
+3*|Same cell content in columns 1, 2, and 3
+
+|Cell in column 1, row 3
+|Cell in column 2, row 3
+|Cell in column 3, row 3
+
+|===
+
+
+=== Cell Formatting (2)
+
+table where cell spans three columns
+
+|===
+
+|Cell in column 1, row 1 |Cell in column 2, row 1 |Cell in column 3, row 1
+
+3+|Content in a single cell that spans columns 1, 2, and 3
+
+|Cell in column 1, row 3
+|Cell in column 2, row 3
+|Cell in column 3, row 3
+
+|===
+
+
+
+=== Cell Formatting (3)
+
+
+
+
+Cell spanning two rows
+
+|===
+
+|Cell in column 1, row 1 |Cell in column 2, row 1 |Cell in column 3, row 1
+
+.2+|Content in a single cell that spans rows 2 and 3
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+
+|Cell in column 2, row 3
+|Cell in column 3, row 3
+
+|===
+
+
+
+=== Cell Formatting (4)
+
+
+
+Cell spanning columns and rows
+
+|===
+
+|Column 1, row 1 |Column 2, row 1 |Column 3, row 1 |Column 4, row 1
+
+|Column 1, row 2
+2.3+|Content in a single cell that spans over rows and columns
+|Column 4, row 2
+
+|Column 1, row 3
+|Column 4, row 3
+
+|Column 1, row 4
+|Column 4, row 4
+|===
+
+=== Cell Formatting (5)
+
+
+Cells aligned horizontally, vertically, and across a span of three columns
+
+[cols="3"]
+|===
+^|Prefix the `{vbar}` with `{caret}` to center content horizontally
+<|Prefix the `{vbar}` with `<` to align the content to the left horizontally
+>|Prefix the `{vbar}` with `>` to align the content to the right horizontally
+
+.^|Prefix the `{vbar}` with a `.` and `{caret}` to center the content in the cell vertically
+.<|Prefix the `{vbar}` with a `.` and `<` to align the content to the top of the cell
+.>|Prefix the `{vbar}` with a `.` and `>` to align the content to the bottom of the cell
+
+3+^.^|This content spans three columns (`3{plus}`) and is centered horizontally (`{caret}`) and vertically (`.{caret}`) within the cell.
+
+|===
+
+=== Cell Formatting (6)
+
+
+Cells with source code listing
+
+|===
+|Source Code 1 |Source Code 2
+
+a|
+[source,python]
+----
+import os
+print "%s" %(os.uname())
+----
+
+a|
+[source,python]
+----
+import os
+print ("%s" %(os.uname()))
+----
+|===
+
+=== Cell Formatting (7)
+
+
+Building a variety of cell specifiers
+
+|===
+
+2*>m|This content is duplicated across two columns.
+
+It is aligned right horizontally.
+
+And it is monospaced.
+
+.3+^.>s|This cell spans 3 rows. The content is centered horizontally, aligned to the bottom of the cell, and strong.
+e|This content is emphasized.
+
+.^l|This content is aligned to the top of the cell and literal.
+
+v|This cell contains a verse
+that may one day expound on the
+wonders of tables in an
+epic sonnet.
+
+|===
+
+
+=== Header Row
+
+
+[cols=2*,options="header"]
+|===
+|Name of Column 1
+|Name of Column 2
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|===
+
+=== Header Row (implicit)
+
+|===
+|Name of Column 1 |Name of Column 2
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|===
+
+=== Footer Row
+
+[options="footer"]
+|===
+|Name of Column 1 |Name of Column 2
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+
+|Footer in column 1, row 3
+|Footer in column 2, row 3
+|===
+
+
+=== Table Width (1)
+
+
+Table with width set to 75%
+
+[width=75%]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+
+=== Table Width (2)
+
+
+Table using autowidth
+
+[%autowidth]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+
+=== Table Width (3)
+
+
+Full-width table with autowidth columns
+
+[%autowidth.stretch]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+=== Table Width (3)
+
+
+Table with both fixed and autowidth columns
+
+[cols="25h,~,~"]
+|===
+|small |as big as the column needs to be |the rest
+|===
+
+
+=== Table Borders (1)
+
+frame=topbot
+
+[frame=topbot]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+
+=== Table Borders (2)
+
+frame=sides
+
+[frame=sides]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+
+=== Table Borders (3)
+
+frame=none
+
+[frame=none]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+
+=== Grid (rows)
+
+[grid=rows]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+
+=== Grid (cols)
+
+[grid=cols]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+=== Grid (none)
+
+[grid=none]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+=== Striping (1)
+
+[cols=3*, stripes=even]
+|===
+| A1
+| B1
+| C1
+
+| A2
+| B2
+| C2
+
+| A3
+| B3
+| C3
+|===
+
+=== Striping (2)
+
+[.stripes-even,cols=3*]
+|===
+| A1
+| B1
+| C1
+
+| A2
+| B2
+| C2
+
+| A3
+| B3
+| C3
+|===
+
+
+=== Orientation
+
+[%rotate]
+|===
+|a |b
+|c |d
+|===
+
+[orientation=landscape]
+|===
+|a |b
+|c |d
+|===
+
+
+=== Nested table
+
+[cols="1,2a"]
+|===
+| Col 1 | Col 2
+
+| Cell 1.1
+| Cell 1.2
+
+| Cell 2.1
+| Cell 2.2
+
+[cols="2,1"]
+!===
+! Col1 ! Col2
+
+! C11
+! C12
+
+!===
+
+|===
+
+=== Table Caption (1)
+
+.A formal table
+|===
+|Name of Column 1 |Name of Column 2
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|===
+
+
+
+=== Table Caption (2)
+
+[caption="Table A. "]
+.A formal table
+|===
+|Name of Column 1 |Name of Column 2
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|===
+
+
+=== Table Caption (2)
+
+[caption=]
+.A formal table
+|===
+|Name of Column 1 |Name of Column 2
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|===
+
+
+
+=== Escaping the Cell Separator
+
+
+[cols=2*]
+|====
+|The default separator in PSV tables is the \| character.
+|The \| character is often referred to as a "`pipe`".
+|====
+
+
+=== Delimiter-Separated Values (CSV)
+
+[%header,format=csv]
+|===
+Artist,Track,Genre
+Baauer,Harlem Shake,Hip Hop
+The Lumineers,Ho Hey,Folk Rock
+|===

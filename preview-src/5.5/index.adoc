@@ -1,3 +1,0 @@
-= Spring Security
-
-This is 5.5 version so we can test updating to the latest version of something.
