@@ -9,122 +9,115 @@ site:
   title: Spring
   homeUrl: /index.html
   components:
-  - name: security
-    title: &component_title Spring Security
+  - name: foobar
+    title: &component_title Spring Foobar
     url: '#'
-    versions: &security_versions
-    - &security_latest_version
+    versions: &foobar_versions
+    - &foobar_latest_version
       url: '/index.html'
-      version: '6.1.5'
-      displayVersion: '6.1.5'
+      version: '2.0.0'
+      displayVersion: '2.0.0'
       title: *component_title
-      versionSegment: '5.6'
-    - &security_5_5_version
-      url: '/5.5/index.html'
-      version: '5.5.9'
-      displayVersion: '5.5.9'
-      versionSegment: '5.5'
-    latest: *security_latest_version
-  - name: session
-    title: &session_component_title Spring Session
+      versionSegment: '2.0'
+    - &foobar_1_0_version
+      url: '/1.0/index.html'
+      version: '1.0.0'
+      displayVersion: '1.0.0'
+      versionSegment: '1.0'
+    latest: *foobar_latest_version
+  - name: baz
+    title: &baz_component_title Spring Baz
     url: '#'
     versions:
-      - &session_latest_version
-        url: '/session/index.html'
-        version: '2.5.9'
-        displayVersion: '2.5.9'
-        title: *session_component_title
-        versionSegment: '2.5'
-    latest: *session_latest_version
+      - &baz_latest_version
+        url: '/baz/index.html'
+        version: '1.0.0'
+        displayVersion: '1.0.0'
+        title: *baz_component_title
+        versionSegment: '1.0'
+    latest: *baz_latest_version
 shared:
-  security:
-    5.5.9:
+  foobar:
+    1.0.0:
       home: true
-      title: Spring Security
+      title: Spring Foobar
       relativeSrcPath: index.adoc
       editUrl: http://example.com/project-xyz/blob/master/index.adoc
       component:
-        title: Spring Security
+        title: Spring Foobar
         url: '#'
         versions:
           - url: '/index.html'
-            version: '6.1.5'
-            displayVersion: '6.1.5'
+            version: '2.0.0'
+            displayVersion: '2.0.0'
             title: *component_title
-            versionSegment: '5.6'
-          - url: '/5.5/index.html'
-            version: '5.5.9'
-            displayVersion: '5.5.9'
-            versionSegment: '5.5'
-      componentVersion: *security_5_5_version
+            versionSegment: '2.0'
+          - url: '/1.0/index.html'
+            version: '1.0.0'
+            displayVersion: '1.0.0'
+            versionSegment: '1.0'
+      componentVersion: *foobar_1_0_version
       versions:
-        - version: '6.1.5'
-          displayVersion: '6.1.5'
+        - version: '2.0.0'
+          displayVersion: '2.0.0'
           url: '#'
           versionSegment: ''
-        - version: '5.5.9'
-          displayVersion: '5.5.9'
-          versionSegment: '5.5'
+        - version: '1.0.0'
+          displayVersion: '1.0.0'
+          versionSegment: '1.0'
           url: '#'
       navigation:
         - root: true
           items:
             - content: Overview
-              url: '/5.5/index.html'
-            - content: Features
-              url: '#'
-              items:
-                - content: Authentication
-                  url: '#'
-                - content: Protection Against Exploits
-                  url: '#'
-    6.1.5:
+              url: '/1.0/index.html'
+    2.0.0:
       home: true
-      title: Spring Security
+      title: Spring Foobar
       relativeSrcPath: index.adoc
       editUrl: http://example.com/project-xyz/blob/master/index.adoc
       component:
-        title: &component_title Spring Security
+        title: &component_title Spring Foobar
         url: '#'
-        versions: *security_versions
-      componentVersion: *security_latest_version
+        versions: *foobar_versions
+      componentVersion: *foobar_latest_version
       versions:
-        - version: '6.1.5'
-          displayVersion: '6.1.5'
+        - version: '2.0.0'
+          displayVersion: '2.0.0'
           url: '#'
           versionSegment: ''
-        - version: '5.5.9'
-          displayVersion: '5.5.9'
+        - version: '1.0.0'
+          displayVersion: '1.0.0'
           url: '#'
-          versionSegment: '5.5'
+          versionSegment: '1.0'
       navigation:
         - root: true
           items:
             - content: Overview
               url: '/index.html'
-            - content: Features
-              url: '/features/index.html'
+            - content: Samples
+              url: '/samples/index.html'
               items:
-                - content: Authentication
-                  url: '/features/authentication/index.html'
-                - content: Protection Against Exploits
-                  url: '/features/exploits/index.html'
-  session:
-    2.5.9:
+                - content: Content
+                  url: '/samples/content/index.html'
+                - content: Edge cases
+                  url: '/samples/edge-cases/index.html'
+                - content: 404
+                  url: '/404.html'
+  baz:
+    1.0.0:
       home: true
-      title: Spring Session
+      title: Spring Baz
       relativeSrcPath: index.adoc
       editUrl: http://example.com/project-xyz/blob/master/index.adoc
       component:
-        title: Spring Session
+        title: Spring Baz
         url: '#'
         versions:
-          - *session_latest_version
-      componentVersion: *session_latest_version
+          - *baz_latest_version
+      componentVersion: *baz_latest_version
       navigation:
         - root: true
           items:
-            - content: Session
-              url: '/session/index.html'
-            - content: Features
-              url: '#'
+            - content: Baz
+              url: '/baz/index.html'

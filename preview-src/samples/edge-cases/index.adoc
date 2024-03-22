@@ -1,0 +1,124 @@
+= Edge Cases
+:antora-page-url: /samples/edge-cases/index.html
+:tabs-sync-option:
+:page-pagination:
+
+There are a few things that can trip our stylesheet up if we're not careful:
+
+== Title with Code (`withcode`)
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
+eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam 
+voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
+
+Voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem
+
+== Long Tables
+
+A table with long entries and no breakable space.
+
+[cols="1,2", options="header"]
+|===
+|Name
+|Description
+
+|Loremipsumdolorsitamet,consecteturadipiscingelit,seddoeiusmodtemporincididuntutlaboreetdoloremagnaaliqua.Utenimadminimveniam,quisnostrudexercitationullamcolaborisnisiutaliquipexeacommodoconsequat.Duisauteiruredolorinreprehenderitinvoluptatevelitessecillumdoloreeufugiatnullapariatur
+|reprehenderit in voluptate velit esse cillum dolore
+
+|Lorem ipsum
+|consectetur adipiscing
+|===
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+
+[cols="2,2,2,3,5"]
+|===
+|Startup phase |LivenessState |ReadinessState |HTTP server |Notes
+
+|Lorem
+|`IPSUM`
+|`DOLOR`
+|tempor incididuntarted
+|Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+|Consectetur
+|`IPSUM`
+|`CONSECTETUR_TEMPOR`
+|ullamco laboris
+|Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+|Ipsum
+|`CORRECT`
+|`DOLOR_IN_REPREHENDERIT`
+|fugiat nulla pariatur
+|Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+|===
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+
+[cols="2,2,2,3,5"]
+|===
+|Shutdown phase |Liveness State |Readiness State |HTTP server |Notes
+
+|minim veniam
+|`LOREM`
+|`CONSECTETUR_TEMPOR`
+|ullamco laboris
+|Ut enim ad minim veniam.
+
+|nostrud exercitation
+|`DOLOR`
+|`DOLOR_IN_REPREHENDERIT`
+|voluptate velit esse cillum
+|Lorem ipsum, <<#_long_shell_blocks,velit esse cillum dolore>>.
+
+|magna aliqua
+|N/A
+|N/A
+|consectetur adipiscing elit
+|exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+|===
+
+== Long Shell Blocks
+
+A shell code block can also break things:
+
+[indent=0,subs="attributes"]
+----
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::   v{spring-boot-version}
+
+2019-04-31 13:09:54.117  INFO 56603 --- [           main] o.s.b.s.app.SampleApplication            : Starting SampleApplication v0.1.0 on mycomputer with PID 56603 (/apps/myapp.jar started by pwebb)
+2019-04-31 13:09:54.166  INFO 56603 --- [           main] ationConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6e5a8246: startup date [Wed Jul 31 00:08:16 PDT 2013]; root of context hierarchy
+2019-04-01 13:09:56.912  INFO 41370 --- [           main] .t.TomcatServletWebServerFactory : Server initialized with port: 8080
+2019-04-01 13:09:57.501  INFO 41370 --- [           main] o.s.b.s.app.SampleApplication            : Started SampleApplication in 2.992 seconds (JVM running for 3.658)
+----
+
+
+== Code With `nowrap`
+
+Have some HTTP that also has `nowrap` set:
+
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/vnd.spring-boot.actuator.v3+json
+Content-Length: 121
+{
+  "events" : [ {
+    "timestamp" : "2021-03-18T16:49:30.625Z",
+    "principal" : "alice",
+    "type" : "logout"
+  } ]
+}
+----

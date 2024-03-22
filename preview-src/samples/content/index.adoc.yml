@@ -1,0 +1,23 @@
+url: /samples/content/index.html
+component:
+  name: foobar
+version: '2.0.0'
+latest:
+  url: '/samples/content/index.html'
+  version: '2.0.0'
+  displayVersion: '2.0.0'
+  title: Spring Foobar
+next:
+  content: Edge Cases
+  url: '/samples/edge-cases/index.html'
+  urlType: 'internal'
+breadcrumbs:
+  - content: Spring Foobar
+    url: '#'
+    urlType: fragment
+  - content: Samples
+    url: '#'
+    urlType: fragment
+  - content: Content
+    url: '#'
+    urlType: fragment

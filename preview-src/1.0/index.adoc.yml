@@ -1,13 +1,13 @@
-url: /features/index.html
+url: /1.0/index.html
 component:
-  name: security
-  url: '#'
-version: '6.1.0'
+  name: foobar
+version: '1.0.0'
 latest:
-  url: '/features/index.html'
-  version: '6.1.0'
-  displayVersion: '6.1.0'
-  title: Spring Security
+  url: '/index.html'
+  version: '2.0.0'
+  displayVersion: '2.0.0'
+  title: 'Spring Foobar'
+  versionSegment: '2.0'
 previous:
   content: Quickstart
   url: '#'
@@ -17,9 +17,9 @@ next:
   url: '#'
   urlType: 'internal'
 breadcrumbs:
-  - content: Spring Security
+  - content: Spring Foobar
     url: '#'
     urlType: fragment
-  - content: Features
+  - content: Overview
     url: '#'
     urlType: fragment

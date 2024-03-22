@@ -1,7 +1,7 @@
 url: /search.html
 component:
-  name: security
-version: '6.1.0'
+  name: foobar
+version: '2.0.0'
 latest:
   url: '/index.html'
 previous:
@@ -13,7 +13,7 @@ next:
   url: '#'
   urlType: 'internal'
 breadcrumbs:
-  - content: Spring Security
+  - content: Spring Foobar
     url: '#'
     urlType: fragment
   - content: Overview

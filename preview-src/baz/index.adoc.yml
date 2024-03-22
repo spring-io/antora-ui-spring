@@ -1,7 +1,7 @@
-url: /session/index.html
+url: /baz/index.html
 component:
-  name: session
-version: '2.5.9'
+  name: baz
+version: '1.0.0'
 previous:
   content: Quickstart
   url: '#'
@@ -11,6 +11,6 @@ next:
   url: '#'
   urlType: 'internal'
 breadcrumbs:
-  - content: Spring Session
+  - content: Spring Baz
     url: '#'
     urlType: fragment
