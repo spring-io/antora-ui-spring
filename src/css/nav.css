@@ -129,7 +129,6 @@ html.is-clipped--nav {
   filter: opacity(75%);
 }
 
-
 .nav-item.is-current-page.is-active > .nav-item-toggle {
   transform: rotate(0deg);
 }
