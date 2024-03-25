@@ -125,8 +125,13 @@ html.is-clipped--nav {
 
 .nav-item.is-current-page > .nav-item-toggle {
   background: transparent url(../img/chevron-white.svg) no-repeat center / 50%;
-  transform: rotate(0deg);
+  transform: rotate(-90deg);
   filter: opacity(75%);
+}
+
+
+.nav-item.is-current-page.is-active > .nav-item-toggle {
+  transform: rotate(0deg);
 }
 
 .dark-theme .nav-item.is-current-page > .nav-item-toggle {
