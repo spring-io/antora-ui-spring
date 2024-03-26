@@ -31,6 +31,15 @@
     menuPanel.scrollTop = 0
   }
 
+  var currentActivePageItem = menuPanel.querySelector('.nav-item.is-current-page.is-active')
+  if (currentActivePageItem && currentActivePageItem.querySelector('.nav-item-toggle')) {
+    currentActivePageItem.querySelector('.nav-link').addEventListener('click', function (e) {
+      currentActivePageItem.querySelector('.nav-item-toggle').click()
+      e.preventDefault()
+      return false
+    })
+  }
+
   find(menuPanel, '.nav-item-toggle').forEach(function (btn) {
     var li = btn.parentElement
     btn.addEventListener('click', toggleActive.bind(li))
@@ -40,8 +49,6 @@
       navItemSpan.addEventListener('click', toggleActive.bind(li))
     }
   })
-
-  // var isOpen = false
 
   document.querySelector('#browse-version').addEventListener('click', function () {
     MicroModal.show('modal-versions', {
