@@ -1,0 +1,5 @@
+:page-layout: redirect
+
+* xref:index.adoc[oldpage]
+* xref:baz/index.adoc[#old]
+* xref:samples/index.adoc[oldpage#old]
