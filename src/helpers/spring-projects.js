@@ -2,6 +2,11 @@
 
 module.exports = () => [
   {
+    href: 'https://docs.spring.io/spring-boot/',
+    id: 'boot',
+    text: 'Spring Boot',
+  },
+  {
     href: 'https://docs.spring.io/spring-framework/reference/',
     id: 'framework',
     text: 'Spring Framework',
