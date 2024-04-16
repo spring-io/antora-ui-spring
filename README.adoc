@@ -18,6 +18,12 @@
 :url-nvm-install: {url-nvm}#installation
 :url-source-maps: https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map
 
+<p align="center">
+  <a href="https://www.spring.io/">
+    <img alt="Spring" src="https://spring.io/img/spring-2.svg" width="250" />
+  </a>
+</p>
+
 image:https://github.com/spring-io/antora-ui-spring/actions/workflows/push.yml/badge.svg?branch=main[CI Status, link=https://github.com/spring-io/antora-ui-spring/actions/workflows/push.yml]
 
 This project generates and packages the static resources that Spring uses for document production.
