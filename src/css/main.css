@@ -221,6 +221,11 @@ html.dark-theme #modal-versions .colset .col-right {
   margin-left: 0;
 }
 
+#modal-versions .col-left {
+  max-height: 80vh;
+  overflow: auto;
+}
+
 #modal-versions .current {
   background-color: #80ea6e;
   color: #111;
