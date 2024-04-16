@@ -16,11 +16,11 @@ This project is based on [Antora](https://antora.org).
 ## Development Quickstart
 
 This section offers a basic tutorial to teach you how to preview it locally, and bundle it for use with Antora.
-A more comprehensive tutorial can be found in the documentation at {url-antora-docs}.
+A more comprehensive tutorial can be found in the documentation at [docs.antora.org](https://docs.antora.org/).
 
 ### Prerequisites
 
-To preview and bundle the default UI, you need the following software on your computer:
+To preview and bundle the Antora Spring UI, you need the following software on your computer:
 
 * [git](https://git-scm.com/) (command: `git`)
 * [Node.js](https://nodejs.org/) (commands: `node` and `npm`)
