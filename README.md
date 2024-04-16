@@ -10,7 +10,7 @@
 
 This project generates and packages the static resources that Spring uses for document production.
 
-This project is based on https://antora.org[Antora].
+This project is based on [Antora](https://antora.org).
 
 
 ## Development Quickstart
