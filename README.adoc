@@ -18,7 +18,7 @@
 :url-nvm-install: {url-nvm}#installation
 :url-source-maps: https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map
 
-[![On Push](https://github.com/spring-io/antora-ui-spring/actions/workflows/push.yml/badge.svg?branch=main)](https://github.com/spring-io/antora-ui-spring/actions/workflows/push.yml)
+image:{https://github.com/spring-io/antora-ui-spring/actions/workflows/push.yml/badge.svg?branch=main}[CI Status, link={https://github.com/spring-io/antora-ui-spring/actions/workflows/push.yml}]
 
 This project generates and packages the static resources that Spring uses for document production.
 
