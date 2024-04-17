@@ -142,6 +142,11 @@ image::/_/img/spring-logo.svg[Interactive,300,opts=interactive]
 
 image::/_/img/spring-logo.svg[Embedded,300,opts=inline]
 
+=== Image invert dark mode
+
+[.invert-dark]
+image::/_/img/lorem.png[Spring,100]
+
 [.impact]
 == Text formatting
 
