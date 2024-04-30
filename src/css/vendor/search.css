@@ -294,6 +294,10 @@ a.ais-Hits-item:hover {
   border-color: var(--nav-panel-divider-color);
 }
 
+.dark-theme .search-link-box .search-link {
+  color: white;
+}
+
 .dark-theme #nomore {
   border-color: var(--nav-panel-divider-color);
   color: #fff;
