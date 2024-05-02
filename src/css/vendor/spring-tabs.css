@@ -68,7 +68,3 @@
   padding: 1rem;
   background-color: var(--tabs-group-background-color);
 }
-
-.doc li.tab[data-sync-id="Xml"] {
-  text-transform: uppercase;
-}
