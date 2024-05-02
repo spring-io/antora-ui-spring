@@ -65,3 +65,7 @@
   border: 0;
   padding: 0;
 }
+
+.doc li.tab[data-sync-id="Xml"] {
+  text-transform: uppercase;
+}
