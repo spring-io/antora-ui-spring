@@ -1,5 +1,8 @@
+.breadcrumbs-container {
+  padding-top: 2rem;
+}
+
 .breadcrumbs {
-  margin: 2.5rem 0 0;
   max-width: var(--doc-max-width);
   flex: 1 1;
   padding: 0;
@@ -13,6 +16,20 @@
   .breadcrumbs {
     max-width: var(--doc-max-width--desktop);
     min-width: 0;
+  }
+  .breadcrumbs-container {
+    position: fixed;
+    top: 80px;
+    padding: 1rem 0;
+    right: var(--toc-width--widescreen);
+    left: var(--nav-width);
+    margin-left: 3rem;
+    margin-right: 3rem;
+    background-color: var(--body-background-color);
+    border-bottom: 1px solid var(--nav-panel-divider-color);
+  }
+  .doc {
+    padding-top: 60px;
   }
 }
 
