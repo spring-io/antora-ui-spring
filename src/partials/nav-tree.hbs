@@ -9,7 +9,10 @@
     {{#if ./url}}
     <a class="nav-link" href="
       {{~#if (eq ./urlType 'internal')}}{{{relativize ./url}}}
-      {{~else}}{{{./url}}}{{~/if}}">{{{./content}}}</a>
+      {{~else}}{{{./url}}}{{~/if}}"
+      {{#if (eq ./external true)}}target="_blank"{{/if}}>{{{./content}}}
+      {{#if (eq ./external true)}}<i class="fa fa-external-link"></i>{{/if}}
+      </a>
     {{else}}
     <span class="nav-text">{{{./content}}}</span>
     {{/if}}

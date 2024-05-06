@@ -75,6 +75,10 @@ html.is-clipped--nav {
   padding: 0 1rem;
 }
 
+.nav-list .fa-external-link {
+  margin-left: 5px;
+}
+
 .nav-menu > .nav-list .nav-list {
   padding: 0;
   margin: 0 0 0 0.75rem;

@@ -104,6 +104,9 @@ shared:
                   url: '/samples/edge-cases/index.html'
                 - content: 404
                   url: '/404.html'
+                - content: External link
+                  url: 'https://spring.io'
+                  external: true
   baz:
     1.0.0:
       home: true
