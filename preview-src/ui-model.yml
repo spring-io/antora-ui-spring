@@ -104,6 +104,10 @@ shared:
                   url: '/samples/edge-cases/index.html'
                 - content: 404
                   url: '/404.html'
+                - content: External Link
+                  url: 'https://spring.io'
+                  roles: 'link-external'
+                  target: '_blank'
   baz:
     1.0.0:
       home: true

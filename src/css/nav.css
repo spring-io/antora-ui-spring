@@ -80,6 +80,16 @@ html.is-clipped--nav {
   margin: 0 0 0 0.75rem;
 }
 
+.nav-list a.link-external::after {
+  content: url(../img/octicons-16.svg#view-link-external);
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 2px 5px;
+  filter: opacity(0.5);
+}
+
 .nav-menu > .nav-list + .nav-list {
   margin-top: 0.5rem;
 }
