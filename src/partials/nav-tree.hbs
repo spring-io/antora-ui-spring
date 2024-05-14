@@ -7,7 +7,7 @@
     <button class="nav-item-toggle"></button>
     {{/if}}
     {{#if ./url}}
-    <a class="nav-link" href="
+    <a class="nav-link{{#if ./roles}} {{{./roles}}}{{~/if}}" {{#if ./target}} target="{{{./target}}}"{{~/if}} href="
       {{~#if (eq ./urlType 'internal')}}{{{relativize ./url}}}
       {{~else}}{{{./url}}}{{~/if}}">{{{./content}}}</a>
     {{else}}
