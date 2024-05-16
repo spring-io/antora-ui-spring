@@ -16,6 +16,7 @@ const icons = [
   'info',
   'law',
   'light-bulb',
+  'link-external',
   'moon',
   'question',
   'rocket',
