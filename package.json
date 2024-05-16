@@ -39,12 +39,14 @@
     "eslint-plugin-promise": "~4.2",
     "eslint-plugin-standard": "~4.0",
     "fancy-log": "~2.0",
+    "git-rev-sync": "^3.0.2",
     "gulp": "~4.0",
     "gulp-concat": "~2.6",
     "gulp-connect": "~5.7",
     "gulp-eslint": "~6.0",
     "gulp-imagemin": "~6.2",
     "gulp-postcss": "~9.0",
+    "gulp-replace": "~1.1",
     "gulp-stylelint": "~13.0",
     "gulp-uglify": "~3.0",
     "gulp-vinyl-zip": "~2.5",
@@ -69,6 +71,7 @@
   },
   "dependencies": {
     "@algolia/client-search": "^4.17.0",
-    "@primer/octicons": "^19.8.0"
+    "@primer/octicons": "^19.8.0",
+    "init": "^0.1.2"
   }
 }

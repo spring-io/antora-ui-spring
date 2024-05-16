@@ -17,9 +17,11 @@ const postcssUrl = require('postcss-url')
 const postcssVar = require('postcss-custom-properties')
 const { Transform } = require('stream')
 const map = (transform) => new Transform({ objectMode: true, transform })
+const replace = require('gulp-replace')
 const through = () => map((file, enc, next) => next(null, file))
 const uglify = require('gulp-uglify')
 const vfs = require('vinyl-fs')
+const git = require('git-rev-sync')
 
 module.exports = (src, dest, preview) => () => {
   const opts = { base: src, cwd: src }
@@ -101,7 +103,9 @@ module.exports = (src, dest, preview) => () => {
     vfs.src('helpers/*.js', opts),
     vfs.src('layouts/*.hbs', opts),
     vfs.src('partials/*.hbs', opts)
-  ).pipe(vfs.dest(dest, { sourcemaps: sourcemaps && '.' }))
+      .pipe(replace('@@antora-ui-version', git.isTagDirty() ? git.long() : git.tag()))
+  ).pipe(vfs.dest(dest, { sourcemaps: sourcemaps && '.' })
+  )
 }
 
 function bundle ({ base: basedir, ext: bundleExt = '.bundle.js' }) {
