@@ -81,12 +81,12 @@ html.is-clipped--nav {
 }
 
 .nav-list a.link-external::after {
-  content: url(../img/octicons-16.svg#view-link-external);
-  width: 16px;
-  height: 16px;
+  content: url(../img/link-external.svg);
+  width: 14px;
+  height: 14px;
   display: inline-block;
   vertical-align: middle;
-  margin: 0 0 2px 5px;
+  margin: 0 0 6px 5px;
   filter: opacity(0.5);
 }
 
