@@ -90,6 +90,10 @@ html.is-clipped--nav {
   filter: opacity(0.5);
 }
 
+.dark-theme .nav-list a.link-external::after {
+  filter: invert() opacity(0.4);
+}
+
 .nav-menu > .nav-list + .nav-list {
   margin-top: 0.5rem;
 }
