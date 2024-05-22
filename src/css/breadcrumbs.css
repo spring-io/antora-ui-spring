@@ -19,7 +19,7 @@
   }
   .breadcrumbs-container {
     position: fixed;
-    top: 80px;
+    top: 83px;
     padding: 1rem 0;
     right: var(--toc-width--widescreen);
     left: var(--nav-width);
@@ -27,6 +27,7 @@
     margin-right: 3rem;
     background-color: var(--body-background-color);
     border-bottom: 1px solid var(--nav-panel-divider-color);
+    z-index: 99;
   }
   .doc {
     padding-top: 60px;
