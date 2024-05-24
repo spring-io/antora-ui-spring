@@ -69,7 +69,8 @@ body {
 }
 
 .navbar-burger:not(.is-active) span {
-  transition: transform ease-out 0.25s, opacity 0s 0.25s, margin-top ease-out 0.25s 0.25s;
+  transition: transform ease-out 0.25s, opacity 0s 0.25s,
+    margin-top ease-out 0.25s 0.25s;
 }
 
 .navbar-burger span + span {
@@ -221,12 +222,6 @@ body {
     align-items: center;
   }
 
-  .navbar-item.is-hoverable:hover .navbar-dropdown {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
   .navbar-link::after {
     border-width: 0 0 2px 2px;
     border-style: solid;
@@ -267,13 +262,36 @@ body {
     width: 230px;
     padding: 1rem;
     border-radius: 6px;
-    box-shadow: var(--navbar-menu-boxshadow, 0 5px 30px 0 rgb(108 135 135 / 50%));
+    box-shadow: var(
+      --navbar-menu-boxshadow,
+      0 5px 30px 0 rgb(108 135 135 / 50%)
+    );
     pointer-events: none;
     opacity: 0;
-    transition-duration: 86ms;
-    transform: translateY(-5px);
-    transition-property: opacity, transform;
+    visibility: hidden;
     z-index: 999;
+  }
+
+  @keyframes dropdown {
+    from {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-5px);
+    }
+    1% {
+      visibility: visible;
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+
+  .navbar-item.is-hoverable:hover .navbar-dropdown, .navbar-item.is-hoverable:focus .navbar-dropdown,
+  .navbar-item.is-hoverable:focus-within .navbar-dropdown {
+    animation: dropdown 86ms linear forwards;
   }
 
   .navbar-dropdown.lg {
