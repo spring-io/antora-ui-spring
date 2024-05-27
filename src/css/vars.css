@@ -128,7 +128,7 @@
 
   /* Navbar */
   --navbar-background: var(--body-background-color);
-  --navbar-font-color: #var(--body-font-color);
+  --navbar-font-color: var(--body-font-color);
   --navbar_hover-background: var(--navbar-background);
   --navbar-button-background: var(--color-white);
   --navbar-button-border-color: var(--panel-border-color);
