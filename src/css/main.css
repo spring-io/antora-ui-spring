@@ -195,6 +195,10 @@ html.dark-theme #modal-versions .colset .col-right {
   color: var(--link-font-color);
 }
 
+#modal-versions ul li.component {
+  padding-bottom: 1rem;
+}
+
 #modal-versions ul li.component > a.title {
   color: var(--body-font-dark-color);
 }
@@ -209,6 +213,55 @@ html.dark-theme #modal-versions .colset .col-right {
   padding: 0.4rem 0;
   margin-left: 20px;
   list-style: circle;
+}
+
+#modal-versions .nav-versions .version-item .versions {
+  display: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 45px;
+}
+
+#modal-versions .nav-versions .version-item.is-active .versions {
+  display: block;
+}
+
+#modal-versions .nav-versions a.title {
+  color: var(--body-font-dark-color);
+  padding-bottom: 10px;
+}
+
+#modal-versions .version-toggle {
+  position: relative;
+  border: none;
+  margin: 8px 0;
+  padding: 0;
+  padding-left: 30px;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: var(--body-font-dark-color);
+}
+
+#modal-versions .version-toggle span {
+  background: transparent url(../img/chevron.svg) no-repeat center / 50%;
+  border: none;
+  outline: none;
+  line-height: inherit;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  left: 0;
+  top: -4px;
+  transform: rotate(-90deg);
+}
+
+html.dark-theme #modal-versions .version-toggle span {
+  background: transparent url(../img/chevron-white.svg) no-repeat center / 50%;
+}
+
+#modal-versions .is-active .version-toggle span {
+  transform: rotate(0);
 }
 
 #modal-versions ul.projects {
