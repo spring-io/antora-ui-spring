@@ -69,8 +69,7 @@ body {
 }
 
 .navbar-burger:not(.is-active) span {
-  transition: transform ease-out 0.25s, opacity 0s 0.25s,
-    margin-top ease-out 0.25s 0.25s;
+  transition: transform ease-out 0.25s, opacity 0s 0.25s, margin-top ease-out 0.25s 0.25s;
 }
 
 .navbar-burger span + span {
@@ -262,10 +261,7 @@ body {
     width: 230px;
     padding: 1rem;
     border-radius: 6px;
-    box-shadow: var(
-      --navbar-menu-boxshadow,
-      0 5px 30px 0 rgb(108 135 135 / 50%)
-    );
+    box-shadow: var(--navbar-menu-boxshadow, 0 5px 30px 0 rgb(108 135 135 / 50%));
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
@@ -289,7 +285,8 @@ body {
     }
   }
 
-  .navbar-item.is-hoverable:hover .navbar-dropdown, .navbar-item.is-hoverable:focus .navbar-dropdown,
+  .navbar-item.is-hoverable:hover .navbar-dropdown,
+  .navbar-item.is-hoverable:focus .navbar-dropdown,
   .navbar-item.is-hoverable:focus-within .navbar-dropdown {
     animation: dropdown 86ms linear forwards;
   }
