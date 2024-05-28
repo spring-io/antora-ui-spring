@@ -167,19 +167,18 @@ html.is-clipped--nav {
   margin-left: 6px;
 }
 
-.nav-item-toggle+.nav-link,
-.nav-item-toggle+.nav-text {
+.nav-item-toggle + .nav-link,
+.nav-item-toggle + .nav-text {
   padding-left: 28px;
   margin-left: 0;
 }
 
-
-.nav-item-toggle:hover+.nav-link,
-.nav-item-toggle:hover+.nav-text {
+.nav-item-toggle:hover + .nav-link,
+.nav-item-toggle:hover + .nav-text {
   background: #ebf2f2;
 }
 
-.nav-item.is-current-page > .nav-item-toggle:hover+.nav-link {
+.nav-item.is-current-page > .nav-item-toggle:hover + .nav-link {
   background: var(--selected-background-color);
 }
 
@@ -193,8 +192,8 @@ html.is-clipped--nav {
   background: #ebf2f2;
 }
 
-.dark-theme .nav-item-toggle:hover+.nav-link,
-.dark-theme .nav-item-toggle:hover+.nav-text {
+.dark-theme .nav-item-toggle:hover + .nav-link,
+.dark-theme .nav-item-toggle:hover + .nav-text {
   background: #262a2d;
 }
 
