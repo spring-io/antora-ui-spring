@@ -1,9 +1,4 @@
-.breadcrumbs-container {
-  padding-top: 2rem;
-}
-
 .breadcrumbs {
-  max-width: var(--doc-max-width);
   flex: 1 1;
   padding: 0;
   line-height: var(--nav-line-height);
@@ -12,25 +7,23 @@
   font-size: calc(16 / var(--rem-base) * 1rem);
 }
 
+.breadcrumbs-container {
+  padding: 20px 0;
+  background-color: var(--body-background-color);
+  border-bottom: 1px solid var(--nav-panel-divider-color);
+}
+
 @media screen and (min-width: 1024px) {
   .breadcrumbs {
     max-width: var(--doc-max-width--desktop);
     min-width: 0;
   }
   .breadcrumbs-container {
-    position: fixed;
+    position: sticky;
     top: 83px;
-    padding: 1rem 0;
-    right: var(--toc-width--widescreen);
-    left: var(--nav-width);
-    margin-left: 3rem;
-    margin-right: 3rem;
-    background-color: var(--body-background-color);
-    border-bottom: 1px solid var(--nav-panel-divider-color);
+    padding: 20px 20px;
+    margin: 0 -1rem;
     z-index: 99;
-  }
-  .doc {
-    padding-top: 60px;
   }
 }
 
@@ -43,6 +36,7 @@ a + .breadcrumbs {
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .breadcrumbs li {
