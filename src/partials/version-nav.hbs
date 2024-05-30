@@ -1,0 +1,12 @@
+<ul class="versions">
+  {{#each this}}
+  <li class="version
+    {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
+    {{~#if (eq this ../latest)}} is-latest{{/if}}">
+    <a href="{{{relativize ./url}}}">
+      {{./displayVersion}}
+      {{~#if (eq this ../latest)}}<span class="current">current</span>{{/if}}
+    </a>
+  </li>
+  {{/each}}
+</ul>

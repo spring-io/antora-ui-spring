@@ -15,6 +15,7 @@
                           <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
                         </div>
 
+                        
                         {{~#if (notEmpty ./versions.stable)}}
                         <div class="version-item is-active">
                           <div>
@@ -23,18 +24,7 @@
                               Stable
                             </button>
                           </div>
-                          <ul class="versions">
-                            {{#each ./versions.stable}}
-                            <li class="version
-                              {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
-                              {{~#if (eq this ../latest)}} is-latest{{/if}}">
-                              <a href="{{{relativize ./url}}}">
-                                {{./displayVersion}}
-                                {{~#if (eq this ../latest)}}<span class="current">current</span>{{/if}}
-                              </a>
-                            </li>
-                            {{/each}}
-                          </ul>
+                          {{> version-nav ./versions.stable}}
                         </div>
                         {{/if}}
 
@@ -46,18 +36,7 @@
                               Preview
                             </button>
                           </div>
-                          <ul class="versions">
-                            {{#each ./versions.preview}}
-                            <li class="version
-                              {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
-                              {{~#if (eq this ../latest)}} is-latest{{/if}}">
-                              <a href="{{{relativize ./url}}}">
-                                {{./displayVersion}}
-                                {{~#if (eq this ../latest)}}<span class="current">current</span>{{/if}}
-                              </a>
-                            </li>
-                            {{/each}}
-                          </ul>
+                          {{> version-nav ./versions.preview}}
                         </div>
                         {{/if}}
 
@@ -69,18 +48,7 @@
                               Snapshot
                             </button>
                           </div>
-                          <ul class="versions">
-                            {{#each ./versions.snapshot}}
-                            <li class="version
-                              {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
-                              {{~#if (eq this ../latest)}} is-latest{{/if}}">
-                              <a href="{{{relativize ./url}}}">
-                                {{./displayVersion}}
-                                {{~#if (eq this ../latest)}}<span class="current">current</span>{{/if}}
-                              </a>
-                            </li>
-                            {{/each}}
-                          </ul>
+                          {{> version-nav ./versions.snapshot}}
                         </div>
                         {{/if}}
                         
