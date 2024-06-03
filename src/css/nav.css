@@ -72,13 +72,14 @@ html.is-clipped--nav {
 
 .nav-list {
   margin: 0;
-  margin-left: -10px;
-  padding: 0 1rem;
+  padding: 0;
+  padding-right: 1rem;
+  padding-left: 5px;
 }
 
 .nav-menu > .nav-list .nav-list {
   padding: 0;
-  margin: 0 0 0 0.75rem;
+  margin: 0 0 0 0.5rem;
 }
 
 .nav-list a.link-external::after {
@@ -125,9 +126,9 @@ html.is-clipped--nav {
   outline: none;
   line-height: inherit;
   position: absolute;
-  height: calc(var(--nav-line-height) * 1.5em);
-  width: calc(var(--nav-line-height) * 1.5em);
-  margin-top: 2px;
+  height: calc(var(--nav-line-height) * 1.1em);
+  width: calc(var(--nav-line-height) * 1.1em);
+  margin-top: 6px;
   left: 2px;
   transform: rotate(-90deg);
 }
@@ -164,13 +165,14 @@ html.is-clipped--nav {
   display: block;
   padding: 0.4rem 0.5rem;
   border-radius: 3px;
-  margin-left: 6px;
+  padding-left: 12px;
+  margin-left: 10px;
 }
 
 .nav-item-toggle + .nav-link,
 .nav-item-toggle + .nav-text {
-  padding-left: 28px;
   margin-left: 0;
+  padding-left: 22px;
 }
 
 .nav-item-toggle:hover + .nav-link,
