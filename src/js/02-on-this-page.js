@@ -69,7 +69,7 @@
 
   function onScroll () {
     var scrolledBy = window.pageYOffset
-    var buffer = getNumericStyleVal(document.documentElement, 'fontSize') * 1.15
+    var buffer = getNumericStyleVal(document.documentElement, 'fontSize') * 1.15 + 80
     var ceil = article.offsetTop
     if (scrolledBy && window.innerHeight + scrolledBy + 2 >= document.documentElement.scrollHeight) {
       lastActiveFragment = Array.isArray(lastActiveFragment) ? lastActiveFragment : Array(lastActiveFragment || 0)
