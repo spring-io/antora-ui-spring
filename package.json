@@ -40,7 +40,7 @@
     "eslint-plugin-standard": "~4.0",
     "fancy-log": "~2.0",
     "git-rev-sync": "^3.0.2",
-    "gulp": "~4.0",
+    "gulp": "~5.0",
     "gulp-concat": "~2.6",
     "gulp-connect": "~5.7",
     "gulp-eslint": "~6.0",
