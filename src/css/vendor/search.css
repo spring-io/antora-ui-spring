@@ -12,7 +12,7 @@
   color: var(--body-font-color);
   background: var(--body-background-color);
   text-align: left;
-  padding-left: 50px;
+  padding-left: 40px;
   border: 1px solid var(--nav-panel-divider-color);
   border-left-width: 0;
   border-right-width: 0;
@@ -67,7 +67,7 @@
 .DocSearch-Button svg {
   position: absolute;
   top: 10px;
-  left: 25px;
+  left: 15px;
   width: 20px;
   fill: var(--body-font-color);
 }
