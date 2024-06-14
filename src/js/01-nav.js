@@ -50,6 +50,16 @@
     }
   })
 
+  var versionsToggle = document.querySelectorAll('.version-toggle')
+  if (versionsToggle) {
+    versionsToggle.forEach(function (el) {
+      var container = el.parentElement.parentElement
+      el.addEventListener('click', function () {
+        container.classList.toggle('is-active')
+      })
+    })
+  }
+
   document.querySelector('#browse-version').addEventListener('click', function () {
     MicroModal.show('modal-versions', {
       disableScroll: true,
