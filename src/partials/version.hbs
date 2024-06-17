@@ -7,23 +7,52 @@
               </button>
               <div class="colset">
                 <div class="col-left">
+
                   <ul class="nav-versions">
-                    {{#each site.components}}
-                    <li class="component{{#if (eq this @root.page.component)}} is-current{{/if}}">
-                      <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
-                      <ul class="versions">
-                        {{#each ./versions}}
-                        <li class="version
-                          {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
-                          {{~#if (eq this ../latest)}} is-latest{{/if}}">
-                          <a href="{{{relativize ./url}}}">
-                            {{./displayVersion}}
-                            {{~#if (eq this ../latest)}}<span class="current">current</span>{{/if}}
-                          </a>
-                        </li>
-                        {{/each}}
-                      </ul>
-                    </li>
+                    {{#each (versionTree site.components)}}
+                      <li class="component">
+                        <div>
+                          <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
+                        </div>
+
+                        
+                        {{~#if (notEmpty ./versionTree.stable)}}
+                        <div class="version-item is-active">
+                          <div>
+                            <button class="version-toggle" type="button">
+                              <span></span>
+                              Stable
+                            </button>
+                          </div>
+                          {{> version-nav ./versionTree.stable}}
+                        </div>
+                        {{/if}}
+
+                        {{~#if (notEmpty ./versionTree.preview)}}
+                        <div class="version-item">
+                          <div>
+                            <button class="version-toggle" type="button">
+                              <span></span>
+                              Preview
+                            </button>
+                          </div>
+                          {{> version-nav ./versionTree.preview}}
+                        </div>
+                        {{/if}}
+
+                        {{~#if (notEmpty ./versionTree.snapshot)}}
+                        <div class="version-item">
+                          <div>
+                            <button class="version-toggle" type="button">
+                              <span></span>
+                              Snapshot
+                            </button>
+                          </div>
+                          {{> version-nav ./versionTree.snapshot}}
+                        </div>
+                        {{/if}}
+                        
+                      </li>
                     {{/each}}
                   </ul>
                 </div>

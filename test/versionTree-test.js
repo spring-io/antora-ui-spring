@@ -6,8 +6,8 @@ const versionTree = require('../src/helpers/versionTree.js')
 
 describe('versionTree', () => {
   it('should return stable, preview and snapshot  versions', () => {
-    const result = versionTree([
-      {
+    const result = versionTree({
+      test: {
         versions: [
           {
             version: '3.0.1-SNAPSHOT',
@@ -29,29 +29,31 @@ describe('versionTree', () => {
           },
         ],
       },
-    ])
+    })
 
-    expect(result[0].versions.stable.length).is.eql(2)
-    expect(result[0].versions.stable[0].version).is.eql('2.0.0')
-    expect(result[0].versions.stable[1].version).is.eql('1.0.0')
+    const tree = result.test.versionTree
+    expect(tree.stable.length).is.eql(2)
+    expect(tree.stable[0].version).is.eql('2.0.0')
+    expect(tree.stable[1].version).is.eql('1.0.0')
 
-    expect(result[0].versions.preview.length).is.eql(2)
-    expect(result[0].versions.preview[0].version).is.eql('1.0.0-RC1')
-    expect(result[0].versions.preview[1].version).is.eql('1.0.0-RC2')
+    expect(tree.preview.length).is.eql(2)
+    expect(tree.preview[0].version).is.eql('1.0.0-RC1')
+    expect(tree.preview[1].version).is.eql('1.0.0-RC2')
 
-    expect(result[0].versions.snapshot.length).is.eql(2)
-    expect(result[0].versions.snapshot[0].version).is.eql('3.0.1-SNAPSHOT')
-    expect(result[0].versions.snapshot[1].version).is.eql('3.0.0-SNAPSHOT')
+    expect(tree.snapshot.length).is.eql(2)
+    expect(tree.snapshot[0].version).is.eql('3.0.1-SNAPSHOT')
+    expect(tree.snapshot[1].version).is.eql('3.0.0-SNAPSHOT')
   })
 
   it('should return an empty structure', () => {
-    const result = versionTree([
-      {
+    const result = versionTree({
+      test: {
         versions: [],
       },
-    ])
-    expect(result[0].versions.stable).is.eql(null)
-    expect(result[0].versions.preview).is.eql(null)
-    expect(result[0].versions.snapshot).is.eql(null)
+    })
+    const tree = result.test.versionTree
+    expect(tree.stable).is.eql(null)
+    expect(tree.preview).is.eql(null)
+    expect(tree.snapshot).is.eql(null)
   })
 })
