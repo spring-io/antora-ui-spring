@@ -1,16 +1,5 @@
 'use strict'
 
-module.exports = (components) => versionTree(components)
-
-function versionTree (components) {
-  return components.map((comp) => {
-    return {
-      ...comp,
-      versions: splitVersions(comp.versions),
-    }
-  })
-}
-
 function splitVersions (versions) {
   const snapshot = versions.filter((v) => v.version.includes('SNAPSHOT'))
   const stable = versions.filter((v) => {
@@ -24,4 +13,13 @@ function splitVersions (versions) {
     stable: stable.length > 0 ? stable : null,
     preview: preview.length > 0 ? preview : null,
   }
+}
+
+module.exports = (components) => {
+  return Object.values(components)?.map((comp) => {
+    return {
+      ...comp,
+      versions: splitVersions(comp.versions),
+    }
+  })
 }
