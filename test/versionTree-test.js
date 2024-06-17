@@ -47,8 +47,7 @@ describe('versionTree', () => {
   it('should return an empty structure', () => {
     const result = versionTree([
       {
-        versions: [
-        ],
+        versions: [],
       },
     ])
     expect(result[0].versions.stable).is.eql(null)
