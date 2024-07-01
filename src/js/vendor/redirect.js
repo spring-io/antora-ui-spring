@@ -8,7 +8,7 @@
     const params = new URLSearchParams(window.location.search)
     const page = params.get('page') || ''
     const fragment = window.location.hash
-    const pageAndFragment = page + ((fragment.length === 1) ? '' : fragment)
+    const pageAndFragment = page + (fragment.length === 1 ? '' : fragment)
     let foundForFragment
     let foundForPageAndFragment
     const candidates = document.querySelector('body ul')

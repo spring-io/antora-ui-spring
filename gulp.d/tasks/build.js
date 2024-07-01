@@ -102,10 +102,8 @@ module.exports = (src, dest, preview) => () => {
     ),
     vfs.src('helpers/*.js', opts),
     vfs.src('layouts/*.hbs', opts),
-    vfs.src('partials/*.hbs', opts)
-      .pipe(replace('@@antora-ui-version', git.isTagDirty() ? git.long() : git.tag()))
-  ).pipe(vfs.dest(dest, { sourcemaps: sourcemaps && '.' })
-  )
+    vfs.src('partials/*.hbs', opts).pipe(replace('@@antora-ui-version', git.isTagDirty() ? git.long() : git.tag()))
+  ).pipe(vfs.dest(dest, { sourcemaps: sourcemaps && '.' }))
 }
 
 function bundle ({ base: basedir, ext: bundleExt = '.bundle.js' }) {
