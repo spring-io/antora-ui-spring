@@ -355,6 +355,7 @@ html.dark-theme button.browse-version:hover {
 @media screen and (min-width: 1024px) {
   body.nav-sm .nav-container {
     width: 60px;
+    z-index: 800;
   }
 
   body.nav-sm .nav-collapse,
@@ -373,10 +374,21 @@ html.dark-theme button.browse-version:hover {
 
   body.nav-sm .nav-menu .search {
     margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  body.nav-sm button.browse-version {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 0;
+    margin-left: -5px;
+    margin-bottom: 8px;
   }
 
   body.nav-sm .nav-panel-menu .context {
-    height: 50px;
+    margin: 0;
+    position: relative;
   }
 
   body.nav-sm .nav-panel-menu .context .title,
@@ -386,8 +398,13 @@ html.dark-theme button.browse-version:hover {
     display: none;
   }
 
+  body.nav-sm .header .navbar {
+    z-index: 900;
+  }
+
   html.is-clipped--nav body.nav-sm .nav-menu > .nav-list {
     display: block;
+    padding-left: 10px;
   }
   body.nav-sm .nav-menu > .nav-list {
     display: none;
@@ -396,9 +413,11 @@ html.dark-theme button.browse-version:hover {
     left: 61px;
     padding: 0.5rem 1rem;
     width: 300px;
-    bottom: -40px;
+    bottom: -36px;
     background: var(--body-background-color);
     border-right: 1px solid var(--nav-panel-divider-color);
+    z-index: 800;
+    overflow: auto;
   }
 
   body.nav-sm .toggle-sm button.nav-toggle {
