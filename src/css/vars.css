@@ -46,6 +46,7 @@
   --link_hover-font-color: #104d92;
   --code-link-font-color: var(--link-font-color);
   --scrollbar-thumb-color: silver;
+  --scrollbar_hover-thumb-color: silver;
   --mark-background-color: #80ea6e;
   --selected-background-color: #191e1e;
   --caption-font-style: italic;
