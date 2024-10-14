@@ -68,3 +68,7 @@
   padding: 1rem;
   background-color: var(--tabs-group-background-color);
 }
+
+.doc .admonitionblock .tablist > ul > li p {
+  font-size: calc(12 / var(--rem-base) * 1rem);
+}
