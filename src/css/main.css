@@ -327,3 +327,19 @@ html.dark-theme #modal-versions .modal-versions-close .cls-1h {
 html.dark-theme .invert-dark img {
   filter: invert(1);
 }
+
+.icon.red {
+  color: red;
+}
+.icon.blue {
+  color: blue;
+}
+.icon.yellow {
+  color: yellow;
+}
+.icon.orange {
+  color: orange;
+}
+.icon.green {
+  color: green;
+}

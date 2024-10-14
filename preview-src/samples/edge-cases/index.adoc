@@ -122,3 +122,11 @@ Content-Length: 121
   } ]
 }
 ----
+
+== Icon coloring
+
+icon:heart[2x,role=red]
+icon:heart[2x,role=blue]
+icon:heart[2x,role=green]
+icon:heart[2x,role=orange]
+icon:heart[2x,role=yellow]
