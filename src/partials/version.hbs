@@ -9,7 +9,7 @@
                 <div class="col-left">
 
                   <ul class="nav-versions">
-                    {{#each (versionTree site.components)}}
+                    {{#each (versionTree site.components @root.page)}}
                       <li class="component">
                         <div>
                           <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>

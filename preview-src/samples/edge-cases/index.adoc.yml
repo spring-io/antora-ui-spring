@@ -25,3 +25,8 @@ breadcrumbs:
   - content: Edge cases
     url: '#'
     urlType: fragment
+versions:
+  - url: '#/samples/edge-cases.html'
+    displayVersion: 2.0.0
+  - url: '#/1.0.0/samples/edge-cases.html'
+    displayVersion: 1.0.0
