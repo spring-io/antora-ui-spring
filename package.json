@@ -56,7 +56,7 @@
     "js-yaml": "~4.1",
     "merge-stream": "~2.0",
     "micromodal": "^0.4.10",
-    "mocha": "~10.2",
+    "mocha": "~10.8",
     "postcss": "~8.4",
     "postcss-calc": "~8.2",
     "postcss-custom-properties": "~12.1",
