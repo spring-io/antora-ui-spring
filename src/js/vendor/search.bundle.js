@@ -151,7 +151,7 @@
     if (isFirstRender) {
       const input = document.createElement('input')
       input.classList.add('ais-SearchBox-input')
-      input.placeholder = `Search in the current documentation ${config.pageVersion}`
+      input.placeholder = `Search in the current documentation ${config.pageGeneration}`
       const loadingIndicator = document.createElement('span')
       loadingIndicator.textContent = 'Loading...'
       const button = document.createElement('button')
@@ -209,7 +209,7 @@
   // selected
   search.addWidgets([
     instantsearch.widgets.configure({
-      facetFilters: [`version:${config.pageVersion}`, `component:${config.pageComponent}`],
+      facetFilters: [`generation:${config.pageGeneration}`, `component:${config.pageComponent}`],
       attributesToSnippet: ['content'],
       attributesToHighlight: ['hierarchy'],
       distinct: true,
