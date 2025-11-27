@@ -1,11 +1,10 @@
 {
-  "name": "antora-ui-spring",
-  "description": "Produces the UI bundle for projects on docs.spring.io that are built with Antora",
-  "homepage": "https://docs.spring.io",
-  "license": "MPL-2.0",
+  "name": "saya-antora-ui",
+  "description": "Produces the UI bundle for projects on sayadev.3cortex.com/docs that are built with Antora",
+  "homepage": "https://sayaplatform.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/spring-io/antora-ui-spring"
+    "url": "https://github.com/3cortextechnologies/saya-antora-ui"
   },
   "scripts": {
     "start": "gulp preview",

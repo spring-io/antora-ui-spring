@@ -47,8 +47,8 @@
   margin: 0 auto;
 }
 
-#springlogo,
-#springlogo-foot {
+#sayalogo,
+#sayalogo-foot {
   height: 45px;
   max-width: 250px;
 }
@@ -280,7 +280,7 @@ html.dark-theme #modal-versions .version-toggle span {
 }
 
 #modal-versions .current {
-  background-color: #80ea6e;
+  background-color: #df3d80;
   color: #111;
   align-items: center;
   border-radius: 4px;

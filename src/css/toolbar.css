@@ -52,7 +52,10 @@ html.dark-theme .nav-toggle {
 }
 
 @media screen and (min-width: 1024px) {
-  .nav-toggle,
+  .nav-toggle {
+    display: none;
+  }
+
   .toolbar {
     display: none;
   }

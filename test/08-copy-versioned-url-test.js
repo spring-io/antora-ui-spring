@@ -19,7 +19,7 @@ describe('08-copy-versioned-url', () => {
   let window
 
   beforeEach(async () => {
-    versionedUrl = 'https://docs.spring.io/spring-security/reference/index.html'
+    versionedUrl = 'https://sayadev.3cortex.com/docs/products/25.11.0/index.html'
     button = {
       classes: [],
       click: function () {

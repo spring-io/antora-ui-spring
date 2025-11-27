@@ -113,10 +113,15 @@ const buildPreviewPagesTask = createTask({
   call: task.buildPreviewPages(srcDir, previewSrcDir, previewDestDir, livereload),
 })
 
+const buildPreviewSearchIndexTask = createTask({
+  name: 'preview:build-search-index',
+  call: task.buildPreviewSearchIndex(srcDir, previewSrcDir, previewDestDir),
+})
+
 const previewBuildTask = createTask({
   name: 'preview:build',
   desc: 'Process and stage the UI assets and generate pages for the preview',
-  call: parallel(buildTask, buildPreviewPagesTask),
+  call: parallel(buildTask, buildPreviewPagesTask, buildPreviewSearchIndexTask),
 })
 
 const previewServeTask = createTask({

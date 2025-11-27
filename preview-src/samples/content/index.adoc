@@ -67,7 +67,7 @@ Content after
 
 === URLs
 
-The homepage for the Asciidoctor Project is https://asciidoctor.org. 
+The homepage for the Asciidoctor Project is https://asciidoctor.org.
 
 Ask questions on the http://discuss.asciidoctor.org/[*mailing list*].
 
@@ -82,10 +82,10 @@ The hail-and-rainbow protocol can be initiated at five levels:
 double, tertiary, supernumerary, supermassive, and apocalyptic party.
 A bold statement!
 
-Another outrageous statement.footnote:disclaimer[] 
+Another outrageous statement.footnote:disclaimer[]
 
-footnote:[The double hail-and-rainbow level makes my toes tingle.]   
-footnote:disclaimer[Opinions are my own.] 
+footnote:[The double hail-and-rainbow level makes my toes tingle.]
+footnote:disclaimer[Opinions are my own.]
 
 
 [.impact]
@@ -95,10 +95,10 @@ footnote:disclaimer[Opinions are my own.]
 
 ==== Alone
 
-[#img-sunset] 
-.A mountain sunset 
-[link=https://www.flickr.com/photos/javh/5448336655] 
-image::/_/img/spring-logo.svg[Spring,300,200]
+[#img-sunset]
+.A mountain sunset
+[link=https://www.flickr.com/photos/javh/5448336655]
+image::/_/images/saya-logo.png[Spring,300,200]
 
 ==== Inline
 
@@ -115,11 +115,11 @@ You can find image:https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[L
 --
 [.left]
 .Image A
-image::/_/img/spring-logo.svg[A,240,180]
+image::/_/images/saya-logo.png[A,240,180]
 
 [.left]
 .Image B
-image::/_/img/spring-logo.svg[B,240,180]
+image::/_/images/saya-logo.png[B,240,180]
 --
 
 Text below images.
@@ -127,20 +127,20 @@ Text below images.
 
 === Sizing images (1)
 
-image::/_/img/spring-logo.svg[Spring,640,480]
+image::/_/images/saya-logo.png[Spring,640,480]
 
 === Sizing images (2)
 
-image::/_/img/spring-logo.svg[Spring,50%]
+image::/_/images/saya-logo.png[Spring,50%]
 
 
 === Taming SVGs
 
-image::/_/img/spring-logo.svg[Static,300]
+image::/_/images/saya-logo.png[Static,300]
 
-image::/_/img/spring-logo.svg[Interactive,300,opts=interactive]
+image::/_/images/saya-logo.png[Interactive,300,opts=interactive]
 
-image::/_/img/spring-logo.svg[Embedded,300,opts=inline]
+image::/_/images/saya-logo.png[Embedded,300,opts=inline]
 
 === Image invert dark mode
 
@@ -158,9 +158,9 @@ But **u**ltimate victory could only be won if we divined the *_true name_* of th
 
 === Quotation Marks and Apostrophes
 
-"`What kind of charm?`" Lazarus asked. "`An odoriferous one or a mineral one?`" 
+"`What kind of charm?`" Lazarus asked. "`An odoriferous one or a mineral one?`"
 
-Kizmet shrugged. "`The note from Olaf's desk says '`wormwood and licorice,`' but these could be normal groceries for werewolves.`" 
+Kizmet shrugged. "`The note from Olaf's desk says '`wormwood and licorice,`' but these could be normal groceries for werewolves.`"
 
 === Subscript and Superscript
 
@@ -460,7 +460,7 @@ fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterCh
 
 ==== Multi-lines
 
-[IMPORTANT] 
+[IMPORTANT]
 .title
 ====
 This is an important admonition
@@ -599,8 +599,8 @@ This is a stem block.
 
 ==== Multi-lines
 
-.Gettysburg Address 
-[quote, Abraham Lincoln, Address delivered at the dedication of the Cemetery at Gettysburg]     
+.Gettysburg Address
+[quote, Abraham Lincoln, Address delivered at the dedication of the Cemetery at Gettysburg]
 ____
 Four score and seven years ago our fathers brought forth
 on this continent a new nation...
@@ -643,8 +643,8 @@ But nothing can be changed until it is faced.
 
 ==== Multi-lines
 
-.AsciiDoc history 
-**** 
+.AsciiDoc history
+****
 AsciiDoc was first released in Nov 2002 by Stuart Rackham.
 It was designed from the start to be a shorthand syntax
 for producing professional documents like DocBook and LaTeX.
@@ -686,15 +686,15 @@ on little cat feet.
 
 === Simple table
 
-|==== 
+|====
 
-| Cell in column 1, row 1 | Cell in column 2, row 1  
+| Cell in column 1, row 1 | Cell in column 2, row 1
 
 | Cell in column 1, row 2 | Cell in column 2, row 2
 
 | Cell in column 1, row 3 | Cell in column 2, row 3
 
-|==== 
+|====
 
 
 === Number of columns

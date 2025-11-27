@@ -29,7 +29,7 @@
   --font-family-special: "Metropolis", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-weight: 400;
   --monospace-font-family: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", monospace;
-  --body-background-color: white;
+  --body-background-color: #f4f3f9;
   --body-background: var(--body-background-color);
   --panel-background-color: #f6f8fa;
   --panel-background: var(--panel-background-color);
@@ -47,7 +47,7 @@
   --code-link-font-color: var(--link-font-color);
   --scrollbar-thumb-color: silver;
   --scrollbar_hover-thumb-color: silver;
-  --mark-background-color: #80ea6e;
+  --mark-background-color: #df3d80;
   --selected-background-color: #191e1e;
   --caption-font-style: italic;
 
@@ -140,7 +140,7 @@
   --navbar-menu_hover-background: var(--navbar-menu-background);
 
   /* Nav */
-  --nav-background: var(--color-white);
+  --nav-background: var(--body-background-color);
   --nav-border-color: var(--color-gray-10);
   --nav-line-height: 1.35;
   --nav-heading-font-color: var(--color-jet-30);
@@ -149,7 +149,7 @@
   --nav-secondary-background: var(--color-smoke-70);
 
   /* Toolbar */
-  --toolbar-background: var(--color-white);
+  --toolbar-background: var(--body-background-color);
   --toolbar-border-color: var(--nav-panel-divider-color);
   --toolbar-font-color: var(--color-gray-70);
   --toolbar-muted-color: var(--color-gray-30);

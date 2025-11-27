@@ -15,7 +15,6 @@
                           <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
                         </div>
 
-                        
                         {{~#if (notEmpty ./versionTree.stable)}}
                         <div class="version-item is-active">
                           <div>
@@ -25,18 +24,6 @@
                             </button>
                           </div>
                           {{> version-nav ./versionTree.stable}}
-                        </div>
-                        {{/if}}
-
-                        {{~#if (notEmpty ./versionTree.preview)}}
-                        <div class="version-item">
-                          <div>
-                            <button class="version-toggle" type="button">
-                              <span></span>
-                              Preview
-                            </button>
-                          </div>
-                          {{> version-nav ./versionTree.preview}}
                         </div>
                         {{/if}}
 
@@ -51,13 +38,10 @@
                           {{> version-nav ./versionTree.snapshot}}
                         </div>
                         {{/if}}
-                        
+
                       </li>
                     {{/each}}
                   </ul>
-                </div>
-                <div class="col-right">
-                  {{> related-projects}}
                 </div>
               </div>
             </main>
