@@ -101,13 +101,10 @@
       const searchTerms = query.trim().split(/\s+/)
       const results = index.search(query.trim() + '*')
 
-
-
-
       return results.map((result) => {
         const doc = getDocFromResult(result)
 
-                return {
+        return {
           ...doc,
           ref: result.ref,
           score: result.score,
@@ -120,11 +117,10 @@
         const searchTerms = query.trim().split(/\s+/)
         const results = index.search(query.trim())
 
-
         return results.map((result) => {
           const doc = getDocFromResult(result)
 
-                    return {
+          return {
             ...doc,
             ref: result.ref,
             score: result.score,
@@ -153,7 +149,7 @@
 
     container.querySelector('ul').innerHTML = hits
       .map((hit) => {
-                const titles = Array.isArray(hit.titles) ? hit.titles : []
+        const titles = Array.isArray(hit.titles) ? hit.titles : []
         const searchTerms = Array.isArray(hit.searchTerms) ? hit.searchTerms : []
 
         const rawParentTitle = hit.title || 'Untitled'
@@ -198,7 +194,7 @@
                   const rawSnippet = buildSnippet(childRawText, searchTerms)
                   const childText = highlightText(rawSnippet, searchTerms)
 
-                                    return `<li>
+                return `<li>
                     <a href="${childUrl}" class="ais-Hits-item">
                       <div class="hit-name">${childTitle}</div>
                       ${childText ? `<p class="hit-breadcrumbs">${childText}</p>` : ''}

@@ -100,10 +100,9 @@
       const searchTerms = query.trim().split(/\s+/)
       const results = index.search(query.trim() + '*')
 
-
       return results.map((result) => {
         const doc = getDocFromResult(result)
-                return {
+        return {
           ...doc,
           ref: result.ref,
           score: result.score,
