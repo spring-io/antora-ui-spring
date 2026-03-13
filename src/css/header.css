@@ -302,8 +302,9 @@ body {
   }
 
   .navbar-dropdown .navbar-item-special-3 {
-    color: #111;
+    color: var(--color-gray-30);
     font-size: 0.8rem;
+    text-transform: uppercase;
   }
   .navbar-dropdown .navbar-item-special {
     padding-bottom: 20px;
@@ -347,11 +348,11 @@ body {
   padding-top: 40px;
 }
 
-.is-community .navbar-dropdown {
-  left: -80px;
+.is-enterprise .navbar-dropdown {
+  left: -140px;
 }
 
-.navbar-item-special-2 .external-link-icon {
+.external-link-icon {
   width: 12px;
   margin-left: 10px;
 }
