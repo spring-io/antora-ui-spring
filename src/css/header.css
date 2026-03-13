@@ -348,10 +348,6 @@ body {
   padding-top: 40px;
 }
 
-.is-enterprise .navbar-dropdown {
-  left: -140px;
-}
-
 .external-link-icon {
   width: 12px;
   margin-left: 10px;
