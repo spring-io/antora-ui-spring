@@ -238,6 +238,7 @@ module.exports = () => [
   { href: 'https://docs.spring.io/spring-amqp/reference/', id: 'amqp', text: 'Spring AMQP' },
   { href: 'https://docs.spring.io/spring-cli/reference/', id: 'cli', text: 'Spring CLI' },
   { href: 'https://docs.spring.io/spring-graphql/reference/', id: 'graphql', text: 'Spring GraphQL' },
+  { href: 'https://docs.spring.io/spring-grpc/reference/', id: 'grpc', text: 'Spring gRPC' },
   { href: 'https://docs.spring.io/spring-kafka/reference/', id: 'kafka', text: 'Spring for Apache Kafka' },
   { href: 'https://docs.spring.io/spring-modulith/reference/', id: 'modulith', text: 'Spring Modulith' },
   { href: 'https://docs.spring.io/spring-pulsar/reference/', id: 'pulsar', text: 'Spring for Apache Pulsar' },
