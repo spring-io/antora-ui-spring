@@ -15,25 +15,6 @@
       .replace(/'/g, '&#x27;');
   }
 
-  /* plugin itself */
-
-  /** @type {HLJSPlugin} */
-  const mergeHTMLPlugin = {
-    // preserve the original HTML token stream
-    "before:highlightElement": ({ el }) => {
-      originalStream = nodeStream(el);
-    },
-    // merge it afterwards with the highlighted token stream
-    "after:highlightElement": ({ el, result, text }) => {
-      if (!originalStream.length) return;
-
-      const resultNode = document.createElement('div');
-      resultNode.innerHTML = result.value;
-      result.value = mergeStreams(originalStream, nodeStream(resultNode), text);
-      el.innerHTML = result.value;
-    }
-  };
-
   /* Stream merging support functions */
 
   /**
@@ -175,9 +156,28 @@
     return result + escapeHTML(value.substr(processed));
   }
 
+  /* plugin itself */
+
+  /** @type {HLJSPlugin} */
+  const mergeHTMLPlugin = {
+    // preserve the original HTML token stream
+    "before:highlightElement": ({ el }) => {
+      originalStream = nodeStream(el);
+    },
+    // merge it afterwards with the highlighted token stream
+    "after:highlightElement": ({ el, result, text }) => {
+      if (!originalStream.length) return;
+
+      const resultNode = document.createElement('div');
+      resultNode.innerHTML = result.value;
+      result.value = mergeStreams(originalStream, nodeStream(resultNode), text);
+      el.innerHTML = result.value;
+    }
+  };
+
   var hljs = require('highlight.js/lib/core');
   hljs.addPlugin(mergeHTMLPlugin);
-  
+
   var languages = [
     'asciidoc',
     'bash',
